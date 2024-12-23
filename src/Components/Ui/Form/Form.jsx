@@ -14,3 +14,12 @@
       </form>
     )
   }
+
+  export const FormLogin = () => {
+    return (
+      <form className='flex justify-center flex-col space-y-4'>
+        <Inputs placeholder={"Correo Electronico"} />
+        <Inputs placeholder={"Contraseña"} />
+      </form>
+    )
+  }
