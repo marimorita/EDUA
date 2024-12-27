@@ -5,10 +5,10 @@
     return (
       <form className='flex justify-center flex-col space-y-4'>
         <Inputs placeholder={"Nombre"} />
-        <Inputs placeholder={"Cedula"} />
-        <Inputs placeholder={"Correo"} />
+        <Inputs placeholder={"Cédula"} />
+        <Inputs placeholder={"Correo electrónico"} />
         <Inputs placeholder={"Dirección"} />
-        <Inputs placeholder={"Telefono"} />
+        <Inputs placeholder={"Teléfono"} />
         <Inputs placeholder={"Cargo"} />
         <Inputs placeholder={"Rol"} />
       </form>
@@ -18,8 +18,8 @@
   export const FormLogin = () => {
     return (
       <form className='flex justify-center flex-col space-y-4'>
-        <Inputs placeholder={"Correo Electronico"} />
-        <Inputs placeholder={"Contraseña"} />
+        <Inputs placeholder={"Correo electrónico"} />
+        <Inputs type={"password"} placeholder={"Contraseña"} />
       </form>
     )
   }
