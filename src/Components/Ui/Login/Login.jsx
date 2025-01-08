@@ -2,8 +2,13 @@ import React from 'react'
 import { FormLogin } from '../../Ui/Form/Form'
 import logoEdua from '../../../assets/Images/logoEdua.png'
 import { Buttons } from '../../Ui/Buttons/Buttons'
+import { useLocation } from 'wouter';
 
 export const Login = () => {
+  const [, setLocation] = useLocation(); 
+  const handleButtonClick = () => {
+     setLocation(`/register`);
+  };
   return (
     <div className='bg-white grid grid-cols-2 h-screen items-center relative'>
       <div className='bg-white flex justify-center flex-col space-y-4 p-8'>
@@ -12,9 +17,9 @@ export const Login = () => {
         <div className='flex flex-col items-center justify-center text-start '>
         <p className='text-[#484646] font-semibold flex text-start text-[13px]'>He olvidado mi contraseña</p>
           
-        <Buttons mt={"mt-5"} label="Iniciar sesión"/>
+        <Buttons mt={"mt-5 bg-[#D9D9D9]"}  label="Iniciar sesión"/>
         <p className='text-[#484646] font-semibold mt-10'>¿Aún no estás registrado?</p>
-        <p className='text-[#701819] mt-1 font-semibold'>Regístrate aquí</p> 
+        <button onClick={handleButtonClick} className='cursor-pointer underline text-[#701819] mt-1 font-semibold'>Regístrate aquí</button> 
        </div>
     </div>
 

@@ -1,13 +1,9 @@
 import React from 'react'
-import { Register } from '../../Ui/Register/Register'
-import { Login } from '../../Ui/Login/Login'
-import { Home } from '../../Pages/Home/Home'
-
+import { Home } from '../../Ui/Home/Home.jsx'
+  
 export const Main = () => {
   return (
     <main>
-      <Register/>
-      <Login/>
       <Home/>
     </main>
   )
