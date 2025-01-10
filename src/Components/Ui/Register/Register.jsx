@@ -1,20 +1,22 @@
-import React from 'react'
+import React , {useState}from 'react'
 import { Form } from '../../Ui/Form/Form'
 import logoEdua from '../../../assets/Images/logoEdua.png'
 import { useLocation } from 'wouter';
 
 export const Register = () => {
+
+
   const [, setLocation] = useLocation(); 
   const handleButtonClick = () => {
       setLocation(`/login`);
   };
   return (
-    <div className='bg-white grid grid-cols-2 h-screen items-center relative'>
+    <div className='bg-white grid grid-cols-2 h-screen items-center relative py-4'>
       <div className='flex justify-center'>
         <img src={logoEdua} alt="Logo" className='w-190 h-80' />
       </div>
 
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-l border-[#eb1520] h-[28rem]"></div>
+      <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-l border-[#eb1520] h-[34rem]"></div>
 
       <div className="bg-white flex justify-center flex-col space-y-4">
         <h1 className='flex items-center justify-center font-semibold text-[30px]'> Regístrate </h1>
