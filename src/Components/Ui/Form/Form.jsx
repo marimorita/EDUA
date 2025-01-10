@@ -44,8 +44,8 @@ export const Form = () => {
       }
     }
     if (name === "direction") {
-      if (!/^[a-zA-Z\s]*$/.test(value)) {
-        error = "No olvides llenar este campo.s";
+      if (/^[a-zA-Z\s]*$/.test(value)) {
+        error = "No olvides llenar este campo.";
       }
     }
     if (name === "phone") {
@@ -75,7 +75,6 @@ export const Form = () => {
   return (
     <form className="flex justify-center flex-col space-y-4">
       <div>
-
         <Inputs inputValue={getInputValue} classP={`${errorMessage.name ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`} nameInputs={"name"} 
         placeholder={"Nombre"} />
         <div className='flex items-center justify-center'>
