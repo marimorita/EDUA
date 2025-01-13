@@ -23,7 +23,7 @@ export const Login = () => {
        </div>
     </div>
 
-    <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-l border-[#eb1520] h-[34rem]"></div> 
+    <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-l border-[#eb1520] h-[29rem]"></div> 
 
     <div className='flex justify-center'>
       <img src={ logoEdua } alt="Logo" className='w-190 h-80'/>
