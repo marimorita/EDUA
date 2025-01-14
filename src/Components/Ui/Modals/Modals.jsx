@@ -1,5 +1,5 @@
 import React from 'react'
-import logoEduaTittle from '../../../assets/Images/logoEduaTittle.PNG';
+import logoEduaTittle from '../../../assets/Images/logoEduaName.png';
 import { Buttons } from '../Buttons/Buttons';
 import confirmImg from "../../../assets/Images/confirmModal.png";
 import { useLocation } from 'wouter';
