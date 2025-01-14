@@ -1,6 +1,6 @@
 import React from 'react';
 import CAM from '../../../assets/Images/CAM.jpg'
-import logopng from '../../../assets/Images/logoEduaTittle.png'
+import logopng from '../../../assets/Images/logoEduaTittle.png';
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
 

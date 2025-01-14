@@ -15,9 +15,9 @@ export const Login = () => {
         <h1 className='flex items-center justify-center font-semibold text-[30px] m-10 mt-[1px]'>Iniciar sesión</h1>
         <FormLogin/>
         <div className='flex flex-col items-center justify-center text-start '>
-        <p className='text-[#484646] font-semibold flex text-start text-[13px]'>He olvidado mi contraseña</p>
-          
-        <Buttons mt={"mt-5 bg-[#D9D9D9]"}  label="Iniciar sesión"/>
+        <button onClick={handleButtonClick} className='text-[#484646] font-semibold flex text-start text-[13px]'>He olvidado mi contraseña</button>
+     
+        <Buttons mt={"mt-5 bg-[#D9D9D9]"} label="Iniciar sesión" />
         <p className='text-[#484646] font-semibold mt-10'>¿Aún no estás registrado?</p>
         <button onClick={handleButtonClick} className='cursor-pointer underline text-[#701819] mt-1 font-semibold'>Regístrate aquí</button> 
        </div>

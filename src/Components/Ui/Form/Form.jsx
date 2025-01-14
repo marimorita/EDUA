@@ -7,6 +7,7 @@ export const Form = () => {
   const [changeUi, setChangeUi] = useState('');
   const [errorMessage, setErrorMessage] = useState({ name: "", value: "" })
   const [, setLocation] = useLocation();
+  const [savePassword , setSavePassword] = useState ('')
 
   const handleChangeUi = (event) => {
     setChangeUi(event.target.value);
@@ -14,7 +15,7 @@ export const Form = () => {
 
   const handleButtonClick = () => {
     if (changeUi === "") {
-      setLocation('/');
+      setLocation('/login');
     } else {
       setLocation(`/${changeUi.toLowerCase()}`);
     }
@@ -59,9 +60,9 @@ export const Form = () => {
     }
     if (name === "confirmPassword") {
       if (value.trim() === "") {
-        error = "No olvides llenar este campo";
-      } else if (value !== value.password) { 
-        error = "Tus contraseñas no coinciden";
+        error = "No olvides llenar este campo.";
+      } else if (value !== savePassword) {
+        error = "Tus contraseñas no coinciden.";
       }
     }
     if (name === "direction") {
@@ -86,15 +87,18 @@ export const Form = () => {
         error = "Asegúrate de escribir tu cargo solo con letras";
       }
     }
-    
     return error;
   } 
 
   const getInputValue = (e) => {
     const { name, value } = e.target
 
+    if (name === "password") {
+      setSavePassword(value )
+    }
+
     const error = validator(name, value)
-    setErrorMessage((prevError) => ({ ...prevError, [name]: error }))
+    setErrorMessage((prevError) => ({ ...prevError, [name]: error })) 
   }
 
   return (
@@ -187,7 +191,6 @@ export const Form = () => {
         >
           <option value="" disabled selected>Rol</option>
           <option value="Técnica" className="text-black">Técnica</option>
-          <option value="Login" className="text-black">Login</option>
           <option value="Administrativa" className="text-black">Administrativa</option>
           <option value="Juridica" className="text-black">Jurídica</option>
           <option value="Consulta" className="text-black">Consulta</option>
@@ -203,6 +206,7 @@ export const Form = () => {
 
 export const FormLogin = () => {
   const [errorMessage, setErrorMessage] = useState ({name:"" , value:""})
+  const [savePassword , setSavePassword] = useState ('')
 
   const validator = (name, value) => {
     let error = ""
@@ -216,7 +220,7 @@ export const FormLogin = () => {
     if (name === "password") {
       if (value.trim() === "") {
         error = "No olvides llenar este campo"
-      } else if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/.test(value)) {
+      } else if (value !== savePassword) {
         error = "La contraseña es inconrrecta. Intenta de nuevo"
       }
     }
@@ -224,6 +228,9 @@ export const FormLogin = () => {
   }
   const getInputValue = (e) => {
     const { name, value } = e.target
+    if (name === "password") {
+      setSavePassword(value )
+    }
 
     const error = validator(name, value)
     setErrorMessage((prevError) => ({ ...prevError, [name]: error }))

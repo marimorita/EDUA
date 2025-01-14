@@ -4,8 +4,6 @@ import logoEdua from '../../../assets/Images/logoEdua.png'
 import { useLocation } from 'wouter';
 
 export const Register = () => {
-
-
   const [, setLocation] = useLocation(); 
   const handleButtonClick = () => {
       setLocation(`/login`);
