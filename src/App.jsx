@@ -12,7 +12,7 @@ import { Help } from './Components/Ui/Help/Help';
         <Route path="/" component={Main} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/help" component={Help}></Route>
+        <Route path="/help" component={Help} />
       </Switch>
     </div>
   );
