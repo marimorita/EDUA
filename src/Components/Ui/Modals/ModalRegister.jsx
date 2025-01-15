@@ -1,7 +1,7 @@
 import React from 'react'
 import logoName from '../../../assets/Images/logoEduaName.png';
-import { Buttons } from '../Buttons/Buttons';
 import confirmImg from "../../../assets/Images/confirmModal.png";
+import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
 
 export const ModalRegister = ({ visibility , handleButtonClickOne }) => {
