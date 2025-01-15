@@ -1,6 +1,6 @@
 import React , {useContext, useState}from 'react'
-import { Form } from '../../Ui/Form/Form'
 import logoEdua from '../../../assets/Images/logoEdua.png'
+import { Form } from '../../Ui/Form/Form'
 import { useLocation } from 'wouter';
 import { ModalRegister } from '../Modals/ModalRegister';
 import { StateContext } from '../../Context/Context';

@@ -1,6 +1,6 @@
 import React from 'react'
-import { FormLogin } from '../../Ui/Form/Form'
 import logoEdua from '../../../assets/Images/logoEdua.png'
+import { FormLogin } from '../../Ui/Form/Form'
 import { Buttons } from '../../Ui/Buttons/Buttons'
 import { useLocation } from 'wouter';
 
