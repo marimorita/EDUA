@@ -3,7 +3,7 @@ import CAM from '../../../assets/Images/CAM.jpg'
 import logoName from '../../../assets/Images/logoEduaName.png';
 import helpImg from '../../../assets/Images/help.png';
 import logoEdua from '../../../assets/Images/logoEdua.png'
-import aboutInfoImg from '../../../assets/Images/aboutIt.png  ';
+import aboutInfoImg from '../../../assets/Images/aboutIt.png';
 import miau from '../../../assets/Images/miau.png'
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
