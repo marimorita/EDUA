@@ -17,7 +17,7 @@ export const Login = () => {
         <div className='flex flex-col items-center justify-center text-start '>
         <button onClick={handleButtonClick} className='text-[#484646] font-semibold flex text-start text-[13px]'>He olvidado mi contraseña</button>
      
-        <Buttons mt={"mt-5 bg-[#D9D9D9]"} label="Iniciar sesión" />
+        <Buttons btnStyle={"mt-5 bg-[#D9D9D9]"} label="Iniciar sesión" />
         <p className='text-[#484646] font-semibold mt-10'>¿Aún no estás registrado?</p>
         <button onClick={handleButtonClick} className='cursor-pointer underline text-[#701819] mt-1 font-semibold'>Regístrate aquí</button> 
        </div>

@@ -1,12 +1,15 @@
-import React , {useState}from 'react'
+import React , {useContext, useState}from 'react'
 import { Form } from '../../Ui/Form/Form'
 import logoEdua from '../../../assets/Images/logoEdua.png'
 import { useLocation } from 'wouter';
+import { ModalRegister } from '../Modals/ModalRegister';
+import { StateContext } from '../../Context/Context';
 
 export const Register = () => {
+  const {viewConfirmModal, setViewConfirmModal} = useContext (StateContext)
   const [, setLocation] = useLocation(); 
   const handleButtonClick = () => {
-      setLocation(`/login`);
+      setLocation(`/modals`);
   };
   return (
     <div className='bg-white grid grid-cols-2 h-screen items-center relative py-4'>
@@ -25,6 +28,7 @@ export const Register = () => {
         </div>
         <div className='flex items-center justify-center'></div>
       </div>
+      <ModalRegister visibility={viewConfirmModal} handleButtonClickOne={() => (setViewConfirmModal(false))} />
     </div>
   )
 }
