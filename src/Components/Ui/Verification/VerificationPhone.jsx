@@ -4,6 +4,7 @@ import verificationPhone from '../../../assets/Images/verificationPhone.png'
 import { Inputs } from '../Inputs/Inputs';
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
+import { ModalSuccess } from '../Modals/ModalSuccess';
 
 export const VerificationPhone = () => {
     const [, setLocation] = useLocation(); 

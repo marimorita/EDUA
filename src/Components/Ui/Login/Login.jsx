@@ -1,5 +1,6 @@
 import React from 'react'
 import logoEdua from '../../../assets/Images/logoEdua.png'
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { FormLogin } from '../../Ui/Form/Form'
 import { Buttons } from '../../Ui/Buttons/Buttons'
 import { useLocation } from 'wouter';
@@ -12,6 +13,9 @@ export const Login = () => {
   return (
     <div className='bg-white grid grid-cols-2 h-screen items-center relative '>
       <div className='bg-white flex justify-center flex-col space-y-4 p-8'>
+        <div className='absolute top-2 left-3'>
+          <IoIosArrowRoundBack onClick= {handleButtonClick} className='cursor-pointer w-10 h-10 hover:scale-125'/>
+        </div> 
         <h1 className='flex items-center justify-center font-semibold text-[30px] m-10 mt-[1px]'>Iniciar sesión</h1>
         <FormLogin/>
         <div className='flex flex-col items-center justify-center text-start '>
@@ -28,6 +32,6 @@ export const Login = () => {
     <div className='flex justify-center'>
       <img src={ logoEdua } alt="Logo" className='w-190 h-80'/>
     </div>
-    </div>
+  </div>
   )
 }

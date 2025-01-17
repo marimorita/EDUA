@@ -21,8 +21,8 @@ export const ModalRegister = ({ visibility , handleButtonClickOne }) => {
             </div>
         <p className='flex items-center justify-center font-semibold text-[25px]'>¿Confirmas que tus datos son correctos?</p>
         <div className= "mt-4 flex justify-center gap-52">
-         <Buttons buttonEvent={handleButtonClick} mt={" bg-[#D9D9D9]"} label="Confirmar" />
-         <Buttons buttonEvent={handleButtonClickOne} mt={"bg-[#D9D9D9]"} label="Cancelar" />
+         <Buttons buttonEvent={handleButtonClick} btnStyle={" bg-[#D9D9D9]"} label="Confirmar" />
+         <Buttons buttonEvent={handleButtonClickOne} btnStyle={"bg-[#D9D9D9]"} label="Cancelar" />
         </div>
         </div>
         

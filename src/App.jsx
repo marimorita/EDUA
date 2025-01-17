@@ -2,9 +2,11 @@ import { Route, Switch } from 'wouter';
 import { Main } from './Components/Layouts/Main/Main';
 import { Login } from './Components/Ui/Login/Login';
 import { Register } from './Components/Ui/Register/Register';
-import { Help } from './Components/Ui/Help/Help';
 import { VerificationEmail } from './Components/Ui/Verification/VerificationEmail';
 import { VerificationPhone } from './Components/Ui/Verification/VerificationPhone';
+import { Home } from './Components/Ui/Home/Home';
+import { ModalRegister } from './Components/Ui/Modals/ModalRegister';
+
 
  function App() {
   return (
@@ -16,7 +18,8 @@ import { VerificationPhone } from './Components/Ui/Verification/VerificationPhon
         <Route path="/register" component={Register} />
         <Route path="/verificationEmail" component={VerificationEmail} />
         <Route path="/verificationPhone" component={VerificationPhone} />
-        <Route path="/help" component={Help} />
+        <Route path="/modalRegister" component={ModalRegister} />
+        <Route path="/home" component={Home} />
       </Switch>
     </div>
   );

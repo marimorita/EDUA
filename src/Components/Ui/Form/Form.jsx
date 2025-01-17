@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Inputs } from '../../Ui/Inputs/Inputs';
 import { Buttons } from '../Buttons/Buttons';
-import { useLocation } from 'wouter';
-import { ModalRegister } from '../Modals/ModalRegister';
 import { StateContext } from '../../Context/Context';
 
 export const Form = () => {
@@ -95,7 +93,7 @@ export const Form = () => {
     setErrorMessage((prevError) => ({ ...prevError, [name]: error }))
   }
 
-  
+
   return (
     <>
       <div className="flex justify-center flex-col space-y-4">

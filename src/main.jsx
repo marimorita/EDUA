@@ -7,5 +7,5 @@ import './index.css'
 createRoot(document.getElementById('root')).render(
   <StateProvider>
     <App />
-  </StateProvider>,
+  </StateProvider>
 )

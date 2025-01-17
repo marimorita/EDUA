@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react'
 import CAM from '../../../assets/Images/CAM.jpg'
 import logoName from '../../../assets/Images/logoEduaName.png';
 import helpImg from '../../../assets/Images/help.png';
@@ -10,22 +10,30 @@ import { useLocation } from 'wouter';
 import { Footer } from '../../Layouts/Footer/Footer';
 
 export const Home = () => {
+    const scrollHome = useRef (null);  
+    const scrollHelp = useRef (null);  
+    const scrollMiau = useRef (null);  
+    const scrollAbout = useRef (null);  
     const [, setLocation] = useLocation();
 
     const handleButtonClick = () => {
-        setLocation('/register');
+      setLocation('/register');
+  };
+    const arrowButton = () => {
+      scrollHome.current.scrollIntoView({ behavior: "smooth" });
     };
-    const handleButtonClickHelp = () => {
-        setLocation('/help');
+    const helpButton = () => {
+      scrollHelp.current.scrollIntoView({ behavior: "smooth" });
     };
-    const handleButtonClickAboutUs = () => {
-        setLocation('/aboutUs');
+    const miauButton = () => {
+      scrollMiau.current.scrollIntoView({ behavior: "smooth" });
     };
-    const handleButtonClickMiau = () => {
-        setLocation('/miau');
+    const aboutButton = () => {
+      scrollAbout.current.scrollIntoView({ behavior: "smooth" });
     };
+
   return (
-   <div className="bg-white h-screen relative flex flex-col ">
+   <div ref={scrollHome} className="bg-white h-screen relative flex flex-col ">
     <section id='el nombre que quieras(que identifique la primera parte)' >
    <div className='w-full h-[600px]'>
     <img src={CAM} alt="imgbackground" className="w-full h-full object-fill  " />
@@ -38,20 +46,20 @@ export const Home = () => {
    <section className='top-28 left-[18%] absolute flex justify-center items-center'>
     <ul className='list-none font-semibold text-[30px] flex gap-44'>
       <li>
-        <Buttons btnStyle={"w-48 h-11 bg-[#00000000]"} label="Miau" />
+        <Buttons buttonEvent={miauButton} btnStyle={"w-48 h-11 bg-[#00000000]"} label="Miau" />
       </li>
       <li>
-        <Buttons btnStyle={"w-48 h-11 bg-[#00000000]"} label="Acerca de" />
+        <Buttons buttonEvent={aboutButton} btnStyle={"w-48 h-11 bg-[#00000000]"} label="Acerca de" />
       </li>
       <li>
-        <Buttons buttonEvent={handleButtonClickHelp} btnStyle={"w-48 h-11 bg-[#00000000]"} label="Ayuda" />
+        <Buttons buttonEvent={helpButton} btnStyle={"w-48 h-11 bg-[#00000000]"} label="Ayuda" />
       </li>
     </ul>
     <div className='top-20 absolute flex '>
       <Buttons buttonEvent={handleButtonClick} btnStyle={"text-[25px] w-48 h-11 bg-[#00000000]"} label="Iniciar" />
     </div>
    </section>
-   <section id="aboutInfo" className="relative h-screen grid grid-cols-2 items-center  w-full">
+   <section ref={scrollAbout} id="aboutInfo" className="relative h-screen grid grid-cols-2 items-center  w-full">
     <h1 className="absolute left-1/2 top-[8%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-[40px]"> Acerca De </h1>
   <div className="flex justify-center mt-20">
     <img src={aboutInfoImg} alt="Image Info" className='w-[60rem] h-[30rem]'/>
@@ -62,7 +70,7 @@ export const Home = () => {
     </p>
   </div>
   </section>
-<section id="Rols"  className='grid grid-cols-3 w-full h-auto '>
+<section id="Rols" className='grid grid-cols-3 w-full h-auto '>
     <div className='col-span-1 bg-[#D9D9D9] flex justify-center items-center'>
       <p className='font-semibold text-black text-[30px]'>Roles del aplicativo</p>
     </div>
@@ -101,7 +109,7 @@ export const Home = () => {
       </ul>
     </div>
 </section>
-  <section id="help" className="relative h-screen grid grid-cols-2 items-center  w-full">
+  <section ref={scrollHelp} id="help" className="relative h-screen grid grid-cols-2 items-center  w-full">
       <h1 className="absolute left-1/2 top-[8%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-[40px]"> Ayuda </h1>
     <div className="flex justify-center flex-col space-y-4 px-6">
       <p className="text-[20px] text-justify">
@@ -117,7 +125,7 @@ export const Home = () => {
         <img src={logoEdua} alt="Logo Image" className='w-[65rem] h-[45rem]' />
       </div>
     </section>
-    <section id="miau" className="relative h-screen grid grid-cols-2 items-center  w-full">
+    <section id="miau" ref={scrollMiau}  className="relative h-screen grid grid-cols-2 items-center  w-full">
     <h1 className="absolute left-1/2 top-[8%] transform -translate-x-1/2 -translate-y-1/2 font-bold text-[40px]"> Miau </h1>
   <div className="flex justify-center mt-20">
     <img src={miau} alt="Image Miau" className='w-[60rem] h-[30rem]'/>
@@ -128,7 +136,7 @@ export const Home = () => {
     </p>
   </div>
   </section>
-  <Footer/>
+  <Footer  clickButton={arrowButton}/>
 </section>
 </div>
   );
