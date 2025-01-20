@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logoName from '../../../assets/Images/logoEduaName.png';
 import confirmImg from "../../../assets/Images/confirmModal.png";
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
+import { StateContext } from '../../Context/Context';
 
-export const ModalRegister = ({ visibility , handleButtonClickOne }) => {
+export const ModalRegister = ({ visibility , handleButtonClickCancel}) => {
   const [, setLocation] = useLocation(); 
-  const handleButtonClick = () => {
+  const {viewConfirmModal, setViewConfirmModal} = useContext (StateContext)
+  const handleButtonClickConfirm = () => {
+      setViewConfirmModal(false)
       setLocation(`/verificationEmail`);
   };
 
@@ -21,11 +24,10 @@ export const ModalRegister = ({ visibility , handleButtonClickOne }) => {
             </div>
         <p className='flex items-center justify-center font-semibold text-[25px]'>¿Confirmas que tus datos son correctos?</p>
         <div className= "mt-4 flex justify-center gap-52">
-         <Buttons buttonEvent={handleButtonClick} mt={" bg-[#D9D9D9]"} label="Confirmar" />
-         <Buttons buttonEvent={handleButtonClickOne} mt={"bg-[#D9D9D9]"} label="Cancelar" />
+         <Buttons buttonEvent={handleButtonClickConfirm} btnStyle={" bg-[#D9D9D9]"} label="Confirmar" />
+         <Buttons buttonEvent={handleButtonClickCancel} btnStyle={"bg-[#D9D9D9]"} label="Cancelar" />
         </div>
-        </div>
-        
+        </div> 
     </div>
   )
 }
