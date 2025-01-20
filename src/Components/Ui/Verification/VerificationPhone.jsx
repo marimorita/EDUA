@@ -31,7 +31,7 @@ export const VerificationPhone = () => {
             <Inputs classP={'w-[70px] h-[70px]'}/>
         </div>
         <div className='flex items-center justify-center mt-5'>
-            <img src={verificationPhone} alt="Email Verification" className='w-60 h-[210px]'/>
+            <img src={verificationPhone} alt="Email Verification" className='w-[16rem] h-[210px]'/>
         </div>
         <div className='flex justify-center items-center'>
             <Buttons btnStyle={"mt-5 bg-[#D9D9D9] w-[120px]"} label="Enviar código" /> 

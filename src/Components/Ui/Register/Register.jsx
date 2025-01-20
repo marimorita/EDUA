@@ -1,4 +1,4 @@
-import React , {useContext, useState}from 'react'
+import React , {useContext}from 'react'
 import logoEdua from '../../../assets/Images/logoEdua.png'
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Form } from '../../Ui/Form/Form'
@@ -9,6 +9,7 @@ import { StateContext } from '../../Context/Context';
 export const Register = () => {
   const {viewConfirmModal, setViewConfirmModal} = useContext (StateContext)
   const [, setLocation] = useLocation(); 
+
   const handleButtonClick = () => {
       setLocation(`/login`);
   };
@@ -16,8 +17,7 @@ export const Register = () => {
   const clickButton  = () => {
     setLocation(`/home`);
 };
-  const clickLogin = () =>
-    setLocation 
+
   return (
     <div className='bg-white grid grid-cols-2 h-screen items-center relative py-4'>
       <div className='flex justify-center'>
@@ -38,7 +38,7 @@ export const Register = () => {
         </div>
         <div className='flex items-center justify-center'></div>
       </div>
-      <ModalRegister visibility={viewConfirmModal} handleButtonClickOne={() => (setViewConfirmModal(false))} />
+      <ModalRegister visibility={viewConfirmModal} handleButtonClickCancel={() => (setViewConfirmModal(false))} />
     </div>
   )
 }

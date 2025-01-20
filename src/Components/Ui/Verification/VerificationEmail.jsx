@@ -1,11 +1,14 @@
-import React from 'react'
+import React , {useContext}from 'react'
 import logoName from '../../../assets/Images/logoEduaName.png';
-import verificationEmail from '../../../assets/Images/verificationEmail.png'
+import verificationEmailImg from '../../../assets/Images/verificationEmail.png'
 import { Inputs } from '../Inputs/Inputs';
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
+import { ModalSuccess } from '../Modals/ModalSuccess';
+import { StateContext } from '../../Context/Context';
 
 export const VerificationEmail = () => {
+    const {viewSuccessModal, setViewSuccessModal} = useContext (StateContext)
     const [, setLocation] = useLocation(); 
     const handleButtonClick = () => {
         setLocation(`/`);
@@ -14,7 +17,7 @@ export const VerificationEmail = () => {
         setLocation(`/verificationPhone`);
      };
   return (
-    <div className='bg-white h-screen'>
+    <div className='bg-white h-screen relative flex flex-col'>
         <div className='flex justify-center items-center'>
          <img src={logoName} alt="logo" className="w-[160px] h-[70px]" />
         </div>
@@ -32,10 +35,10 @@ export const VerificationEmail = () => {
             <Inputs classP={'w-[70px] h-[70px]'}/>
         </div>
         <div className='flex items-center justify-center'>
-            <img src={verificationEmail} alt="Email Verification" className='w-60 h-[210px]'/>
+            <img src={verificationEmailImg} alt="Email Verification" className='w-60 h-[210px]'/>
         </div>
         <div className='flex justify-center items-center'>
-            <Buttons btnStyle={"mt-5 bg-[#D9D9D9] w-[120px]"} label="Enviar código" /> 
+            <Buttons buttonEvent={() => (setViewSuccessModal(true))} btnStyle={"mt-5 bg-[#D9D9D9] w-[120px]"} label="Enviar código" /> 
         </div>
         <div className='flex justify-center gap-1 mt-5'>
         <p className='text-[#484646] font-semibold'>¿No has recibido el código?</p>
@@ -43,7 +46,8 @@ export const VerificationEmail = () => {
         </div>
         <div className='flex justify-center items-center mt-1'>
         <button onClick={handleButtonClickOne} className='underline cursor-pointer text-[#1E1E1E] font-semibold'>Prueba de otra manera</button>
-        </div>
+        </div> 
+        <ModalSuccess visibility={viewSuccessModal}/>
     </div>
   )
 }
