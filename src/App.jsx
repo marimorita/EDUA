@@ -10,8 +10,7 @@ import { ModalRegister } from './Components/Ui/Modals/ModalRegister';
 
  function App() {
   return (
-    <div className="relative">
-      <div className="absolute min-h-screen w-full z-[-1] bottom-0 top-0 bg-pink-500"></div>
+    <div className="min-h-screen max-w-[1920px] mx-auto w-full flex flex-col">
       <Switch>
         <Route path="/" component={Main} />
         <Route path="/login" component={Login} />

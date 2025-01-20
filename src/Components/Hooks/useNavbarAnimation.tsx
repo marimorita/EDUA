@@ -5,7 +5,7 @@ export const useNavbarAnimation = (threshold: number = 210 ) => {
   const [_,setCurrentScroll] = useState (0) /* Se marca en que px de la pantalla va al hacer scroll */
   const navbarAnimationClasses = () => {
     const animated = !scrolled ? " translate-y-[-100%] opacity-0 user-events-none " : "translate-y-0 opacity-100 "; 
-    return `fixed top-0 z-40 w-full transition-[transform, opacity] ${animated}`
+    return `fixed z-40 w-full transition-all ${animated}`
   }
   useEffect(() => {
     const handleScroll = () => {
@@ -16,9 +16,7 @@ export const useNavbarAnimation = (threshold: number = 210 ) => {
             setScrolled(old > window.scrollY)
             return window.scrollY
         })
-
         console.log(scrolled);
-        
     };
     window.addEventListener("scroll" , handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

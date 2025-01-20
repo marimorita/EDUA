@@ -20,7 +20,7 @@ export const ModalSuccess = ({ visibility }) => {
         </div>
         <div >
           <button onClick={handleButtonClick} className='w-full flex justify-end p-3' >
-            <IoIosClose className=' cursor-pointer w-10 h-10 hover:scale-125' />
+            <IoIosClose className='cursor-pointer w-10 h-10 hover:scale-125' />
           </button>
         </div>
         <div className='flex justify-center items-center'>
