@@ -10,8 +10,6 @@ import { useLocation } from 'wouter';
 import { Footer } from '../../Layouts/Footer/Footer';
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { FaUser } from "react-icons/fa6";
-import { Technical } from '../Interface/Technical';
-import { Financial } from '../Interface/Financial';
 
 export const Home = () => {
   const scrollHome = useRef(null);
@@ -39,7 +37,6 @@ export const Home = () => {
 
   return (
     <>
-
       <section className={navbarAnimationClasses()}>
         <div className='flex justify-center items-center w-full mt-4'>
           <ul className='bg-[#bcbcbc] list-none font-semibold text-[30px] flex justify-start items-start gap-24 mt-2 rounded-xl h-18'>

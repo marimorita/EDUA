@@ -7,7 +7,6 @@ import { VerificationPhone } from './Components/Ui/Verification/VerificationPhon
 import { Home } from './Components/Pages/Home/Home';
 import { ModalRegister } from './Components/Ui/Modals/ModalRegister';
 
-
  function App() {
   return (
     <div className="min-h-screen max-w-[1920px] mx-auto w-full flex flex-col">
