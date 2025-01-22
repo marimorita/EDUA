@@ -1,5 +1,5 @@
 import React , {useContext}from 'react'
-import logoEdua from '../../../assets/Images/logoEdua.png'
+import logoEdua from '../../../assets/Images/logoEdua.svg'
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { Form } from '../../Ui/Form/Form'
 import { useLocation } from 'wouter';

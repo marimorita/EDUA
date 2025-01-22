@@ -1,19 +1,19 @@
 import React, { useContext } from 'react'
-import successImg from '../../../assets/Images/success.svg'
+import failImg from '../../../assets/Images/fail.svg'
 import logoName from '../../../assets/Images/logoEduaName.svg';
 import { useLocation } from 'wouter';
 import { IoIosClose } from "react-icons/io";
 import { StateContext } from '../../Context/Context';
 
-export const ModalSuccess = ({ visibility }) => {
-  const {setViewSuccessModal} = useContext (StateContext)
+export const ModalFail = ({visibility}) => {
+  const {setViewFailModal} = useContext (StateContext)
   const [, setLocation] = useLocation();
   const handleButtonClick = () => {
-    setViewSuccessModal(false)
-    setLocation(`/login`);
+    setViewFailModal(false)
+    setLocation(`/verificationPhone`);
   }
   return (
-    <div className={visibility ? "w-screen h-screen flex items-center justify-center fixed bg-[#00000080] z-[9999999999]" : "hidden"}>
+    <div className={visibility ? "w-screen h-screen flex items-center justify-center fixed bg-[#00000080] z-[9999999999] " : "hidden"}>
       <div className="w-[40%] h-[85%] bg-[white] relative">
           <div className="absolute top-3 left-2">
             <img src={logoName} alt="logo" className="w-[145px] h-10" />
@@ -24,9 +24,9 @@ export const ModalSuccess = ({ visibility }) => {
           </button>
         </div>
         <div className='flex justify-center items-center'>
-          <img src={successImg} alt="Confirm Image" className='mt-3 w-[300px] h-[300px]' />
+          <img src={failImg} alt="Error Image" className='mt-3 w-[300px] h-[315px]' />
         </div>
-        <p className='text-center flex items-center justify-center font-semibold text-[22px] p-4'>¡Felicidades! Tu cuenta ha sido creada con éxito. Ya puedes iniciar sesión y disfrutar de nuestros servicios</p>
+        <p className='text-center flex items-center justify-center font-semibold text-[22px] p-4'>Hubo un problema al verificar tu cuenta. Por favor intenta nuevamente</p>
       </div>
     </div>
   )

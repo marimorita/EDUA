@@ -1,22 +1,25 @@
-import React from 'react'
-import logoName from '../../../assets/Images/logoEduaName.png';
-import verificationPhone from '../../../assets/Images/verificationPhone.png'
+import React, { useContext } from 'react'
+import logoName from '../../../assets/Images/logoEduaName.svg';
+import verificationPhone from '../../../assets/Images/phone.svg'
 import { Inputs } from '../Inputs/Inputs';
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
-import { ModalSuccess } from '../Modals/ModalSuccess';
+import { ModalFail } from '../Modals/ModalFail';
+import { StateContext } from '../../Context/Context';
 
 export const VerificationPhone = () => {
+    const {viewFailModal, setViewFailModal} = useContext (StateContext)
     const [, setLocation] = useLocation(); 
     const handleButtonClick = () => {
         setLocation(`/verificationEmail`);
     };
 
   return (
-    <div className='bg-white h-screen'>
-        <div className='flex justify-center items-center'>
-         <img src={logoName} alt="logo" className="w-[160px] h-[70px]" />
-        </div>
+    <>
+    <div className='bg-white h-full relative my-2'>
+          <div className='flex justify-center items-center'>
+            <img src={logoName} alt="logo" className="w-[170px] h-[55px]" />
+          </div>
         <div className='flex items-center justify-center font-semibold flex-col'>
             <h1 className='text-[30px]'>Verificación en dos pasos </h1>
             <p className='text-[20px]'> Hemos enviado un codigo para verificar tu numero de celular. Revisa (numero) e ingresa el codigo aquí: </p>
@@ -34,11 +37,13 @@ export const VerificationPhone = () => {
             <img src={verificationPhone} alt="Email Verification" className='w-[16rem] h-[210px]'/>
         </div>
         <div className='flex justify-center items-center'>
-            <Buttons btnStyle={"mt-5 bg-[#D9D9D9] w-[120px]"} label="Enviar código" /> 
+            <Buttons buttonEvent={() => (setViewFailModal(true))} btnStyle={"mt-5 bg-[#D9D9D9] w-[120px]"} label="Enviar código" /> 
         </div>
         <div className='flex justify-center items-center mt-1'>
         <button onClick={handleButtonClick} className='underline cursor-pointer text-[#1E1E1E] font-semibold mt-7'>Prueba de otra manera</button>
         </div>
     </div>
+        <ModalFail visibility={viewFailModal}/>
+    </>
   )
 }
