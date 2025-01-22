@@ -1,5 +1,5 @@
 import React from 'react'
-import logoEdua from '../../../assets/Images/logoEdua.png'
+import logoEdua from '../../../assets/Images/logoEdua.svg'
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { FormLogin } from '../../Ui/Form/Form'
 import { Buttons } from '../../Ui/Buttons/Buttons'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoIosHome } from "react-icons/io";
-import logoName from '../../../assets/Images/logoEduaName.png';
+import logoName from '../../../assets/Images/logoEduaName.svg';
 
 export const Error = () => {
   return (

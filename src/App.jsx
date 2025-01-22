@@ -4,13 +4,13 @@ import { Login } from './Components/Ui/Login/Login';
 import { Register } from './Components/Ui/Register/Register';
 import { VerificationEmail } from './Components/Ui/Verification/VerificationEmail';
 import { VerificationPhone } from './Components/Ui/Verification/VerificationPhone';
-import { Home } from './Components/Ui/Home/Home';
+import { Home } from './Components/Pages/Home/Home';
 import { ModalRegister } from './Components/Ui/Modals/ModalRegister';
 
 
  function App() {
   return (
-    <div className="min-h-screen max-w-[1920px] mx-auto w-full flex flex-col">
+    <div className="min-h-screen max-w-[1920px] mx-auto w-full flex flex-col">
       <Switch>
         <Route path="/" component={Main} />
         <Route path="/login" component={Login} />
