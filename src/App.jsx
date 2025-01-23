@@ -6,6 +6,7 @@ import { VerificationEmail } from './Components/Ui/Verification/VerificationEmai
 import { VerificationPhone } from './Components/Ui/Verification/VerificationPhone';
 import { Home } from './Components/Pages/Home/Home';
 import { ModalRegister } from './Components/Ui/Modals/ModalRegister';
+import { Profile } from './Components/Ui/Profile/Profile';
 
  function App() {
   return (
@@ -17,6 +18,7 @@ import { ModalRegister } from './Components/Ui/Modals/ModalRegister';
         <Route path="/verificationEmail" component={VerificationEmail} />
         <Route path="/verificationPhone" component={VerificationPhone} />
         <Route path="/modalRegister" component={ModalRegister} />
+        <Route path="/profile" component={Profile} />
         <Route path="/home" component={Home} />
       </Switch>
     </div>

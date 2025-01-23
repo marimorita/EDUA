@@ -1,18 +1,13 @@
-import React from 'react';
 import admin from '../../../assets/Images/admin.svg';
 import logoEduaName from '../../../assets/Images/logoEduaName.svg';
 import { FaUser } from "react-icons/fa6";
-import { Legal } from './Legal';
-import { Financial } from './Financial';
-import { Technical } from './Technical';
-import { Viewer } from './Viewer';
 import { useLocation } from 'wouter';
 
-export const Admin = () => {
-  const [, setLocation] = useLocation(); 
-  const handleButtonClick = () => {
-     setLocation(`/register`);
-  };
+ export const Admin = () => {
+   const [, setLocation] = useLocation();
+   const handleButtonClick = () => {
+     setLocation('/profile');
+   };
   return (
     <>
     <div className="bg-white grid grid-cols-2 h-screen relative">
