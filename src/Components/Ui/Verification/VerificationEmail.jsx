@@ -16,6 +16,7 @@ export const VerificationEmail = () => {
     const handleButtonClickOne = () => {
         setLocation(`/verificationPhone`);
      };
+
   return (
     <>
     <div className='bg-white h-full relative my-2'>
@@ -49,7 +50,10 @@ export const VerificationEmail = () => {
         <button onClick={handleButtonClickOne} className='underline cursor-pointer text-[#1E1E1E] font-semibold'>Prueba de otra manera</button>
         </div> 
     </div>
-        <ModalSuccess visibility={viewSuccessModal}/>
-    </>
+    <ModalSuccess 
+        visibility={viewSuccessModal} 
+        message="¡Felicidades! Tu cuenta ha sido creada con éxito. Ya puedes iniciar sesión y disfrutar de nuestros servicios." 
+        redirectPath="/login"/>
+   </>
   )
 }

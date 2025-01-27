@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import logoEduaName from '../../../assets/Images/logoEduaName.svg'
 import profileImg from '../../../assets/Images/profile.svg'
 import { Buttons } from '../Buttons/Buttons'
 import { FaPencilAlt } from "react-icons/fa";
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useLocation } from 'wouter';
+import { ModalSuccess } from '../Modals/ModalSuccess';
+import { StateContext } from '../../Context/Context';
+import { Inputs } from '../Inputs/Inputs';
+
 
 export const Profile = () => {
+    const {viewSuccessModal, setViewSuccessModal} = useContext (StateContext)
+    const [editValue, setEditValue] = useState(false)
     const [, setLocation] = useLocation ();
     const handleButtonClick = () => {
         setLocation('/admin')
     };
+
+
+    
   return (
     <div className='bg-white grid grid-cols-2 relative'>
      <div className='absolute top-2 left-3'>
@@ -45,8 +54,18 @@ export const Profile = () => {
             <p>Correo: </p>
         </li>
         <li className='flex justify-between'>
-            <p>Telefono:</p>
-            <button className='ml-[30rem]'><FaPencilAlt /></button>
+        {editValue 
+        ? 
+        <div className='flex gap-2'>
+          <p>pene:</p>
+        <Inputs classP={"w-[30rem] h-[2rem]"} />
+        </div> 
+        :
+        <div className='flex gap-2'>
+          <p>pene:</p>
+          <p>18cm</p>
+        </div>}
+            <button onClick={() => (setEditValue(!editValue))} className='ml-[8px]'><FaPencilAlt /></button>
         </li>
         <li className='flex justify-between'>
             <p>Telefono:</p>
@@ -61,10 +80,13 @@ export const Profile = () => {
       </ul>
      </div>
       <div className='flex justify-center mt-20'>
-        <Buttons btnStyle={"bg-[#D9D9D9]"} label="Actualizar"/>    
+        <Buttons buttonEvent={() => (setViewSuccessModal(true))} btnStyle={"bg-[#D9D9D9]"} label="Actualizar"/>    
       </div>
     </div>
+      <ModalSuccess 
+        visibility={viewSuccessModal} 
+        message="¡Felicidades! Tus datos han sido actualizados con éxito." 
+        redirectPath="/profile"/>
     </div>
   )
 }
-

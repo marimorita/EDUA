@@ -24,7 +24,7 @@ import { useLocation } from 'wouter';
         </button>
 
       <div className="flex justify-center items-center">
-        <img src={admin} alt="técnica" className="w-[550px] h-[370px]" />
+        <img src={admin} alt="Admin" className="w-[550px] h-[370px]" />
       </div>
     </div>
     </>

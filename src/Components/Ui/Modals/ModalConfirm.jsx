@@ -5,13 +5,20 @@ import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
 
-export const ModalRegister = ({ visibility , handleButtonClickCancel}) => {
+export const ModalConfirm = ({ visibility , message}) => {
   const [, setLocation] = useLocation(); 
-  const {viewConfirmModal, setViewConfirmModal} = useContext (StateContext)
+  const {viewConfirmModal, setViewConfirmModal, valueRol, setValueRol} = useContext(StateContext)
+  
   const handleButtonClickConfirm = () => {
       setViewConfirmModal(false)
-      setLocation(`/verificationEmail`);
+      //setLocation(`/verificationEmail`);
+      if (valueRol === 'Administrativa') {
+        setLocation('/admin')
+      }
   };
+  const handleButtonClickCancel = () => {
+    setViewConfirmModal(false)
+};
  
   return (
     <div className={visibility ? "w-screen h-screen flex items-center justify-center fixed bg-[#00000080] z-[9999999999] " : "hidden"}>
@@ -22,7 +29,7 @@ export const ModalRegister = ({ visibility , handleButtonClickCancel}) => {
             <div className='flex justify-center items-center'>
               <img src={confirmImg} alt="Confirm Image" className='mt-16 w-[435px] h-[320px]' />
             </div>
-        <p className='flex items-center justify-center font-semibold text-[25px]'>¿Confirmas que tus datos son correctos?</p>
+          <p className="text-center flex items-center justify-center font-semibold text-[22px] p-4">{message}</p>
         <div className= "mt-4 flex justify-center gap-52">
          <Buttons buttonEvent={handleButtonClickConfirm} btnStyle={" bg-[#D9D9D9]"} label="Confirmar" />
          <Buttons buttonEvent={handleButtonClickCancel} btnStyle={"bg-[#D9D9D9]"} label="Cancelar" />

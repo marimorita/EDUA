@@ -4,27 +4,26 @@ import { Buttons } from '../Buttons/Buttons';
 import { StateContext } from '../../Context/Context';
 
 export const Form = () => {
-  const [changeUi, setChangeUi] = useState('');
   const [errorMessage, setErrorMessage] = useState({ name: "", value: "" })
   const [savePassword, setSavePassword] = useState('')
-  const {setViewConfirmModal} = useContext (StateContext)
+  const {setViewConfirmModal, setValueRol} = useContext (StateContext)
   
   const handleChangeUi = (event) => {
-    setChangeUi(event.target.value);
+    setValueRol(event.target.value)
   };
 
   const validator = (name, value) => {
     let error = ""
     if (name === "name") {
       if (!/^[a-zA-Z\s]*$/.test(value)) {
-        error = "Asegúrate de escribir tu nombre solo con letras";
+        error = "Escribe tu nombre solo con letras";
       } else if (value.trim() === "") {
         error = "No olvides llenar este campo.";
       }
     }
     if (name === "lastname") {
       if (!/^[a-zA-Z\s]*$/.test(value)) {
-        error = "Asegúrate de escribir tus apellidos solo con letras";
+        error = "Escribe tus apellidos solo con letras";
       } else if (value.trim() === "") {
         error = "No olvides llenar este campo.";
       }
@@ -33,21 +32,21 @@ export const Form = () => {
       if (value.trim() === "") {
         error = "No olvides llenar este campo.";
       } else if (!/^[0-9]*$/.test(value)) {
-        error = "Asegúrate de escribir tu documento solo con números";
+        error = "Escribe tu documento solo con números";
       }
     }
     if (name === "email") {
       if (value.trim() === "") {
         error = "No olvides llenar este campo.";
       } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
-        error = "¡Ups! Parece que olvidaste el '@' o un dominio";
+        error = "Parece que olvidaste el '@' o un dominio";
       }
     }
     if (name === "password") {
       if (value.trim() === "") {
         error = "No olvides llenar este campo"
       } else if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/.test(value)) {
-        error = "La contraseña debe incluir mínimo 8 caracteres, al menos una letra, un número y un carácter especial (#, $, * etc)"
+        error = "Mínimo 8 caracteres, una letra, un número y un carácter especial"
       }
     }
     if (name === "confirmPassword") {
@@ -57,26 +56,18 @@ export const Form = () => {
         error = "Tus contraseñas no coinciden.";
       }
     }
-    if (name === "direction") {
-      if (!value.trim()) {
-        error = "No olvides llenar este campo.";
-      }
-      else if (!/^[a-zA-Z0-9\s#\-\/]+$/.test(value)) {
-        error = "Ingresa solo caracteres permitidos (# - /)";
-      }
-    }
     if (name === "phone") {
       if (value.trim() === "") {
         error = "No olvides llenar este campo.";
       } else if (!/^[0-9]+$/.test(value)) {
-        error = "Asegúrate de escribir tu telefono solo con numeros";
+        error = "Escribetu telefono solo con numeros";
       }
     }
     if (name === "job") {
       if (value.trim() === "") {
         error = "No olvides llenar este campo.";
       } else if (!/^[a-zA-Z\s\-\/]+$/.test(value)) {
-        error = "Asegúrate de escribir tu cargo solo con letras";
+        error = "Escribe tu cargo solo con letras";
       }
     }
     return error;
@@ -95,12 +86,12 @@ export const Form = () => {
 
   return (
     <>
-      <div className="flex justify-center flex-col space-y-4">
-        <div>
-          <Inputs inputValue={getInputValue} classP={`${errorMessage.name ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`} nameInputs={"name"}
+      <div className="flex justify-center flex-wrap gap-x-28 gap-y-9">
+        <div className="">
+        <Inputs inputValue={getInputValue} classP={` ${errorMessage.name ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`} nameInputs={"name"}
             placeholder={"Nombre"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.name && (<label className=' w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.name}</label>)
+            {errorMessage.name && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010] ' htmlFor="">{errorMessage.name}</label>)
             }
           </div>
         </div>
@@ -108,7 +99,7 @@ export const Form = () => {
           <Inputs inputValue={getInputValue} classP={`${errorMessage.lastname ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`} nameInputs={"lastname"}
             placeholder={"Apellidos"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.lastname && (<label className=' w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.lastname}</label>)
+            {errorMessage.lastname && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010] ' htmlFor="">{errorMessage.lastname}</label>)
             }
           </div>
         </div>
@@ -116,83 +107,71 @@ export const Form = () => {
           <Inputs inputValue={getInputValue} classP={`${errorMessage.id ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`} nameInputs={"id"}
             placeholder={"Cédula"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.id && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.id}</label>)
+            {errorMessage.id && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010] ' htmlFor="">{errorMessage.id}</label>)
             }
           </div>
         </div>
         <div>
-          <Inputs inputValue={getInputValue} classP={`${errorMessage.email ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
+          <Inputs inputValue={getInputValue} classP={` ${errorMessage.email ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
             nameInputs={"email"}
             placeholder={"Correo electrónico"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.email && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.email}</label>)
+            {errorMessage.email && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010]' htmlFor="">{errorMessage.email}</label>)
             }
           </div>
         </div>
         <div>
-          <Inputs inputValue={getInputValue} classP={`${errorMessage.password ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
+          <Inputs inputValue={getInputValue} classP={` ${errorMessage.password ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
             type={"password"}
             nameInputs={"password"}
             placeholder={"Contraseña"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.password && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.password}</label>)
+            {errorMessage.password && (<label classP={`w-[80%]`} className='w-[225px] h-10 text-[#A91010] ' htmlFor="">{errorMessage.password}</label>)
             }
           </div>
         </div>
         <div>
-          <Inputs inputValue={getInputValue} classP={`${errorMessage.confirmPassword ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
+          <Inputs inputValue={getInputValue} classP={` ${errorMessage.confirmPassword ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
             type={"password"}
             nameInputs={"confirmPassword"}
             placeholder={"Confirmar Contraseña"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.confirmPassword && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.confirmPassword}</label>)
+            {errorMessage.confirmPassword && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010] ' htmlFor="">{errorMessage.confirmPassword}</label>)
             }
           </div>
         </div>
         <div>
-          <Inputs inputValue={getInputValue} classP={`${errorMessage.direction ? "border-[#A91010] border-[2px] outline-[#A91010]" : ""}`}
-            nameInputs={"direction"}
-            placeholder={"Dirección"} />
-          <div className='flex items-center justify-center'>
-            {errorMessage.direction && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.direction}</label>)
-            }
-          </div>
-        </div>
-        <div>
-          <Inputs inputValue={getInputValue} classP={`${errorMessage.job ? "border-[#A91010] border-[2px] outline-[#A91010]" : ""}`}
+          <Inputs inputValue={getInputValue} classP={` ${errorMessage.job ? "border-[#A91010] border-[2px] outline-[#A91010]" : ""}`}
             nameInputs={"job"}
             placeholder={"Cargo"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.job && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.job}</label>)
+            {errorMessage.job && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010] ' htmlFor="">{errorMessage.job}</label>)
             }
           </div>
         </div>
         <div>
-          <Inputs inputValue={getInputValue} classP={`${errorMessage.phone ? "border-[#A91010] border-[2px] outline-[#A91010]" : ""}`} nameInputs={"phone"}
+          <Inputs inputValue={getInputValue} classP={` ${errorMessage.phone ? "border-[#A91010] border-[2px] outline-[#A91010]" : ""}`} nameInputs={"phone"}
             placeholder={"Teléfono"} />
           <div className='flex items-center justify-center'>
-            {errorMessage.phone && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.phone}</label>)
+            {errorMessage.phone && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010]' htmlFor="">{errorMessage.phone}</label>)
             }
           </div>
         </div>
 
-        <div className="flex items-center justify-center">
+        <div className="w-[80%] flex flex-col items-center gap-y-4">
           <select
-            value={changeUi}
             onChange={handleChangeUi}
-            className="focus:text-black bg-white p-2 rounded w-[65%] border border-gray-300 h-18 font-semibold text-[#9ca3af]"
+            className="focus:text-black bg-white p-2 rounded w-[100%] border border-gray-300 h-18 font-semibold text-[#9ca3af]"
           >
             <option value="" disabled selected>Rol</option>
             <option value="Técnica" className="text-black">Técnica</option>
             <option value="Administrativa" className="text-black">Administrativa</option>
             <option value="Juridica" className="text-black">Jurídica</option>
+            <option value="Consulta" className="text-black">Financiera</option>
             <option value="Consulta" className="text-black">Consulta</option>
-            <option value="Administrador" className="text-black">Administrador</option>
           </select>
         </div>
-        <div className="flex items-center justify-center">
-          <Buttons label={"Registrarme"} buttonEvent={() => (setViewConfirmModal(true))} btnStyle={"bg-[#D9D9D9]"} />
-        </div>
+          <Buttons label={"Registrarme"} buttonEvent={() => {setViewConfirmModal(true)}} btnStyle={"bg-[#D9D9D9]"} />
       </div>  
     </>
   );
@@ -232,7 +211,7 @@ export const FormLogin = () => {
   return (
     <form className='flex justify-center flex-col space-y-4'>
       <div>
-        <Inputs inputValue={getInputValue} classP={`${errorMessage.email ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
+        <Inputs inputValue={getInputValue} classP={`w-[65%] ${errorMessage.email ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`}
           nameInputs={"email"}
           placeholder={"Correo electrónico"} />
         <div className='flex items-center justify-center'>
@@ -241,7 +220,7 @@ export const FormLogin = () => {
         </div>
       </div>
       <div>
-        <Inputs inputValue={getInputValue} classP={`${errorMessage.password ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`} type={"password"}
+        <Inputs inputValue={getInputValue} classP={`w-[65%] ${errorMessage.password ? "border-[#A91010] border-[2px] outline-[#A91010] " : ""}`} type={"password"}
           nameInputs={"password"}
           placeholder={"Contraseña"} />
         <div className='flex items-center justify-center'>
