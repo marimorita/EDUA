@@ -10,6 +10,7 @@ import { useLocation } from 'wouter';
 import { Footer } from '../../Layouts/Footer/Footer';
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { FaUser } from "react-icons/fa6";
+import { AccessPanel } from '../../Ui/AccessPanel/AccessPanel';
 
 export const Home = () => {
   const scrollHome = useRef(null);
@@ -19,7 +20,7 @@ export const Home = () => {
   const [, setLocation] = useLocation();
 
   const handleButtonClick = () => {
-    setLocation('/register');
+    setLocation('/accessPanel');
   };
   const arrowButton = () => {
     scrollHome.current.scrollIntoView({ behavior: "smooth" });
@@ -63,7 +64,7 @@ export const Home = () => {
       <div ref={scrollHome} className="bg-white h-screen relative flex flex-col ">
         <section id='intro'>
           <div className='w'>
-            <img src={CAM} alt="imgbackground" className="w-full h-[600px]] object-fill  " />
+            <img src={CAM} alt="imgBackground" className="w-full h-[600px]] object-fill  " />
           </div>
 
           <div className='flex absolute top-3 left-[46%]'>

@@ -1,12 +1,13 @@
 import { Route, Switch } from 'wouter';
 import { Main } from './Components/Layouts/Main/Main';
 import { Login } from './Components/Ui/Login/Login';
-import { Register } from './Components/Ui/Register/Register';
 import { VerificationEmail } from './Components/Ui/Verification/VerificationEmail';
 import { VerificationPhone } from './Components/Ui/Verification/VerificationPhone';
 import { Home } from './Components/Pages/Home/Home';
-import { ModalRegister } from './Components/Ui/Modals/ModalRegister';
+import { ModalConfirm } from './Components/Ui/Modals/ModalConfirm';
 import { Profile } from './Components/Ui/Profile/Profile';
+import { Admin } from './Components/Pages/Interface/Admin';
+import { AccessPanel } from './Components/Ui/AccessPanel/AccessPanel';
 
  function App() {
   return (
@@ -14,12 +15,13 @@ import { Profile } from './Components/Ui/Profile/Profile';
       <Switch>
         <Route path="/" component={Main} />
         <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
+        <Route path="/accessPanel" component={AccessPanel} />
         <Route path="/verificationEmail" component={VerificationEmail} />
         <Route path="/verificationPhone" component={VerificationPhone} />
-        <Route path="/modalRegister" component={ModalRegister} />
+        <Route path="/modalConfirm" component={ModalConfirm} />
         <Route path="/profile" component={Profile} />
         <Route path="/home" component={Home} />
+        <Route path="/admin" component={Admin} />
       </Switch>
     </div>
   );

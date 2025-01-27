@@ -4,8 +4,8 @@ import verificationPhone from '../../../assets/Images/phone.svg'
 import { Inputs } from '../Inputs/Inputs';
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
-import { ModalFail } from '../Modals/ModalFail';
 import { StateContext } from '../../Context/Context';
+import { ModalFail } from '../Modals/ModalFail';
 
 export const VerificationPhone = () => {
     const {viewFailModal, setViewFailModal} = useContext (StateContext)
@@ -43,7 +43,10 @@ export const VerificationPhone = () => {
         <button onClick={handleButtonClick} className='underline cursor-pointer text-[#1E1E1E] font-semibold mt-7'>Prueba de otra manera</button>
         </div>
     </div>
-        <ModalFail visibility={viewFailModal}/>
+    <ModalFail
+        visibility={viewFailModal} 
+        message="Hubo un problema al verificar tu cuenta. Por favor intenta nuevamente" 
+        redirectPath="/login"/>
     </>
   )
 }

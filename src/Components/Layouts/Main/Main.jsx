@@ -5,7 +5,7 @@ import { Admin } from '../../Pages/Interface/Admin.jsx'
 export const Main = () => {
   return (
     <>
-      <Admin/>
+      <Home/>
     </>
   )
 }

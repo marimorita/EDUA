@@ -5,13 +5,14 @@ import { useLocation } from 'wouter';
 import { IoIosClose } from "react-icons/io";
 import { StateContext } from '../../Context/Context';
 
-export const ModalFail = ({visibility}) => {
-  const {setViewFailModal} = useContext (StateContext)
+export const ModalFail = ({ visibility, message, redirectPath }) => {
+  const { setViewSuccessModal } = useContext(StateContext);
   const [, setLocation] = useLocation();
+
   const handleButtonClick = () => {
-    setViewFailModal(false)
-    setLocation(`/verificationPhone`);
-  }
+    setViewSuccessModal(false);
+    setLocation(redirectPath); 
+  };
   return (
     <div className={visibility ? "w-screen h-screen flex items-center justify-center fixed bg-[#00000080] z-[9999999999] " : "hidden"}>
       <div className="w-[40%] h-[85%] bg-[white] relative">
@@ -26,7 +27,7 @@ export const ModalFail = ({visibility}) => {
         <div className='flex justify-center items-center'>
           <img src={failImg} alt="Error Image" className='mt-3 w-[300px] h-[315px]' />
         </div>
-        <p className='text-center flex items-center justify-center font-semibold text-[22px] p-4'>Hubo un problema al verificar tu cuenta. Por favor intenta nuevamente</p>
+        <p className="text-center flex items-center justify-center font-semibold text-[22px] p-4">{message}</p>
       </div>
     </div>
   )
