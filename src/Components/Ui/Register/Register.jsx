@@ -1,13 +1,9 @@
 import React , {useContext}from 'react'
 import { Form } from '../../Ui/Form/Form'
-import { useLocation } from 'wouter';
-import { ModalConfirm } from '../Modals/ModalConfirm';
 import { StateContext } from '../../Context/Context';
 
 export const Register = ({registerClass}) => {
   const {animationImg , setAnimationImg } = useContext (StateContext)
-  const {viewConfirmModal, setViewConfirmModal} = useContext (StateContext)
-  const [, setLocation] = useLocation(); 
 
   const handleButtonClick = () => {
     setAnimationImg(!animationImg);

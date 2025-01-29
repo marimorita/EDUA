@@ -25,7 +25,7 @@ export const AccessPanel = () => {
       <div className="absolute z-30 top-[56%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-l border-[#eb1520] h-[32rem]"></div>
       
       <Register registerClass={`transition-all duration-[1000ms] ${animationImg ? "opacity-100" : "opacity-0 " } `} />
-      <Login loginClass={`transition-all duration-[1000ms] ${animationImg ? "opacity-0" : "opacity-q00 " } `}/>
+      <Login loginClass={`transition-all duration-[1000ms] ${animationImg ? "opacity-0 " : "opacity-100" } `}/>
      
       <ModalConfirm
         visibility={viewConfirmModal} 

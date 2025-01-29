@@ -9,7 +9,6 @@ import { ModalSuccess } from '../Modals/ModalSuccess';
 import { StateContext } from '../../Context/Context';
 import { Inputs } from '../Inputs/Inputs';
 
-
 export const Profile = () => {
     const {viewSuccessModal, setViewSuccessModal} = useContext (StateContext)
     const [editValue, setEditValue] = useState(false)
@@ -17,9 +16,6 @@ export const Profile = () => {
     const handleButtonClick = () => {
         setLocation('/admin')
     };
-
-
-    
   return (
     <div className='bg-white grid grid-cols-2 relative'>
      <div className='absolute top-2 left-3'>
@@ -57,13 +53,12 @@ export const Profile = () => {
         {editValue 
         ? 
         <div className='flex gap-2'>
-          <p>pene:</p>
+          <p>Dirección:</p>
         <Inputs classP={"w-[30rem] h-[2rem]"} />
         </div> 
         :
         <div className='flex gap-2'>
-          <p>pene:</p>
-          <p>18cm</p>
+          <p>Dirección:</p>
         </div>}
             <button onClick={() => (setEditValue(!editValue))} className='ml-[8px]'><FaPencilAlt /></button>
         </li>

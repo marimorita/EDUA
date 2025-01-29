@@ -5,19 +5,24 @@ import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
 
-export const ModalConfirm = ({ visibility , message}) => {
+export const ModalConfirm = ({visibility , message, redirectPathCancel, redirectPathConfirm}) => {
   const [, setLocation] = useLocation(); 
   const {viewConfirmModal, setViewConfirmModal, valueRol, setValueRol} = useContext(StateContext)
   
   const handleButtonClickConfirm = () => {
       setViewConfirmModal(false)
-      //setLocation(`/verificationEmail`);
+      setLocation(redirectPathConfirm)
       if (valueRol === 'Administrativa') {
         setLocation('/admin')
+      }else if (valueRol === 'Financiera')
+        {
+        setLocation('/financial')
       }
   };
   const handleButtonClickCancel = () => {
     setViewConfirmModal(false)
+    setLocation(redirectPathCancel)
+
 };
  
   return (
@@ -27,7 +32,7 @@ export const ModalConfirm = ({ visibility , message}) => {
               <img src={logoName} alt="logo" className="w-[145px] h-10" />
             </div>
             <div className='flex justify-center items-center'>
-              <img src={confirmImg} alt="Confirm Image" className='mt-16 w-[435px] h-[320px]' />
+              <img src={confirmImg} alt="Confirm Image" className='mt-16 w-[435px] h-[310px'/>
             </div>
           <p className="text-center flex items-center justify-center font-semibold text-[22px] p-4">{message}</p>
         <div className= "mt-4 flex justify-center gap-52">

@@ -7,7 +7,7 @@ import { useLocation } from 'wouter';
    const [, setLocation] = useLocation();
    const handleButtonClick = () => {
      setLocation('/profile');
-   };
+    };
   return (
     <>
     <div className="bg-white grid grid-cols-2 h-screen relative">

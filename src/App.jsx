@@ -8,6 +8,9 @@ import { ModalConfirm } from './Components/Ui/Modals/ModalConfirm';
 import { Profile } from './Components/Ui/Profile/Profile';
 import { Admin } from './Components/Pages/Interface/Admin';
 import { AccessPanel } from './Components/Ui/AccessPanel/AccessPanel';
+import { Financial } from './Components/Pages/Interface/Financial'
+import { CreateCustomer } from './Components/Ui/CreateCustomer/CreateCustomer';
+import { Payment } from './Components/Ui/Payment/Payment';
 
  function App() {
   return (
@@ -22,6 +25,10 @@ import { AccessPanel } from './Components/Ui/AccessPanel/AccessPanel';
         <Route path="/profile" component={Profile} />
         <Route path="/home" component={Home} />
         <Route path="/admin" component={Admin} />
+        <Route path="/financial" component={Financial} />
+        <Route path="/createCustomer" component={CreateCustomer} />
+        <Route path="/payment" component={Payment} />
+
       </Switch>
     </div>
   );
