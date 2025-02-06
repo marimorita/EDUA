@@ -60,7 +60,9 @@ export const Form = () => {
       if (value.trim() === "") {
         error = "No olvides llenar este campo.";
       } else if (!/^[0-9]+$/.test(value)) {
-        error = "Escribetu telefono solo con numeros";
+        error = "Escribe tu telefono solo con numeros";
+      } else if (value.length !== 10) {
+        error = "Escribe solo 10 digitos.";
       }
     }
     if (name === "job") {
@@ -151,11 +153,12 @@ export const Form = () => {
         </div>
         <div>
           <Inputs inputValue={getInputValue} classP={` ${errorMessage.phone ? "border-[#A91010] border-[2px] outline-[#A91010]" : ""}`} nameInputs={"phone"}
-            placeholder={"Teléfono"} />
+            placeholder={"Teléfono"} 
+            type={"tel"}/>
           <div className='flex items-center justify-center'>
             {errorMessage.phone && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010]' htmlFor="">{errorMessage.phone}</label>)
             }
-          </div>
+          </div>  
         </div>
 
         <div className="w-[80%] flex flex-col items-center gap-y-4">
@@ -167,7 +170,7 @@ export const Form = () => {
             <option value="Técnica" className="text-black">Técnica</option>
             <option value="Administrativa" className="text-black">Administrativa</option>
             <option value="Juridica" className="text-black">Jurídica</option>
-            <option value="Consulta" className="text-black">Financiera</option>
+            <option value="Financiera" className="text-black">Financiera</option>
             <option value="Consulta" className="text-black">Consulta</option>
           </select>
         </div>

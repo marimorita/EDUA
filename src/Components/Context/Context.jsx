@@ -1,4 +1,5 @@
 import React, {useState, createContext} from 'react'
+import { useLocation } from 'wouter';
 export const StateContext = createContext ();
 
 export const StateProvider = ({children}) => {
@@ -8,7 +9,7 @@ export const StateProvider = ({children}) => {
   const [viewFailModal, setViewFailModal] = useState(false)
   const [valueRol, setValueRol] = useState("")
     return (
-    <StateContext.Provider value={{viewConfirmModal, setViewConfirmModal, viewSuccessModal, setViewSuccessModal, viewFailModal, setViewFailModal, valueRol, setValueRol, animationImg , setAnimationImg }}>
+    <StateContext.Provider value={{viewConfirmModal, setViewConfirmModal, viewSuccessModal, setViewSuccessModal, viewFailModal, setViewFailModal, valueRol, setValueRol, animationImg , setAnimationImg,}}>
         {children}  
     </StateContext.Provider>
   )

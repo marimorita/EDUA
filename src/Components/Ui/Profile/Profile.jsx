@@ -3,12 +3,10 @@ import logoEduaName from '../../../assets/Images/logoEduaName.svg'
 import profileImg from '../../../assets/Images/profile.svg'
 import { Buttons } from '../Buttons/Buttons'
 import { FaPencilAlt } from "react-icons/fa";
-import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useLocation } from 'wouter';
 import { ModalSuccess } from '../Modals/ModalSuccess';
 import { StateContext } from '../../Context/Context';
 import { Inputs } from '../Inputs/Inputs';
-
 
 export const Profile = () => {
     const {viewSuccessModal, setViewSuccessModal} = useContext (StateContext)
@@ -17,14 +15,9 @@ export const Profile = () => {
     const handleButtonClick = () => {
         setLocation('/admin')
     };
-
-
-    
   return (
     <div className='bg-white grid grid-cols-2 relative'>
-     <div className='absolute top-2 left-3'>
-        <IoIosArrowRoundBack onClick= {handleButtonClick} className='cursor-pointer w-10 h-10 hover:scale-125'/>
-     </div> 
+
      <div className='left-[45%] absolute top-4'>
         <img src={logoEduaName} alt="logo" className="w-[170px] h-[55px]" />
      </div>
@@ -57,13 +50,12 @@ export const Profile = () => {
         {editValue 
         ? 
         <div className='flex gap-2'>
-          <p>pene:</p>
+          <p>Dirección:</p>
         <Inputs classP={"w-[30rem] h-[2rem]"} />
         </div> 
         :
         <div className='flex gap-2'>
-          <p>pene:</p>
-          <p>18cm</p>
+          <p>Dirección:</p>
         </div>}
             <button onClick={() => (setEditValue(!editValue))} className='ml-[8px]'><FaPencilAlt /></button>
         </li>
