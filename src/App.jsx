@@ -28,7 +28,6 @@ import { Payment } from './Components/Ui/Payment/Payment';
         <Route path="/financial" component={Financial} />
         <Route path="/createCustomer" component={CreateCustomer} />
         <Route path="/payment" component={Payment} />
-
       </Switch>
     </div>
   );

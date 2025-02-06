@@ -11,18 +11,18 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
   
   const handleButtonClickConfirm = () => {
       setViewConfirmModal(false)
-      setLocation(redirectPathConfirm)
       if (valueRol === 'Administrativa') {
         setLocation('/admin')
       }else if (valueRol === 'Financiera')
         {
         setLocation('/financial')
+      }else{
+        setLocation(redirectPathConfirm)
       }
   };
   const handleButtonClickCancel = () => {
     setViewConfirmModal(false)
     setLocation(redirectPathCancel)
-
 };
  
   return (

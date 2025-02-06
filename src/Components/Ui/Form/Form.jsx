@@ -153,7 +153,8 @@ export const Form = () => {
         </div>
         <div>
           <Inputs inputValue={getInputValue} classP={` ${errorMessage.phone ? "border-[#A91010] border-[2px] outline-[#A91010]" : ""}`} nameInputs={"phone"}
-            placeholder={"Teléfono"} />
+            placeholder={"Teléfono"} 
+            type={"tel"}/>
           <div className='flex items-center justify-center'>
             {errorMessage.phone && (<label classP={`w-[80%]`} className='w-[225px] h-4 text-[#A91010]' htmlFor="">{errorMessage.phone}</label>)
             }

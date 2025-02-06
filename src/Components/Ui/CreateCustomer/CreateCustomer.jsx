@@ -1,49 +1,28 @@
 import React, {useContext} from 'react'
 import logoEduaName from '../../../assets/Images/logoEduaName.svg';
-import { FaHandHoldingUsd } from 'react-icons/fa'
-import { FaUser } from 'react-icons/fa6'
-import { LuFileSearch } from 'react-icons/lu'
-import { IoIosArrowRoundBack } from 'react-icons/io';
 import { Buttons } from '../Buttons/Buttons';
 import { StateContext } from '../../Context/Context';
 import { ModalConfirm } from '../Modals/ModalConfirm';
+import { ToolTip } from '../ToolTip/ToolTip';
+import { IoIosArrowRoundBack } from 'react-icons/io';
+import { useLocation } from 'wouter';
 
 export const CreateCustomer = () => {
   const {viewConfirmModal, setViewConfirmModal} = useContext(StateContext);
+  const [, setLocation] = useLocation(); 
+  const clickButton  = () => {
+    setLocation(`/financial`);
+  };
   return (
     <>
+     <div className='absolute z-30 top-2 left-3'>
+      <IoIosArrowRoundBack onClick= {clickButton} className='cursor-pointer w-10 h-10 hover:scale-125'/>
+      </div> 
     <div> 
      <div className="absolute top-4 left-[45%]">
       <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
      </div>
-    <div className='absolute top-2 left-3'>
-       <IoIosArrowRoundBack className='cursor-pointer w-10 h-10 hover:scale-125'/>
-     </div> 
-     <div className = 'absolute flex-row-reverse right-4 flex justify-end items-end gap-6'>
-      <button className='top-2  p-3 text-[#434343]'> 
-        <FaUser className='cursor-pointer w-10 h-10 hover:scale-110 transition duration-300'/>
-      </button> 
-      <button  className=' top-2 p-3 text-[#434343]'>
-        <FaHandHoldingUsd className='cursor-pointer w-10 h-10 hover:scale-110 transition duration-300' />
-       </button>
-       <button className=' top-2 p-3 text-[#434343]'>
-        <LuFileSearch className='cursor-pointer w-10 h-10 hover:scale-110 transition duration-300'/>
-        </button>
-      <div className= "right-[8.5rem] top-[85%] flex flex-col absolute hover:scale-105 hover:shadow-lg hover:border transition duration-300 ">
-        <button className='text-left text-black h-8 hover:bg-[#D9D9D9]'>Buscar recibo</button>
-        <button className='text-left text-black h-8 hover:bg-[#D9D9D9]'>Buscar factura</button>
-      </div>
-      <div className= "right-[4rem] top-[85%] flex flex-col absolute hover:scale-105 hover:shadow-lg hover:border transition duration-300 ">
-        <button className='text-left text-black h-8 hover:bg-[#D9D9D9]'>Crear Cliente
-        </button>
-        <button className='text-left text-black h-8 hover:bg-[#D9D9D9]'>Cliente existente</button>
-      </div>
-      <div className= "right-[0.2rem] top-[85%] flex flex-col absolute hover:scale-105 hover:shadow-lg hover:border transition duration-300">
-        <button className='text-left text-black h-8 hover:bg-[#D9D9D9]'>Ver mi perfil
-        </button>
-        <button className='text-left text-black h-8 hover:bg-[#D9D9D9]'>Cerrar sesión</button>
-      </div>
-     </div>  
+     <ToolTip/>
      <h1 className='flex justify-center items-center font-bold text-[40px] mt-20'>Crear Cliente</h1>
      <div className='flex flex-col items-start ml-24 '>
      <ul className='list-none text-black text-[20px] font-semibold flex-col gap-3 flex'>

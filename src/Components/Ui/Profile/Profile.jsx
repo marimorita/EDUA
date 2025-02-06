@@ -3,7 +3,6 @@ import logoEduaName from '../../../assets/Images/logoEduaName.svg'
 import profileImg from '../../../assets/Images/profile.svg'
 import { Buttons } from '../Buttons/Buttons'
 import { FaPencilAlt } from "react-icons/fa";
-import { IoIosArrowRoundBack } from 'react-icons/io';
 import { useLocation } from 'wouter';
 import { ModalSuccess } from '../Modals/ModalSuccess';
 import { StateContext } from '../../Context/Context';
@@ -18,9 +17,7 @@ export const Profile = () => {
     };
   return (
     <div className='bg-white grid grid-cols-2 relative'>
-     <div className='absolute top-2 left-3'>
-        <IoIosArrowRoundBack onClick= {handleButtonClick} className='cursor-pointer w-10 h-10 hover:scale-125'/>
-     </div> 
+
      <div className='left-[45%] absolute top-4'>
         <img src={logoEduaName} alt="logo" className="w-[170px] h-[55px]" />
      </div>

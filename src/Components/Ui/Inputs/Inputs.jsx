@@ -11,4 +11,3 @@ export const Inputs = ({ placeholder, type, nameInputs, inputValue, classP }) =>
       </div>
     );
   };
-  
