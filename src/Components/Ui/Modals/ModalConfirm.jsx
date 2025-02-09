@@ -15,7 +15,7 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
         setLocation('/admin')
       }else if (valueRol === 'Financiera')
         {
-        setLocation('/financial')
+        setLocation('/director')
       }else{
         setLocation(redirectPathConfirm)
       }
