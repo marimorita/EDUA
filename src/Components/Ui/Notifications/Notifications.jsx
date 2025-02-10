@@ -1,4 +1,4 @@
-import React,{useState, useRef} from 'react'
+import React,{useContext, useRef} from 'react'
 import logoEduaName from '../../../assets/Images/logoEduaName.svg';
 import { Header } from '../../Layouts/Header/Header';
 import { ToolTip } from '../ToolTip/ToolTip';
@@ -6,9 +6,11 @@ import { useLocation } from 'wouter';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { Cards, CardRed, CardOrange, CardYellow } from '../Cards/Cards';
+import { StateContext } from '../../Context/Context';
+
 
 export const Notifications = () => {
-  const [isChecked, setIsChecked] = useState (false); 
+  const {isChecked, setIsChecked} = useContext (StateContext);
   const scrollHome = useRef(null);
   const [, setLocation] = useLocation();
 
@@ -36,9 +38,10 @@ export const Notifications = () => {
      </div>    
      <ToolTip/> 
      <div className="flex flex-row ml-[137px] gap-[54rem] mt-20">
-        <label className="flex items-center gap-2">
-          <input type="checkbox" checked={isChecked} className=' appearance-none  rounded-full w-10 h-10 border-black border-[1px]' onChange={stateCheck} />
-          Seleccionar
+        <label className="relative flex items-center gap-2">
+          <input type="checkbox" checked={isChecked} className='appearance-none  rounded-full w-10 h-10 border-black border-[1px]' onChange={stateCheck} />
+          { isChecked && <p className='absolute left-[10px] text-[28px] font-semibold  text-black'>✓</p>}
+          <p className='text-[20px] font-semibold text-black'> Seleccionar</p>
         </label>
         <div className='w-[10%]'>
           <select

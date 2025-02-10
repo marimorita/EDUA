@@ -28,7 +28,7 @@ export const Search = () => {
       <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
      </div>    
      <ToolTip/> 
-    <div className='flex justify-center items-center gap-1'>
+    <div className='flex justify-center items-center gap-1 mt-20'>
      <IoSearchSharp className='w-8 h-8'/>
      <Inputs classP={`w-[15rem] focus:outline-none border-0 border-b-2 border-solid border-[#434343]`}
       type={"search"}
