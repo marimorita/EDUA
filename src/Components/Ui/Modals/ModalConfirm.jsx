@@ -12,9 +12,6 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
   const handleButtonClickConfirm = () => {
       setViewConfirmModal(false)
       if (valueRol === 'Administrativa') {
-        setLocation('/admin')
-      }else if (valueRol === 'Financiera')
-        {
         setLocation('/director')
       }else{
         setLocation(redirectPathConfirm)
