@@ -18,7 +18,10 @@ export const ToolTip = () => {
     };
     const handleButtonClickSearch = () =>{
       setLocation(`/search`)
-    }
+    };
+    const handleButtonClickDirTasks = () =>{
+      setLocation(`/docs`)
+    };
   return (
     <div className = 'absolute flex-row-reverse right-4 flex justify-end items-end gap-6'>
     <div className= 'relative group'>
@@ -26,7 +29,7 @@ export const ToolTip = () => {
     <FaUser className='cursor-pointer w-10 h-10 hover:scale-125 transition duration-300'/>
     </button> 
     <div className="w-[6.5rem] right-[0.5rem] opacity-0 top-[85%] flex flex-col absolute group-hover:opacity-100 hover:scale-105 hover:shadow-lg hover:border transition duration-300">
-    <button className='text-left text-black h-8 pl-1 hover:bg-[#D9D9D9]'>Mis tareas</button>
+    <button onClick={handleButtonClickDirTasks} className='text-left text-black h-8 pl-1 hover:bg-[#D9D9D9]'>Mis tareas</button>
     <button onClick={handleButtonClick} className='text-left text-black h-8 pl-1 hover:bg-[#D9D9D9]'>Ver mi perfil
     </button>
     <button className='text-left text-black h-8 pl-1 hover:bg-[#D9D9D9]'>Cerrar sesión</button>

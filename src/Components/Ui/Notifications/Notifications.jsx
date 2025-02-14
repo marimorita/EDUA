@@ -13,7 +13,6 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 export const Notifications = () => {
   const { viewConfirmModal, setViewConfirmModal, isChecked, setIsChecked } = useContext(StateContext);
   const scrollHome = useRef(null);
-  const [, setLocation] = useLocation();
   const obj = [
     { message: "La persona encargada de la recepción ha cargado una solicitud el día 12/02/2025 ",
       tittle: "Faltan un día para que se cumpla el plazo de la solicitud N°1864 y no se ha dado respuesta ",
@@ -64,6 +63,7 @@ export const Notifications = () => {
   console.log(obj);
 
   const { navbarAnimationClasses } = useNavbarAnimation();
+  const [, setLocation] = useLocation();
 
   const stateCheck = () => {
     setIsChecked(!isChecked)

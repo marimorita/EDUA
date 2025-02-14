@@ -27,7 +27,6 @@ export const Team = () => {
       <CardTeam name="Esteban Fino Muñoz"/>
       <CardTeam name="Carlos Apellido1 Apellido2"/>
       <CardTeam name="Diego German Apellido1 Apellido2"/>
-
      </div>
       <div className='flex justify-center '>
         <Buttons btnStyle={"bg-[#D9D9D9] w-[11rem]"} label="Asignar Tareas"/>    

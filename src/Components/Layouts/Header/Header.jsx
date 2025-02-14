@@ -17,6 +17,12 @@ export const Header = () => {
   const handelButtonCilickProfile = () =>{
     setLocation(`/profile`)
   }
+  const handleButtonClickTeam = () =>{
+    setLocation(`/team`)
+  }
+  const handleButtonClickSearch = () =>{
+    setLocation(`/search`)
+  }
   return (
     <>
       <section className={navbarAnimationClasses()}>
@@ -26,12 +32,12 @@ export const Header = () => {
               <img src={logoName} alt="logoEdua" className='w-28 h-9 cursor-pointer hover:scale-110 transition duration-300'/>
             </li>
             <li>
-              <button>
+              <button onClick={handleButtonClickSearch}>
                 <IoSearchSharp className='cursor-pointer w-10 h-10 hover:scale-125 transition duration-300 text-[#434343]'/>
               </button>
             </li>
             <li>
-              <button>
+              <button onClick={handleButtonClickTeam}>
                 <HiUserGroup className='cursor-pointer w-10 h-10 hover:scale-125 transition duration-300 text-[#434343]'/>
               </button>
             </li>
