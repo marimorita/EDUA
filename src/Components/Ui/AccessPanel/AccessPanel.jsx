@@ -1,11 +1,11 @@
 import React , {useContext}from 'react'
 import logoEdua from '../../../assets/Images/logoEdua.svg'
-import { IoIosArrowRoundBack } from "react-icons/io";
+import { Login } from '../Login/Login';
+import { Register } from '../Register/Register';
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
-import { Register } from '../Register/Register';
 import { ModalConfirm } from '../Modals/ModalConfirm';
-import { Login } from '../Login/Login';
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 export const AccessPanel = () => {
   const {animationImg , setAnimationImg } = useContext (StateContext)

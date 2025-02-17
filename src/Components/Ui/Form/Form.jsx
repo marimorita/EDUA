@@ -77,7 +77,6 @@ export const Form = () => {
 
   const getInputValue = (e) => {
     const { name, value } = e.target
-
     if (name === "password") {
       setSavePassword(value)
     }
@@ -167,8 +166,8 @@ export const Form = () => {
             className="focus:text-black bg-white p-2 rounded w-[100%] border border-gray-300 h-18 font-semibold text-[#9ca3af]"
           >
             <option value="" disabled selected>Rol</option>
-            <option value="Técnica" className="text-black">Técnica</option>
-            <option value="Administrativa" className="text-black">Administrativa</option>
+            <option value="Director Técnica" className="text-black">Director del área</option>
+            <option value="mimebro tecnica" className="text-black">Miembro del equipo</option>
             <option value="Juridica" className="text-black">Jurídica</option>
             <option value="Financiera" className="text-black">Financiera</option>
             <option value="Consulta" className="text-black">Consulta</option>
