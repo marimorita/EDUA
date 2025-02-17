@@ -1,7 +1,8 @@
-export const Inputs = ({ placeholder, type, nameInputs, inputValue, classP }) => {
+export const Inputs = ({ placeholder, type, nameInputs, inputValue, classP, valueInput }) => {
     return (
       <div className="flex items-center justify-center">
         <input
+          value={valueInput}
           onChange={inputValue}
           type={type}
           name={nameInputs}

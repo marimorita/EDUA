@@ -77,7 +77,6 @@ export const Form = () => {
 
   const getInputValue = (e) => {
     const { name, value } = e.target
-
     if (name === "password") {
       setSavePassword(value)
     }

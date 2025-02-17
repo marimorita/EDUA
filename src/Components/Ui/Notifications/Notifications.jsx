@@ -1,4 +1,4 @@
-import React,{useContext, useRef} from 'react'
+import React,{useContext, useRef, useState} from 'react'
 import logoEduaName from '../../../assets/Images/logoEduaName.svg';
 import { Cards } from '../Cards/Cards';
 import { Header } from '../../Layouts/Header/Header';
@@ -12,6 +12,8 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 
 export const Notifications = () => {
   const { viewConfirmModal, setViewConfirmModal, isChecked, setIsChecked } = useContext(StateContext);
+  const [selectValue, setSelectValue] =  useState('All')
+  
   const scrollHome = useRef(null);
   const obj = [
     { message: "La persona encargada de la recepción ha cargado una solicitud el día 12/02/2025 ",
@@ -61,6 +63,7 @@ export const Notifications = () => {
      }
   ];
   console.log(obj);
+  typeof obj
 
   const { navbarAnimationClasses } = useNavbarAnimation();
   const [, setLocation] = useLocation();
@@ -72,8 +75,16 @@ export const Notifications = () => {
     setLocation(`/director`);
   };
   const handleChangeUi = (event) => {
-    setValueRol(event.target.value)
+    setSelectValue(event.target.value)
   };
+
+ const dataFilter = (obj.filter((dataObj) => {
+  if (selectValue === 'All') {
+    return dataObj
+  }else if (selectValue === dataObj.textColor) {
+    return dataObj
+  }
+ }))
  
   return (
     <>
@@ -87,28 +98,26 @@ export const Notifications = () => {
       <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
      </div>    
      <ToolTip/> 
-     <div className="flex flex-row ml-[137px] gap-[23rem] mt-20">
+     <div className="flex mx-[137px] justify-between mt-20">
         <label className="relative flex items-center gap-2">
           <input type="checkbox" checked={isChecked} className='appearance-none  rounded-full w-10 h-10 border-black border-[1px]' onChange={stateCheck} />
           { isChecked && <p className='absolute left-[10px] text-[28px] font-semibold  text-black'>✓</p>}
           <p className='text-[20px] font-semibold text-black'> Seleccionar</p>
         </label>
           <Buttons buttonEvent={() => {setViewConfirmModal(true)}}  btnStyle={`font-semibold text-[20px] duration-300 transition-all hover:scale-105 ${isChecked ? "opacity-100" : "opacity-0"}`} label={"Enviar a:"} />
-        <div className='w-[10%]'>
           <select
             onChange={handleChangeUi}
-            className="focus:text-black bg-white p-2 rounded w-24 border border-gray-300 h-18 font-semibold text-[#9ca3af] flex justify-end items-end"
+            className="focus:text-black bg-white p-2 rounded border border-gray-300 h-18 font-semibold text-[#9ca3af]"
           >
-            <option value="" disabled selected>Filtrar </option>
-            <option value="Técnica" className="text-black">Alerta Roja</option>
-            <option value="Administrativa" className="text-black">Alerta Amarilla</option>
-            <option value="Juridica" className="text-black">Alerta Naranja</option>
-            <option value="Financiera" className="text-black">Todas las tareas</option>
+            <option value="All" disabled selected>Filtrar </option>
+            <option value="#e2000f" className="text-black">Alerta Roja</option>
+            <option value="#fffd54" className="text-black">Alerta Amarilla</option>
+            <option value="#f29d38" className="text-black">Alerta Naranja</option>
+            <option value="All" className="text-black">Todas las tareas</option>
           </select>
-        </div>
       </div>
       <div className='flex items-center justify-center flex-col '>
-        {obj.map((infoCard) => (<Cards message={infoCard.message} tittle={infoCard.tittle} textColor={infoCard.textColor} borderColor={infoCard.borderColor}/>))}
+        {dataFilter.map((infoCard) => (<Cards message={infoCard.message} tittle={infoCard.tittle} textColor={infoCard.textColor} borderColor={infoCard.borderColor}/>))}
       </div>
       <ModalConfirm
         visibility={viewConfirmModal} 

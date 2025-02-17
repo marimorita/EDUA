@@ -1,17 +1,16 @@
 import React, { useRef } from 'react'
 import CAM from '../../../assets/Images/CAM.svg'
-import logoName from '../../../assets/Images/logoEduaName.svg';
+import miau from '../../../assets/Images/miau.svg'
 import helpImg from '../../../assets/Images/help.svg';
 import logoEdua from '../../../assets/Images/logoEdua.svg'
+import logoName from '../../../assets/Images/logoEduaName.svg';
 import aboutInfoImg from '../../../assets/Images/aboutIt.svg';
-import miau from '../../../assets/Images/miau.svg'
+import { Header } from '../../Layouts/Header/Header';
+import { Footer } from '../../Layouts/Footer/Footer';
+import { FaUser } from "react-icons/fa6";
 import { Buttons } from '../../Ui/Buttons/Buttons';
 import { useLocation } from 'wouter';
-import { Footer } from '../../Layouts/Footer/Footer';
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
-import { FaUser } from "react-icons/fa6";
-import { AccessPanel } from '../../Ui/AccessPanel/AccessPanel';
-import { Header } from '../../Layouts/Header/Header';
 
 export const Home = () => {
   const scrollHome = useRef(null);
@@ -75,8 +74,9 @@ export const Home = () => {
               <img src={aboutInfoImg} alt="Image Info" className='w-[34rem] h-[30rem]' />
             </div>
             <div className="flex justify-center flex-col space-y-4 px-6">
-              <p className="text-[20px] text-justify">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda velit nulla ad aliquam labore, cum perspiciatis fugit? Voluptatum eligendi quae laboriosam ipsa in, corporis repellendus nihil quam vitae commodi dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda velit nulla ad aliquam labore, cum perspiciatis fugit? Voluptatum! repellendus nihil quam vitae commodi dignissimos! Lorem ipsum dolor sit amet consectetur adipisicing elit
+              <p className="text-[20px] text-justify mt-12">
+              El aplicativo, enfocado en el área técnica, está diseñado para mejorar la gestión documental dentro de la empresa. Su propósito es facilitar la organización y supervisión de los documentos para todos los miembros del área técnica. Para el director, permite una mejor supervisión del trabajo de su equipo, brindándole mayor control sobre los documentos que ingresan y su gestión. Para los miembros del equipo, optimiza la distribución y asignación de tareas, asegurando un flujo de trabajo más eficiente. Además, el sistema facilita la gestión de solicitudes hacia el área de visita, agilizando los procesos y mejorando la organización. También cuenta con un sistema de alertas que clasifica las tareas en tres estados: Rojo, Naranja y Amarillo, permitiendo priorizar actividades y mantener un mejor orden.
+              Por último, el aplicativo contribuye a prevenir la pérdida de documentos, mejorando la trazabilidad y garantizando un flujo de información seguro y centralizado.
               </p>
             </div>
           </section>
@@ -88,33 +88,27 @@ export const Home = () => {
               <ul className='text-[#484646] font-semibold text-[30px] flex flex-wrap justify-start items-start mt-5 ml-[78px] gap-20 mb-5'>
                 <li className='w-80'>
                   <p>
-                    ▪Consulta
+                    ▪Director Area Técnica
                   </p>
-                  <p className='text-black text-[16px] text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quas fugiat, quia iure in laborum praesentium aut recusandae veniam facilis.</p>
+                  <p className='text-black text-[16px] text-justify'>El director del área técnica es responsable de asignar y supervisar las tareas de todos los miembros de su equipo. Además, revisa y autoriza las actividades, asegurando que se cumplan de manera eficiente y conforme a los estándares establecidos.</p>
                 </li>
                 <li className='w-80'>
                   <p>
-                    ▪Administrador
+                    ▪Recepcionista
                   </p>
-                  <p className='text-black text-[16px] text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quas fugiat, quia iure in laborum praesentium aut recusandae veniam facilis.</p>
+                  <p className='text-black text-[16px] text-justify'>La persona encargada de la recepción es responsable de registrar y subir las solicitudes al sistema, permitiendo así el inicio de su proceso en el área técnica.</p>
                 </li>
                 <li className='w-80'>
                   <p>
-                    ▪Tecnica
+                    ▪Equipo de Trabajo
                   </p>
-                  <p className='text-black text-[16px] text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quas fugiat, quia iure in laborum praesentium aut recusandae veniam facilis.</p>
+                  <p className='text-black text-[16px] text-justify'>Los miembros del equipo de trabajo son responsables de ejecutar el proceso de las solicitudes enviadas por el director. Además, gestionan el flujo de las tareas hacia la visita técnica, reciben la información de regreso y la envían nuevamente al director del área técnica, asegurando así el cumplimiento del proceso.</p>
                 </li>
                 <li className='w-80'>
                   <p>
-                    ▪Juridica
+                    ▪Visita Técnica
                   </p>
-                  <p className='text-black text-[16px] text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quas fugiat, quia iure in laborum praesentium aut recusandae veniam facilis.</p>
-                </li>
-                <li className='w-80'>
-                  <p>
-                    ▪Financiera
-                  </p>
-                  <p className='text-black text-[16px] text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus quas fugiat, quia iure in laborum praesentium aut recusandae veniam facilis.</p>
+                  <p className='text-black text-[16px] text-justify'>La persona encargada de la visita será responsable de registrar la información relevante, incluyendo fotografías, ubicación y el área del espacio solicitado.</p>
                 </li>
               </ul>
             </div>
