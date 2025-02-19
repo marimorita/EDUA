@@ -7,8 +7,12 @@ import { StateContext } from '../../Context/Context';
 export const Cards = ({message, tittle, textColor, borderColor}) => {
     const {isChecked} = useContext (StateContext);
     const [isCheckedList, setIsCheckedList] = useState (false); 
+    const [, setLocation] = useLocation();
     const stateCheck = () => {
       setIsCheckedList(!isCheckedList)
+    }
+    const handleButtonClick = () => {
+      setLocation(`/docs`)
     }
   return (
     <div className="flex w-[80%] justify-start">
@@ -25,7 +29,7 @@ export const Cards = ({message, tittle, textColor, borderColor}) => {
     </div>
       <div className="flex flex-col ">
       <p className="my-2 text-black font-semibold text-[18px]">{message}</p>
-      <button  className="text-[17px] font-semibold text-start text-[#434343]">Ver mas...</button>
+      <button onClick={handleButtonClick} className="text-[17px] font-semibold text-start text-[#434343]">Ver mas...</button>
       </div>
     </div>
     </div>
@@ -35,9 +39,7 @@ export const Cards = ({message, tittle, textColor, borderColor}) => {
 export const CardTeam = ({name}) =>{
   const [, setLocation] = useLocation();
   const infoTeam = () => {
-    if (name === "Esteban Fino Muñoz") {
-      setLocation(`/memberTasks`)
-    }
+    setLocation(`/docs`)
   }
   return(
     <div className='h-40 w-[20%] rounded-3xl p-4 mt-10 bg-[#D9D9D9] hover:scale-110 transition duration-300'>

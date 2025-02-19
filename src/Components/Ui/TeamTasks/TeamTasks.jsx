@@ -6,7 +6,7 @@ import { CardTeam } from '../Cards/Cards';
 import { useLocation } from 'wouter';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
-export const Team = () => {
+export const TeamTasks = () => {
   const [, setLocation] = useLocation(); 
   const clickButton  = () => {
     setLocation(`/notifications`);

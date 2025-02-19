@@ -5,9 +5,7 @@ import helpImg from '../../../assets/Images/help.svg';
 import logoEdua from '../../../assets/Images/logoEdua.svg'
 import logoName from '../../../assets/Images/logoEduaName.svg';
 import aboutInfoImg from '../../../assets/Images/aboutIt.svg';
-import { Header } from '../../Layouts/Header/Header';
 import { Footer } from '../../Layouts/Footer/Footer';
-import { FaUser } from "react-icons/fa6";
 import { Buttons } from '../../Ui/Buttons/Buttons';
 import { useLocation } from 'wouter';
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
@@ -39,7 +37,6 @@ export const Home = () => {
   return (
     <>
       <section className={navbarAnimationClasses()}>
-        <Header/>
       </section>
       <div ref={scrollHome} className="bg-white h-screen relative flex flex-col ">
         <section id='intro'>
