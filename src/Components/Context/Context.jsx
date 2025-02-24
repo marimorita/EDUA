@@ -1,5 +1,4 @@
 import React, {useState, createContext} from 'react'
-import { useLocation } from 'wouter';
 export const StateContext = createContext ();
 
 export const StateProvider = ({children}) => {

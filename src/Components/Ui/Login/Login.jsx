@@ -11,7 +11,7 @@ export const Login = ({loginClass}) => {
     setAnimationImg(!animationImg);
   };
   const handleButtonClickP = () => {
-    setLocation('');
+    setLocation(`/forgotPassword`);
   };
   return (
     <div className={`${loginClass}bg-white h-full w-[90%] items-center relative pt-32`}>

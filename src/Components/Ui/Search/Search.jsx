@@ -2,11 +2,11 @@ import React, { useRef, useState } from 'react'
 import logoEduaName from '../../../assets/Images/logoEduaName.svg';
 import { Header } from '../../Layouts/Header/Header';
 import { Inputs } from '../Inputs/Inputs';
-import { ToolTip, ToolTipTeam } from '../ToolTip/ToolTip';
 import { useLocation } from "wouter";
 import { IoSearchSharp } from "react-icons/io5";
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { IoIosArrowRoundBack } from 'react-icons/io';
+import { ToolTip, ToolTipTeam } from '../ToolTip/ToolTip';
 
 export const Search = () => {
     const [search, setSearch] = useState ('');

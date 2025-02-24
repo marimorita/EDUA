@@ -1,14 +1,14 @@
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import logoEduaName from '../../../assets/Images/logoEduaName.svg';
 import { Header } from '../../Layouts/Header/Header'
 import { FaBell } from 'react-icons/fa';
 import { Buttons } from '../Buttons/Buttons';
-import { ToolTipTeam } from '../ToolTip/ToolTip'
 import { useLocation } from 'wouter';
 import { ModalConfirm } from '../Modals/ModalConfirm';
 import { StateContext } from '../../Context/Context';
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { IoIosArrowRoundBack } from 'react-icons/io'
+import { ToolTip , ToolTipVisitor } from '../ToolTip/ToolTip'
 
 export const Docs = () => {
   const { viewConfirmModal, setViewConfirmModal, isChecked, setIsChecked } = useContext(StateContext);
@@ -16,7 +16,7 @@ export const Docs = () => {
   const scrollDoc = useRef(null);
   const { navbarAnimationClasses } = useNavbarAnimation();
   const clickButton = () => {
-    setLocation(`/notificationsTeam`);
+    setLocation(`/notifications`);
   } 
   return (
      <>
@@ -29,7 +29,7 @@ export const Docs = () => {
      <div className="absolute top-4 left-[45%]">
       <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
      </div>    
-     <ToolTipTeam/> 
+     <ToolTip/> 
       <div className='flex justify-center flex-wrap mt-20 p-3 '>
         <FaBell className='cursor-pointer w-10 h-10 text-[#434343]'/>
         <h1 className='font-semibold text-[25px] mx-2'>Faltan un día para que se cumpla el plazo de la solicitud N°1864 y no le has dado respuesta </h1>
@@ -42,6 +42,40 @@ export const Docs = () => {
         visibility={viewConfirmModal} 
         message="¿Deseas enviar estas tareas al área de visita?" 
         redirectPathConfirm="/notifications"/>
+     </>
+  )
+}
+
+export const DocsVisitor = () => {
+  const [, setLocation] = useLocation('')
+  const scrollDoc = useRef(null);
+  const { navbarAnimationClasses } = useNavbarAnimation();
+  const clickButton = () => {
+    setLocation(`/notificationsVisitor`);
+  } 
+  const buttonClick = () => {
+    setLocation(`/infoVisit`)
+  }
+  return (
+     <>
+      <section className={navbarAnimationClasses()}>
+        <Header/>
+      </section>
+     <div ref={scrollDoc} className='absolute z-30 top-2 left-3'>
+      <IoIosArrowRoundBack onClick= {clickButton} className='cursor-pointer w-10 h-10 hover:scale-125'/>
+      </div> 
+     <div className="absolute top-4 left-[45%]">
+      <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
+     </div>    
+     <ToolTipVisitor/> 
+      <div className='flex justify-start flex-wrap mt-20 p-3 ml-[18rem]'>
+        <FaBell className='cursor-pointer w-10 h-10 text-[#434343]'/>
+        <h1 className='font-semibold text-[25px] mx-2'>Te han ingresadola visita a la solicitud N°1864</h1>
+        <p className='font-semibold text-[20px]'>Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025</p>
+      </div>
+      <div className='flex justify-center '>
+          <Buttons label={"Visitar"} buttonEvent={buttonClick} btnStyle={"bg-[#D9D9D9]"} />
+      </div> 
      </>
   )
 }

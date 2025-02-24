@@ -166,7 +166,7 @@ export const Form = () => {
             className="focus:text-black bg-white p-2 rounded w-[100%] border border-gray-300 h-18 font-semibold text-[#9ca3af]"
           >
             <option value="" disabled selected>Rol</option>
-            <option value="Financiera" className="text-black">Recepcionista</option>
+            <option value="Receptionist" className="text-black">Recepcionista</option>
             <option value="Visitor" className="text-black">Área de visita</option>
             <option value="Director Técnica" className="text-black">Director del área técnica</option>
             <option value="Miembro Técnica" className="text-black">Miembro del equipo del area técnica</option>

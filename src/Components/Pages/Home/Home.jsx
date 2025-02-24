@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
-import CAM from '../../../assets/Images/CAM.svg'
 import miau from '../../../assets/Images/miau.svg'
 import helpImg from '../../../assets/Images/help.svg';
+import home from '../../../assets/Images/home.svg';
 import logoEdua from '../../../assets/Images/logoEdua.svg'
 import logoName from '../../../assets/Images/logoEduaName.svg';
 import aboutInfoImg from '../../../assets/Images/aboutIt.svg';
@@ -40,16 +40,23 @@ export const Home = () => {
       </section>
       <div ref={scrollHome} className="bg-white h-screen relative flex flex-col ">
         <section id='intro'>
-          <div className='w'>
-            <img src={CAM} alt="imgBackground" className="w-full h-[600px]] object-fill  " />
+         <div className='relative h-screen grid grid-cols-2 items-center w-full'>
+          <div className='flex justify-start mt-40 ml-14 col-span-1'>
+            <img src={home} alt="imgBackground" className="w-[95%] h-[30%]" />
           </div>
-
-          <div className='flex absolute top-3 left-[46%]'>
-            <img src={logoName} alt="logo" className="w-[180px] h-[55px]" />
+          <div className='flex justify-center items-center flex-col space-y-4 px-6'>
+            <p className='font-semibold text-[50px] text-center'>¡Bienvenidos al area tecnica!</p>
+            <div className='top-[26rem] absolute flex justify-center'>
+              <Buttons buttonEvent={handleButtonClick} btnStyle={"text-[25px] w-48 h-11 bg-[#00000000]"} label="Iniciar" />
+            </div>
           </div>
+          <div className='flex absolute top-5 left-[10%]'>
+            <img src={logoName} alt="logo" className="w-[150px] h-[45px]" />
+          </div>
+         </div>
 
-          <section className='top-28 left-[18%] absolute flex justify-center items-center'>
-            <ul className='list-none font-semibold text-[30px] flex gap-44'>
+          <section className='top-4 left-[24%] absolute flex justify-center items-center p-2 rounded-xl'>
+            <ul className='list-none font-semibold text-[30px] flex gap-40'>
               <li>
                 <Buttons buttonEvent={miauButton} btnStyle={"w-48 h-11 bg-[#00000000]"} label="Miau" />
               </li>
@@ -60,9 +67,6 @@ export const Home = () => {
                 <Buttons buttonEvent={helpButton} btnStyle={"w-48 h-11 bg-[#00000000]"} label="Ayuda" />
               </li>
             </ul>
-            <div className='top-20 absolute flex '>
-              <Buttons buttonEvent={handleButtonClick} btnStyle={"text-[25px] w-48 h-11 bg-[#00000000]"} label="Iniciar" />
-            </div>
           </section>
 
           <section ref={scrollAbout} id="aboutInfo" className="relative h-screen grid grid-cols-2 items-center  w-full">
@@ -77,7 +81,7 @@ export const Home = () => {
               </p>
             </div>
           </section>
-          <section id="Rols" className='grid grid-cols-3 w-full h-auto '>
+          <section id="Rols" className='grid grid-cols-3 w-full h-auto'>
             <div className='col-span-1 bg-[#D9D9D9] flex justify-center items-center'>
               <p className='font-semibold text-black text-[30px]'>Roles del aplicativo</p>
             </div>

@@ -17,6 +17,8 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
         setLocation('team')
       }else if (valueRol === 'Visitor' ){
         setLocation('visitor')
+      }else if (valueRol === 'Receptionist'){
+        setLocation(`/receptionist`)
       }
   };
   const handleButtonClickCancel = () => {
