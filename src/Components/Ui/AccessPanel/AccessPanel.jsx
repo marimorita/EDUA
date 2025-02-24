@@ -33,4 +33,4 @@ export const AccessPanel = () => {
         redirectPath="/login"/>
     </div>
   )
-}
+} 

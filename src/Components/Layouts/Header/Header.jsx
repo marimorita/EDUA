@@ -18,7 +18,7 @@ export const Header = () => {
     setLocation(`/profile`)
   }
   const handleButtonClickTeam = () =>{
-    setLocation(`/team`)
+    setLocation(`/teamTasks`)
   }
   const handleButtonClickSearch = () =>{
     setLocation(`/search`)

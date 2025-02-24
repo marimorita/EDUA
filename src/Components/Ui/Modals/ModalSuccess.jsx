@@ -16,7 +16,7 @@ export const ModalSuccess = ({ visibility, message, redirectPath }) => {
 
   return (
     <div className={visibility ? "w-screen h-screen flex items-center justify-center fixed bg-[#00000080] z-[9999999999]" : "hidden"}>
-      <div className="w-[40%] h-[85%] bg-[white] relative">
+      <div className="w-[40%] h-[85%] rounded-xl bg-[white] relative">
         <div className="absolute top-3 left-2">
           <img src={logoName} alt="logo" className="w-[145px] h-10" />
         </div>

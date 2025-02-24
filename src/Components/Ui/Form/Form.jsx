@@ -166,11 +166,10 @@ export const Form = () => {
             className="focus:text-black bg-white p-2 rounded w-[100%] border border-gray-300 h-18 font-semibold text-[#9ca3af]"
           >
             <option value="" disabled selected>Rol</option>
-            <option value="Director Técnica" className="text-black">Director del área</option>
-            <option value="mimebro tecnica" className="text-black">Miembro del equipo</option>
-            <option value="Juridica" className="text-black">Jurídica</option>
-            <option value="Financiera" className="text-black">Financiera</option>
-            <option value="Consulta" className="text-black">Consulta</option>
+            <option value="Receptionist" className="text-black">Recepcionista</option>
+            <option value="Visitor" className="text-black">Área de visita</option>
+            <option value="Director Técnica" className="text-black">Director del área técnica</option>
+            <option value="Miembro Técnica" className="text-black">Miembro del equipo del area técnica</option>
           </select>
         </div>
           <Buttons label={"Registrarme"} buttonEvent={() => {setViewConfirmModal(true)}} btnStyle={"bg-[#D9D9D9]"} />

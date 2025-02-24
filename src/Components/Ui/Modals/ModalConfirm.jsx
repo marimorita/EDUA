@@ -13,8 +13,12 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
       setViewConfirmModal(false)
       if (valueRol === 'Director Técnica') {
         setLocation('/director')
-      }else{
-        setLocation(redirectPathConfirm)
+      }else if (valueRol === 'Miembro Técnica'){
+        setLocation('team')
+      }else if (valueRol === 'Visitor' ){
+        setLocation('visitor')
+      }else if (valueRol === 'Receptionist'){
+        setLocation(`/receptionist`)
       }
   };
   const handleButtonClickCancel = () => {
@@ -33,7 +37,7 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
             </div>
           <p className="text-center flex items-center justify-center font-semibold text-[22px] p-4">{message}</p>
         <div className= "mt-4 flex justify-center gap-52">
-         <Buttons buttonEvent={handleButtonClickConfirm} btnStyle={" bg-[#D9D9D9]"} label="Confirmar" />
+         <Buttons buttonEvent={handleButtonClickConfirm} btnStyle={"bg-[#D9D9D9]"} label="Confirmar" />
          <Buttons buttonEvent={handleButtonClickCancel} btnStyle={"bg-[#D9D9D9]"} label="Cancelar" />
         </div>
         </div> 
