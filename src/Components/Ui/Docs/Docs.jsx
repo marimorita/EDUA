@@ -3,12 +3,14 @@ import logoEduaName from '../../../assets/Images/logoEduaName.svg';
 import { Header } from '../../Layouts/Header/Header'
 import { FaBell } from 'react-icons/fa';
 import { Buttons } from '../Buttons/Buttons';
+import { FaHistory } from "react-icons/fa";
 import { useLocation } from 'wouter';
 import { ModalConfirm } from '../Modals/ModalConfirm';
 import { StateContext } from '../../Context/Context';
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { IoIosArrowRoundBack } from 'react-icons/io'
-import { ToolTip , ToolTipVisitor } from '../ToolTip/ToolTip'
+import { ToolTip , ToolTipVisitor, ToolTipReceptionist } from '../ToolTip/ToolTip'
 
 export const Docs = () => {
   const { viewConfirmModal, setViewConfirmModal, isChecked, setIsChecked } = useContext(StateContext);
@@ -77,5 +79,54 @@ export const DocsVisitor = () => {
           <Buttons label={"Visitar"} buttonEvent={buttonClick} btnStyle={"bg-[#D9D9D9]"} />
       </div> 
      </>
+  )
+}
+
+export const DocsReceptionist = () => {
+  const { navbarAnimationClasses } = useNavbarAnimation();
+  const [, setLocation] = useLocation()
+  const scrollDoc = useRef(null);   
+  const clickButton = () =>{
+    setLocation (`/notificationsReceptionist`)
+  }
+  return (
+    <>
+      <div ref={scrollDoc} className='absolute z-30 top-2 left-3'>
+       <IoIosArrowRoundBack onClick= {clickButton} className='cursor-pointer w-10 h-10 hover:scale-125'/>
+      </div> 
+     <div className="absolute top-4 left-[45%]">
+      <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
+     </div>  
+    <ToolTipReceptionist/>
+    <div className='flex justify-start flex-wrap mt-20 p-3 ml-[18rem]'>
+      <FaHistory className='cursor-pointer w-10 h-10 text-[#434343]'/>
+       <h1 className='font-semibold text-[25px] mx-2'>Has enviado la solicitud N°067 el día 01/03/2025</h1>
+       <p className='font-semibold text-[20px]'>Enviaste al área técnica la solicitud N°067 el día 01/03/2025</p>
+    </div>
+    </>
+  )
+}
+
+export const DocsVisitorHistory = () => {
+  const [, setLocation] = useLocation()
+  const clickButton = () =>{
+    setLocation (`/historialVisitor`)
+  }
+  return(
+    <>
+      <div className='absolute z-30 top-2 left-3'>
+       <IoIosArrowRoundBack onClick= {clickButton} className='cursor-pointer w-10 h-10 hover:scale-125'/>
+      </div> 
+     <div className="absolute top-4 left-[45%]">
+      <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
+     </div>    
+     <ToolTipVisitor/> 
+     <div className='flex justify-start flex-wrap mt-20 p-3 ml-[18rem]'>
+      <FaMapMarkerAlt className='cursor-pointer w-10 h-10 text-[#434343]'/>
+       <h1 className='font-semibold text-[25px] mx-2'>Has realizado la visita a la solicitud N°067 el día 01/03/2025</h1>
+       <p className='font-semibold text-[20px]'>Realizaste la visita técnica la solicitud N°067 el día 01/03/2025 y fue enviada a: </p>
+    </div>         
+       pdf
+    </>
   )
 }

@@ -38,10 +38,42 @@ export const Cards = ({message, tittle, textColor, borderColor}) => {
   )
 } 
 
+export const CardsMember = ({message, tittle, textColor, borderColor}) => {
+  const {isChecked} = useContext (StateContext);
+  const [isCheckedList, setIsCheckedList] = useState (false); 
+  const [, setLocation] = useLocation();
+  const stateCheck = () => {
+    setIsCheckedList(!isCheckedList)
+  }
+  const handleButtonClick = () => {
+    setLocation(`/docs`)
+  }
+return (
+  <div className="flex w-[80%] justify-start">
+    <label className={`relative flex items-center gap-2 ${isChecked ? "opacity-100 w-auto mr-10" : "opacity-0 w-0 p-0"}`}>
+     <input type="checkbox" checked={isCheckedList} className='appearance-none  rounded-full w-10 h-10 border-black border-[1px]' onChange={stateCheck} />
+      { isCheckedList && <p className='absolute left-[10px] text-[28px] font-semibold  text-black'>✓</p>}
+    </label>
+  <div className={`h-50 w-[100%] rounded-3xl border p-4 mt-10 transition-all  duration-300  ${isCheckedList ? "scale-105 " : "hover:scale-105"}`} style={{ border: `1px solid ${borderColor}`}} >
+  <div className='flex justify-start '>
+    <FaBell onClick={stateCheck} className='w-8 h-8 m-1' style={{ color : textColor}}/>
+    <h1 className="text-black font-semibold text-[25px]">
+     {tittle}  
+    </h1>
+  </div>
+    <div className="flex flex-col ">
+    <p className="my-2 text-black font-semibold text-[18px]">{message}</p>
+    <button onClick={handleButtonClick} className="text-[17px] font-semibold text-start text-[#434343]">Ver mas...</button>
+    </div>
+  </div>
+  </div>
+)
+} 
+
 export const CardTeam = ({name}) =>{
   const [, setLocation] = useLocation();
   const infoTeam = () => {
-    setLocation(`/docs`)
+    setLocation(`/memberTasks`)
   }
   return(
     <div className='h-40 w-[20%] rounded-3xl p-4 mt-10 bg-[#D9D9D9] hover:scale-110 transition duration-300'>
@@ -62,6 +94,10 @@ export const CardTeam = ({name}) =>{
 }
 
 export const CardVisitor = ({message, tittle}) => {
+  const [,setLocation] = useLocation()
+  const clickHistory = () =>{
+    setLocation(`/docsVisitorHistory`)
+  }
   return(
     <div className='h-40 w-[80%] rounded-3xl mt-10 border border-black solid p-4 hover:scale-110 transition duration-300'>
   <div className='flex'>
@@ -74,7 +110,7 @@ export const CardVisitor = ({message, tittle}) => {
   </div>
   <div className="flex flex-col ">
   <p className="my-2 text-black font-semibold text-[20px]">{message}</p>
-  <button className="text-[17px] font-semibold text-start text-[#434343]">Ver mas...</button>
+  <button onClick={clickHistory} className="text-[17px] font-semibold text-start text-[#434343]">Ver mas...</button>
   </div>
 </div>
   )
@@ -115,7 +151,7 @@ return (
 export const CardsReceptionist = ({message, tittle}) => {
   const [, setLocation] = useLocation()
   const handleButtonClickDoc = () => {
-    setLocation(`/`)
+    setLocation(`/docsReceptionist`)
   }  
   return (
     <div className="flex w-[80%] justify-start">

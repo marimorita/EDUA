@@ -27,7 +27,7 @@ export const ForgotPassword = () => {
 
       <div className='flex col-span-2 flex-col'>
         <div className='flex items-center flex-col gap-8'>
-          <img src={logoName} alt="logo" className="w-[150px] h-[40px] mt-1" />
+          <img src={logoName} alt="logo" className="w-[150px] h-[50px] mt-1" />
           <img src={password} alt="imgBackground" className="w-[40%] h-[45  %]" />
         <p className='font-semibold text-[25px]'>Ingresa el correo electronico con el cual te registraste:</p>
          <Inputs classP={`w-[30rem] focus:outline-none border-0 border-b-2 border-solid border-[#434343] text-[20px]`}

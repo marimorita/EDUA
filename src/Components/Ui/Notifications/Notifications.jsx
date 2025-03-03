@@ -1,6 +1,5 @@
 import React,{useContext, useRef, useState} from 'react'
 import logoEduaName from '../../../assets/Images/logoEduaName.svg';
-import { Cards, CardVisitor, CardsNotificationsVisitor, CardsReceptionist } from '../Cards/Cards';
 import { Header } from '../../Layouts/Header/Header';
 import { Buttons } from '../Buttons/Buttons';
 import { useLocation } from 'wouter';
@@ -9,6 +8,7 @@ import { StateContext } from '../../Context/Context';
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { ToolTip, ToolTipReceptionist, ToolTipTeam, ToolTipVisitor } from '../ToolTip/ToolTip';
+import { Cards, CardVisitor, CardsNotificationsVisitor, CardsReceptionist, CardsMember } from '../Cards/Cards';
 
 export const Notifications = () => {
   const { viewConfirmModal, setViewConfirmModal, isChecked, setIsChecked } = useContext(StateContext);
@@ -223,7 +223,7 @@ export const NotificationsTeam = () => {
           </select>
       </div>
       <div className='flex items-center justify-center flex-col '>
-        {dataFilter.map((infoCard) => (<Cards message={infoCard.message} tittle={infoCard.tittle} textColor={infoCard.textColor} borderColor={infoCard.borderColor}/>))}
+        {dataFilter.map((infoCard) => (<CardsMember message={infoCard.message} tittle={infoCard.tittle} textColor={infoCard.textColor} borderColor={infoCard.borderColor}/>))}
       </div>
       <ModalConfirm
         visibility={viewConfirmModal} 
@@ -408,23 +408,23 @@ export const NotificationsReceptionist = () => {
   const [, setLocation] = useLocation() 
   const { navbarAnimationClasses } = useNavbarAnimation();
   const objRecepcionist = [
-    { tittle: "Hola " ,
-      message: "miau"
+    { tittle: "Has enviado la solicitud N°067 el día 01/03/2025 " ,
+      message: "Enviaste al área técnica la solicitud N°067 el día 01/03/2025"
     },
-    { tittle: "hello" ,
-      message: "guau"
+    { tittle: "Has enviado la solicitud N°090 el día 22/10/2025" ,
+      message: "Enviaste al área técnica la solicitud N°090 el día 22/10/2025"
     },
-    { tittle: "buenas " ,
-      message: "yijiji"
+    { tittle: "Has enviado la solicitud N°123 el día 12/12/2025 " ,
+      message: "Enviaste al área técnica la solicitud N°123 el día  12/12/2025"
     },
-    { tittle: "hi" ,
-      message:  "pio pio"
+    { tittle: "Has enviado la solicitud N°167 el día 31/09/2025" ,
+      message:  "Enviaste al área técnica la solicitud N°167 el día 31/09/2025"
     },
-    { tittle: "buen dia" ,
-      message: "muuu"
+    { tittle: "Has enviado la solicitud N°090 el día 22/10/2025" ,
+      message: "Enviaste al área técnica la solicitud N°090 el día 22/10/2025"
     },
-    { tittle: "hey" ,
-      message: "kikiriki"
+    { tittle: "Has enviado la solicitud N°123 el día 12/12/2025" ,
+      message: "Enviaste al área técnica la solicitud N°123 el día  12/12/2025"
     }
   ]
   const clickButton = () => {
