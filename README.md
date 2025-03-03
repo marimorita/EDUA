@@ -2,7 +2,7 @@
 EDUA AT is a web application designed to assist the technical area in managing documentation, PQRS (Petitions, Complaints, Claims, and Suggestions), and user requests, while enhancing internal control among the director, the receptionist, the team, and the visitor area. This platform enables the efficient storage of user requests and tracks which team member is responsible for each case. Additionally, it maintains a document history accessible to all the previously mentioned roles.
 
 ## Logo
-<img src="./assests/images/logoEDUA.svg" alt="Logo" width="150">
+<img src="./src/assests/images/logoEDUA.svg" alt="Logo" width="150">
 
 ## Main features
 1. User Management
