@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
-import { IoIosArrowUp } from "react-icons/io";
 import logoEdua from '../../assets/Images/logoEdua.svg';
+import { IoIosArrowUp } from "react-icons/io";
 
 export const Footer = ({ clickButton }) => {
   return (

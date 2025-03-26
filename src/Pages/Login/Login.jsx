@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Buttons } from '../../Components/Buttons/Buttons'
-import { FormLogin } from '../../Ui/Form/Form'
+import { FormLogin } from '../../Utils/Form/FormLogin'
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
 
@@ -20,7 +20,6 @@ export const Login = ({loginClass}) => {
         <FormLogin/>
         <div className='flex flex-col items-center justify-center text-start '>
         <button onClick={handleButtonClickP} className='text-[#484646] font-semibold flex text-start text-[13px]'>He olvidado mi contraseña</button>
-     
         <Buttons btnStyle={"mt-5 bg-[#D9D9D9]"} label="Iniciar sesión" />
         <p className='text-[#484646] font-semibold mt-10'>¿Aún no estás registrado?</p>
         <button onClick={handleButtonClick} className='cursor-pointer underline text-[#701819] mt-1 font-semibold'>Regístrate aquí</button> 

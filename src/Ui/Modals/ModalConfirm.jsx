@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import logoName from '../../../assets/Images/logoEduaName.svg';
-import confirmImg from "../../../assets/Images/confirm.svg";
+import logoName from '../../assets/Images/logoEduaName.svg';
+import confirmImg from "../../assets/Images/confirm.svg";
 import { Buttons } from '../../Components/Buttons/Buttons';
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';

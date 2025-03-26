@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import successImg from '../../../assets/Images/success.svg';
-import logoName from '../../../assets/Images/logoEduaName.svg';
+import successImg from '../../assets/Images/success.svg';
+import logoName from '../../assets/Images/logoEduaName.svg';
 import { useLocation } from 'wouter';
 import { IoIosClose } from "react-icons/io";
 import { StateContext } from '../../Context/Context';

@@ -9,7 +9,7 @@ export const Receptionist = () => {
       <div className="absolute top-4 left-4">
         <img src={logoEduaName} alt="logo" className="w-[140px] h-[40px]" />
       </div>
-      <ToolTipReceptionist />
+      <ToolTipReceptionist/>
       <div className=" flex flex-col justify-center items-center">
         <h1 className="font-semibold text-[60px] text-center">¡Bienvenido Nombre!</h1>
         <p className='font-semibold text-[30px]'>Al área de la recepción</p>
