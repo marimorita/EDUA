@@ -4,7 +4,7 @@ export const StateContext = createContext();
 export const StateProvider = ({ children }) => {
   const scrollHome = useRef(null);
   const scrollHelp = useRef(null);
-  const scrollMiau = useRef(null);
+  const scrollRoles = useRef(null);
   const scrollAbout = useRef(null);
   const [valueRol, setValueRol] = useState("")
   const [isChecked, setIsChecked] = useState(false);
@@ -14,7 +14,7 @@ export const StateProvider = ({ children }) => {
   const [viewSuccessModal, setViewSuccessModal] = useState(false)
 
   return (
-    <StateContext.Provider value={{ viewConfirmModal, setViewConfirmModal, viewSuccessModal, setViewSuccessModal, viewFailModal, setViewFailModal, valueRol, setValueRol, animationImg, setAnimationImg, isChecked, setIsChecked, scrollHome, scrollHelp, scrollMiau, scrollAbout }}>
+    <StateContext.Provider value={{ viewConfirmModal, setViewConfirmModal, viewSuccessModal, setViewSuccessModal, viewFailModal, setViewFailModal, valueRol, setValueRol, animationImg, setAnimationImg, isChecked, setIsChecked, scrollHome, scrollHelp, scrollRoles, scrollAbout }}>
       {children}
     </StateContext.Provider>
   )

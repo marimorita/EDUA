@@ -1,11 +1,12 @@
 import { StrictMode } from 'react'
+import { StateProvider } from './Context/Context'
 import { createRoot } from 'react-dom/client'
-// import { StateProvider } from './Components/Context/Context.jsx'
-import App from './App.jsx'
+// import App from './App.jsx'
 import './index.css'
+import { Home } from './Pages/Home/Home'
 
 createRoot(document.getElementById('root')).render(
-  <>
-    <App />
-  </>
+  <StateProvider>
+    <Home/>
+  </StateProvider>
 )

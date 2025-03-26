@@ -1,11 +1,10 @@
 import { Route, Switch } from 'wouter';
 import { Main } from './Layouts/Main/Main';
+import { Home } from './Pages/Home/Home';
 import { Team } from './Pages/Interface/Team';
 import { Visitor } from './Pages/Interface/Visitor';
 import { Receptionist } from './Pages/Interface/Receptionist';
-
 /* import { Pdf } from './Pages/Pdf/Pdf';
-import { Home } from './Pages/Home/Home';
 import { Error } from './Pages/Error/Error';
 import { Login } from './Ui/Login/Login';
 import { DirTasks } from './Ui/DirTasks/DirTasks';
@@ -28,6 +27,7 @@ function App() {
     <div className="min-h-screen max-w-[1920px] mx-auto w-full flex flex-col">
       <Switch>
         <Route path="/" component={Main} />
+        <Route path="/home" component={Home} />
         <Route path="/team" component={Team} />
         <Route path="/visitor" component={Visitor} />
         <Route path="/director" component={Director} />

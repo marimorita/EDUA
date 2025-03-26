@@ -1,57 +1,37 @@
 import React from 'react'
-import logoName from '../../../assets/Images/logoEduaName.svg';
-import { FaBell } from "react-icons/fa";
-import { FaUser } from "react-icons/fa6";
-import { HiUserGroup } from "react-icons/hi";
+import home from '../../assets/Images/home.svg';
+import { NavBar } from '../NavBar/NavBar';
+import { Buttons } from '../../Components/Buttons/Buttons';
 import { useLocation } from "wouter";
-import { IoSearchSharp } from "react-icons/io5";
 import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 
-export const Header = () => {
+export const Header = ({ refHeader} ) => {
   const [, setLocation] = useLocation();
-  const { navbarAnimationClasses } = useNavbarAnimation();
-
-  const handleButtonClickNotis = () =>{ 
-    setLocation(`/notifications`)
-  }
-  const handelButtonCilickProfile = () =>{
-    setLocation(`/profile`)
-  }
-  const handleButtonClickTeam = () =>{
-    setLocation(`/teamTasks`)
-  }
-  const handleButtonClickSearch = () =>{
-    setLocation(`/search`)
-  }
+  const { navbarAnimationClasses } = useNavbarAnimation()
+  const startButton = () => {
+    setLocation('/accessPanel');
+  };
   return (
     <>
-      <section className={navbarAnimationClasses()}>
-        <div className='flex justify-center items-center w-full mt-4'>
-          <ul className='bg-white list-none font-semibold text-[30px] flex justify-start items-start gap-24 m-1 h-[60px] rounded-xl border p-2 border-[#434343]'>
-            <li>
-              <img src={logoName} alt="logoEdua" className='w-28 h-9 cursor-pointer hover:scale-110 transition duration-300'/>
-            </li>
-            <li>
-              <button onClick={handleButtonClickSearch}>
-                <IoSearchSharp className='cursor-pointer w-10 h-10 hover:scale-125 transition duration-300 text-[#434343]'/>
-              </button>
-            </li>
-            <li>
-              <button onClick={handleButtonClickTeam}>
-                <HiUserGroup className='cursor-pointer w-10 h-10 hover:scale-125 transition duration-300 text-[#434343]'/>
-              </button>
-            </li>
-            <li>
-              <button onClick={handleButtonClickNotis}>
-                <FaBell className='cursor-pointer w-10 h-10 hover:scale-125 transition duration-300 text-[#434343]'/>
-              </button>
-            </li>
-            <li>
-              <FaUser onClick={handelButtonCilickProfile} className='cursor-pointer w-10 h-10 hover:scale-125 transition duration-300 text-[#434343]'/>
-            </li>
-          </ul>
+      <section id='header' ref={refHeader}>
+        <section className={navbarAnimationClasses()}>
+          <div className='pt-10'><NavBar /></div>
+        </section>
+        <div className='mt-6 flex justify-center items-center'><NavBar /></div>
+        <div className='relative grid grid-cols-2 items-center w-full'>
+          <div className='flex justify-start mt-[7rem] ml-14 col-span-1'>
+            <img src={home} alt="imgBackground" className="w-[95%] h-[30%]" />
+          </div>
+          <div className='flex justify-center items-center flex-col space-y-4 px-6 mt-[4rem]'>
+            <p className='font-semibold text-[50px] text-center'>¡Bienvenidos al area tecnica!</p>
+            <div className=''>
+              <Buttons buttonEvent={startButton} btnStyle={"text-[25px] w-48 h-11 bg-[#00000000]"} label="Iniciar" />
+            </div>
+          </div>
         </div>
+        <section className='top-4 left-[24%] absolute flex justify-center items-center p-2 rounded-xl'>
+        </section>
       </section>
-    </>
-  );
+    </>
+  );
 };
