@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import failImg from '../../../assets/Images/fail.svg'
-import logoName from '../../../assets/Images/logoEduaName.svg';
-import { useLocation } from 'wouter';
+import failImg from '../../assets/Images/fail.svg'
+import logoName from '../../assets/Images/logoEduaName.svg';
 import { IoIosClose } from "react-icons/io";
+import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
 
 export const ModalFail = ({ visibility, message, redirectPath }) => {

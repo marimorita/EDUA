@@ -7,7 +7,7 @@ import { StateContext } from '../../Context/Context';
 
 export const ModalConfirm = ({visibility , message, redirectPathCancel, redirectPathConfirm}) => {
   const [, setLocation] = useLocation(); 
-  const {viewConfirmModal, setViewConfirmModal, valueRol, setValueRol} = useContext(StateContext)
+  const { viewConfirmModal, setViewConfirmModal, valueRol, setValueRol } = useContext(StateContext)
   
   const handleButtonClickConfirm = () => {
       setViewConfirmModal(false)
@@ -43,4 +43,4 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
         </div> 
     </div>
   )
-}
+};

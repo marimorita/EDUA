@@ -49,7 +49,6 @@ export const InfoVisit = () => {
           <Buttons label={"Enviar a visita"} btnStyle={"bg-[#D9D9D9]"} /> 
      </div>
      </div>
-
      </>
   )
 }

@@ -1,14 +1,12 @@
-import React , {useContext}from 'react'
+import React , { useContext }from 'react'
 import { Form } from '../../Utils/Form/Form'
 import { StateContext } from '../../Context/Context';
 
 export const Register = ({registerClass}) => {
-  const {animationImg , setAnimationImg } = useContext (StateContext)
-
+  const {animationImg , setAnimationImg } = useContext (StateContext);
   const handleButtonClick = () => {
     setAnimationImg(!animationImg);
   };
-
   return (
     <div className={`${registerClass} bg-white h-full w-full items-center relative py-4`}>
       <div className="bg-white flex justify-center flex-col space-y-4">
@@ -22,4 +20,4 @@ export const Register = ({registerClass}) => {
       </div>
     </div>
   )
-}
+};

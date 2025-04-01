@@ -41,7 +41,7 @@ export const Pdf = () => {
           </div>
         </div>
         <div className='flex justify-center mt-10'>
-          <Buttons label={"Enviar al atrea tecnica"} buttonEvent={() => { setViewConfirmModal(true) }} btnStyle={"bg-[#D9D9D9] w-[180px] mb-[30px]"} />
+          <Buttons label={"Enviar al atrea tecnica"} buttonEvent={() => { setViewConfirmModal(true) }} btnStyle={"bg-[#D9D9D9] w-[200px] mb-[30px]"} />
         </div>
       </div>
       <ModalConfirm
