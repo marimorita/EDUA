@@ -42,7 +42,7 @@ export const Notifications = ({ obj, redirectPath, Icon }) => {
         </select>
       </div>
       <div className='flex items-center justify-center flex-col '>
-        {dataFilter.map((infoCard) => (<Cards message={infoCard.message} tittle={infoCard.tittle} textColor={infoCard.textColor} borderColor={infoCard.borderColor} redirectPath={"/home"} Icon={Icon} />))}
+        {dataFilter.map((infoCard) => (<Cards message={infoCard.message} tittle={infoCard.tittle} textColor={infoCard.textColor} borderColor={infoCard.borderColor} redirectPath={redirectPath} Icon={Icon} />))}
       </div>
       <ModalConfirm
         visibility={viewConfirmModal}

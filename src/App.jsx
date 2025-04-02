@@ -18,13 +18,12 @@ import { VerificationPhone } from './Pages/Verification/VerificationPhone';
 import { NotificationsDirector} from './Ui/Notifications/NotificationsDirector';
 import { NotificationsVisitor } from './Ui/Notifications/NotificationsVisitor';
 import { NotificationsReceptionist } from './Ui/Notifications/NotificationsReceptionist';
-
+import { Docs, DocsReceptionist } from './Ui/Docs/Docs';
 /* import { Error } from './Pages/Error/Error';
 import { DirTasks } from './Ui/DirTasks/DirTasks';
 import { InfoVisit } from './Ui/InfoVisit/InfoVisit';
 import { VerificationPhone } from './Ui/Verification/VerificationPhone';
-import { Profile, ProfileTeam } from './Pages/Profile/Profile';
-import { Docs, DocsVisitor, DocsReceptionist, DocsVisitorHistory } from './Ui/Docs/Docs';*/
+import { Profile, ProfileTeam } from './Pages/Profile/Profile';*/
 
 function App() {
   return (
@@ -36,6 +35,7 @@ function App() {
         <Route path="/team" component={Team} />
         <Route path="/login" component={Login} />
         <Route path="/cards" component={Cards} />
+        <Route path="/docs" component={Docs} />
         <Route path="/search" component={Search} />
         <Route path="/visitor" component={Visitor} />
         <Route path="/cardTeam" component={CardTeam} />
@@ -45,11 +45,13 @@ function App() {
         <Route path="/memberTasks" component={MemberTasks} />
         <Route path="/receptionist" component={Receptionist} />
         <Route path="/forgotPassword" component={ForgotPassword} />
+        <Route path="/docsReceptionist" component={DocsReceptionist} /> 
         <Route path="/verificationEmail" component={VerificationEmail} />
         <Route path="/verificationPhone" component={VerificationPhone} />
         <Route path="/notificationsVisitor" component={NotificationsVisitor} />
         <Route path="/notificationsDirector" component={NotificationsDirector} />
         <Route path="/notificationsReceptionist" component={NotificationsReceptionist} /> 
+
       </Switch>
     </div>
   );

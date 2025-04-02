@@ -16,7 +16,7 @@ export const NotificationsReceptionist = () => {
   return (
     <div>   
       <ToolTipReceptionist/>
-      <Notifications obj={notificationsData} redirectPath="/receptionist" Icon={FaHistory}/>
+      <Notifications obj={notificationsData} redirectPath="/docsReceptionist" Icon={FaHistory}/>
     </div>
   );
 };
