@@ -15,7 +15,7 @@ export const ToolTipDirector = () => {
                 { label: 'Cerrar sesión', action: () => console.log('Cerrar sesión') }
             ]} />
             <ToolTipButton Icon={FaBell} clickButton={() => setLocation('/notificationsDirector')} />
-            <ToolTipButton Icon={HiUserGroup} clickButton={() => setLocation('/cardTeam')} />
+            <ToolTipButton Icon={HiUserGroup} clickButton={() => setLocation('/teamTasks')} />
             <ToolTipButton Icon={IoSearchSharp} clickButton={() => setLocation('/search')} />
         </ToolTip>
     )

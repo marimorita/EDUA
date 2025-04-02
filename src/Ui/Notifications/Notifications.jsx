@@ -10,7 +10,6 @@ export const Notifications = ({ obj, redirectPath, Icon }) => {
   const { viewConfirmModal, setViewConfirmModal } = useContext(StateContext);
   const [selectValue, setSelectValue] = useState('All')
   const [, setLocation] = useLocation();
-
   const clickButton = () => {
     setLocation(redirectPath);
   };

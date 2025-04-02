@@ -1,15 +1,15 @@
 import React from 'react'
-import logoEduaName from '../../../assets/Images/logoEduaName.svg';
-import { Buttons } from '../Buttons/Buttons';
-import { ToolTip } from '../ToolTip/ToolTip';
-import { CardTeam } from '../Cards/Cards';
+import logoEduaName from '../../assets/Images/logoEduaName.svg';
+import { Buttons } from '../../Components/Buttons/Buttons';
+import { CardTeam } from '../../Components/Cards/Cards';
 import { useLocation } from 'wouter';
+import { ToolTipDirector } from '../../Components/ToolTip/ToolTipDirector';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 export const TeamTasks = () => {
   const [, setLocation] = useLocation(); 
   const clickButton  = () => {
-    setLocation(`/notifications`);
+    setLocation(`/notificationsDirector`);
   };
   return (
     <>
@@ -20,7 +20,7 @@ export const TeamTasks = () => {
      <div className="absolute top-4 left-[45%]">
       <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
      </div>
-     <ToolTip/>
+     <ToolTipDirector/>
      </div>
      <div className='flex flex-wrap gap-16 m-12 justify-center items-center'>
       <CardTeam name="Jose Guto Apellido2"/>

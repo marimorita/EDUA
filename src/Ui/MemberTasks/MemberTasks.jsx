@@ -1,15 +1,11 @@
 import React, { useRef, useState } from 'react'
-import logoEduaName from '../../../assets/Images/logoEduaName.svg';
-import { Cards} from '../Cards/Cards';
-import { Header } from '../../Layouts/Header/Header'
-import { ToolTip } from '../ToolTip/ToolTip'
+import logoEduaName from '../../assets/Images/logoEduaName.svg';
+import { Cards } from '../../Components/Cards/Cards';
 import { useLocation } from "wouter";
-import { useNavbarAnimation } from '../../Hooks/useNavbarAnimation';
 import { IoIosArrowRoundBack } from 'react-icons/io'
+import { ToolTipDirector } from '../../Components/ToolTip/ToolTipDirector';
 
 export const MemberTasks = () => {
-  const scrollHome = useRef(null);
-  const { navbarAnimationClasses } = useNavbarAnimation();
   const [, setLocation] = useLocation();
   const clickButton  = () => {
     setLocation(`/teamTasks`);
@@ -74,16 +70,13 @@ export const MemberTasks = () => {
   }
   return (
     <>
-    <section className={navbarAnimationClasses()}>
-        <Header/>
-      </section>
-     <div ref={scrollHome} className='absolute z-30 top-2 left-3'>
+     <di className='absolute z-30 top-2 left-3'>
       <IoIosArrowRoundBack onClick= {clickButton} className='cursor-pointer w-10 h-10 hover:scale-125'/>
-      </div> 
+      </di> 
      <div className="absolute top-4 left-[45%]">
       <img src={logoEduaName} alt="logo" className="w-[140px] h-[45px]" />
      </div>    
-     <ToolTip/> 
+     <ToolTipDirector/> 
      <div className='flex justify-between mx-[9rem] mt-20'>
       <h1 className="text-black font-semibold text-[33px] ">Esteban Fino Muñoz</h1>
       <select
