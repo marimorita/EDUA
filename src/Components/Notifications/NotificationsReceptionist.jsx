@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaHistory } from 'react-icons/fa';
-import { Notifications } from './Notifications';
-import { ToolTipReceptionist } from '../../Components/ToolTip/ToolTipReceptionist.jsx';
+import { Notifications } from './Notifications.jsx';
+import { ToolTipReceptionist } from '../ToolTip/ToolTipReceptionist.jsx';
 
 export const NotificationsReceptionist = () => {
   const notificationsData = [
@@ -16,7 +16,7 @@ export const NotificationsReceptionist = () => {
   return (
     <div>   
       <ToolTipReceptionist/>
-      <Notifications obj={notificationsData} redirectPath="/docsReceptionist" Icon={FaHistory}/>
+      <Notifications obj={notificationsData} redirectPath="/docsReceptionist" Icon={FaHistory} redirectPathArrow={"/receptionist"}/>
     </div>
   );
 };

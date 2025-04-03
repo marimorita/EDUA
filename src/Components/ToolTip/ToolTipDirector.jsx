@@ -16,7 +16,7 @@ export const ToolTipDirector = () => {
             ]} />
             <ToolTipButton Icon={FaBell} clickButton={() => setLocation('/notificationsDirector')} />
             <ToolTipButton Icon={HiUserGroup} clickButton={() => setLocation('/teamTasks')} />
-            <ToolTipButton Icon={IoSearchSharp} clickButton={() => setLocation('/search')} />
+            <ToolTipButton Icon={IoSearchSharp} clickButton={() => setLocation('/searchDirector')} />
         </ToolTip>
     )
 }

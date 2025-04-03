@@ -40,21 +40,21 @@ export const Pdf = () => {
         <div className="bg-[#efefef] w-[90%] flex justify-center items-center mx-14 mt-10 border rounded-xl flex-col">
           <div className='w-[95%] flex justify-center items-center mt-4 flex-col mb-4 outline-2 outline-offset-2 outline-dashed outline-[#3d4141] relative'>
           <FaFileCircleCheck className={`absolute w-[285px] h-[17rem] p-8 text-[#666666] mt-4 transition-all duration-1000 delay-1000 ${file ? "hover:scale-[100%]" : "scale-0" }   `}/>
-          <FaFileArrowUp className={`w-[224px] h-[18rem] p-8 text-[#666666] mt-4 ${file ? "animationIslam" : "" }  `}/>
+          <FaFileArrowUp className={`w-[224px] h-[18rem] p-8 text-[#666666] mt-4 ${file ? "animationIslam" : "" }`}/>
             <div className='mb-[12px]'>
               <Inputs classP={`hidden`}
                 type={"file"}
                 id={"InputPdf"}
                 nameInputs={"Pdf"}
-                accept={"application/pdf"}
                 inputValue={filesUp}
+                accept={"application/pdf"}
               />
               <label className='w-[20rem] text-center text-[20px] text-[#666666] underline font-semibold cursor-pointer pt-2 pb-2 rounded-sm transition-all duration-300 hover:scale-105 hover:text-black mb-[30px]' htmlFor="InputPdf"> {file ? ` Archivo cargado: ${file.name} ` : 'Subir desde este equipo'}</label>
             </div>
           </div>
         </div>
         <div className='flex justify-center mt-[20px] w-[100%]'>
-          <Buttons label={"Enviar al atrea tecnica"} buttonEvent={() => { setViewConfirmModal(true) }} btnStyle={"bg-[#D9D9D9] w-[200px] mb-[30px]"} />
+          <Buttons label={"Enviar al atrea tecnica"} buttonEvent={() => { setViewConfirmModal(true) }} btnStyle={"bg-[#D9D9D9] w-[250px] mb-[30px]"} />
         </div>
       </div>
       <ModalConfirm

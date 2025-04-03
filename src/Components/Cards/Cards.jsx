@@ -1,10 +1,7 @@
 import React, { useContext, useState } from 'react'
-import { FaBell } from "react-icons/fa";
-import { ToolTipDirector } from '../ToolTip/ToolTipDirector'
 import { useLocation } from "wouter";
 import { FaUserCircle } from "react-icons/fa";
 import { StateContext } from '../../Context/Context';
-import { FaMapMarkerAlt } from "react-icons/fa";
 
 export const Cards = ({ message, tittle, textColor, borderColor, redirectPath, Icon }) => {
   const { isChecked } = useContext(StateContext);
@@ -65,26 +62,3 @@ export const CardTeam = ({ name }) => {
     </>
   )
 }
-
-export const CardVisitor = ({ message, tittle }) => {
-  const [, setLocation] = useLocation()
-  const clickHistory = () => {
-    setLocation(`/docsVisitorHistory`)
-  }
-  return (
-    <div className='h-40 w-[80%] rounded-3xl mt-10 border border-black solid p-4 hover:scale-110 transition duration-300'>
-      <div className='flex'>
-        <div>
-          <FaMapMarkerAlt className='w-[32px] h-[32px] text-[#434343]' />
-        </div>
-        <h1 className="text-black font-semibold text-[24px] ml-1">
-          {tittle}
-        </h1>
-      </div>
-      <div className="flex flex-col ">
-        <p className="my-2 text-black font-semibold text-[20px]">{message}</p>
-        <button onClick={clickHistory} className="text-[17px] font-semibold text-start text-[#434343]">Ver mas...</button>
-      </div>
-    </div>
-  )
-};

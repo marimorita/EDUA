@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBell } from 'react-icons/fa';
-import { Notifications } from './Notifications';
-import { ToolTipDirector} from '../../Components/ToolTip/ToolTipDirector.jsx';
+import { Notifications } from './Notifications.jsx';
+import { ToolTipDirector} from '../ToolTip/ToolTipDirector.jsx';
 
 export const NotificationsDirector = () => {
   const notificationsData = [
@@ -16,7 +16,7 @@ export const NotificationsDirector = () => {
   return (
     <div>   
       <ToolTipDirector/>
-      <Notifications obj={notificationsData} redirectPath="/director" Icon={FaBell}/>
+      <Notifications obj={notificationsData} redirectPath="/docsDirector" redirectPathArrow={"/director"} Icon={FaBell}/>
     </div>
   );
 };

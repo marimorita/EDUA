@@ -13,7 +13,7 @@ export const ToolTipTeam = () => {
         { label: 'Cerrar sesión', action: () => console.log('Cerrar sesión') }
       ]} />
       <ToolTipButton Icon={FaBell} clickButton={() => setLocation('/notificationsTeam')} />
-      <ToolTipButton Icon={IoSearchSharp} clickButton={() => setLocation('/search')} />
+      <ToolTipButton Icon={IoSearchSharp} clickButton={() => setLocation('/searchTeam')} />
     </ToolTip>
   );
 };

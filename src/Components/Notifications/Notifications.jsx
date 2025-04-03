@@ -1,17 +1,17 @@
 import React, { useContext, useState } from 'react'
 import logoEduaName from '../../assets/Images/logoEduaName.svg';
-import { Cards } from '../../Components/Cards/Cards'
+import { Cards } from '../Cards/Cards'
 import { useLocation } from 'wouter';
-import { ModalConfirm } from '../Modals/ModalConfirm';
+import { ModalConfirm } from '../../Ui/Modals/ModalConfirm';
 import { StateContext } from '../../Context/Context';
 import { IoIosArrowRoundBack } from "react-icons/io";
 
-export const Notifications = ({ obj, redirectPath, Icon }) => {
+export const Notifications = ({ obj, redirectPath, Icon, redirectPathArrow }) => {
   const { viewConfirmModal, setViewConfirmModal } = useContext(StateContext);
   const [selectValue, setSelectValue] = useState('All')
   const [, setLocation] = useLocation();
   const clickButton = () => {
-    setLocation(redirectPath);
+    setLocation(redirectPathArrow);
   };
   const handleChangeUi = (event) => {
     setSelectValue(event.target.value)
