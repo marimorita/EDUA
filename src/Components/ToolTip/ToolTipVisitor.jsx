@@ -8,7 +8,7 @@ export const ToolTipVisitor = () => {
   return (
     <ToolTip>
       <ToolTipDropdown Icon={FaUser} options={[
-        { label: 'Ver mi perfil', action: () => setLocation('/profileTeam') },
+        { label: 'Ver mi perfil', action: () => setLocation('/profileVisitor') },
         { label: 'Cerrar sesión', action: () => console.log('Cerrar sesión') }
       ]} />
       <ToolTipButton Icon={FaBell} clickButton={() => setLocation('/notificationsVisitor')} />

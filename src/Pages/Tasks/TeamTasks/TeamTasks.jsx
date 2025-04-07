@@ -1,15 +1,15 @@
 import React from 'react'
-import logoEduaName from '../../assets/Images/logoEduaName.svg';
-import { Buttons } from '../../Components/Buttons/Buttons';
-import { CardTeam } from '../../Components/Cards/Cards';
+import logoEduaName from '../../../assets/Images/logoEduaName.svg';
+import { Buttons } from '../../../Components/Buttons/Buttons';
+import { CardTeam } from '../../../Components/Cards/Cards';
 import { useLocation } from 'wouter';
-import { ToolTipDirector } from '../../Components/ToolTip/ToolTipDirector';
+import { ToolTipDirector } from '../../../Components/ToolTip/ToolTipDirector';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 export const TeamTasks = () => {
   const [, setLocation] = useLocation(); 
   const clickButton  = () => {
-    setLocation(`/notificationsDirector`);
+    setLocation(`/director`);
   };
   return (
     <>

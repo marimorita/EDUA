@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaBell }  from 'react-icons/fa'
-import { Notifications } from '../../Components/Notifications/Notifications'
-import { ToolTipDirector } from '../../Components/ToolTip/ToolTipDirector'
+import { Notifications } from '../../../Components/Notifications/Notifications'
+import { ToolTipDirector } from '../../../Components/ToolTip/ToolTipDirector'
 
 export const MemberTasks = () => {
   const notificationsData = [{tittle: "Tiene la solictud N°123 desde el día 11/02/2025", message: "", textColor: "#434343", borderColor: "#434343"},
@@ -16,7 +16,7 @@ export const MemberTasks = () => {
   return (
     <>
     <ToolTipDirector/>
-    <Notifications obj={notificationsData} redirectPath="/docsMember" Icon={FaBell} redirectPathArrow={"/team"}/>
+    <Notifications obj={notificationsData} redirectPath="/docsMember" Icon={FaBell} redirectPathArrow={"/teamTasks"}/>
     </>
   )
 }

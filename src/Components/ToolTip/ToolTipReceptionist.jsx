@@ -9,7 +9,7 @@ export const ToolTipReceptionist = () => {
     return (
         <ToolTip>
             <ToolTipDropdown Icon={FaUser} options={[
-                { label: 'Ver mi perfil', action: () => setLocation('/profileTeam') },
+                { label: 'Ver mi perfil', action: () => setLocation('/profileReceptionist') },
                 { label: 'Cerrar sesión', action: () => console.log('Cerrar sesión') }
             ]} />
             <ToolTipButton Icon={FaFilePdf} clickButton={() => setLocation('/pdf')} />

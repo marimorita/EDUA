@@ -10,7 +10,7 @@ export const ToolTipDirector = () => {
     return (
         <ToolTip>
             <ToolTipDropdown Icon={FaUser} options={[
-                { label: 'Ver mi perfil', action: () => setLocation('/profile') },
+                { label: 'Ver mi perfil', action: () => setLocation('/profileDirector') },
                 { label: 'Mis tareas', action: () => setLocation('/dirTasks') },
                 { label: 'Cerrar sesión', action: () => console.log('Cerrar sesión') }
             ]} />

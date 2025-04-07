@@ -1,7 +1,7 @@
 import React from 'react';
 import { Docs } from './Docs';
 import { FaBell } from 'react-icons/fa';
-import { ToolTipVisitor } from '../../Components/ToolTip/ToolTipVisitor';
+import { ToolTipVisitor } from '../ToolTip/ToolTipVisitor';
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 export const DocsVisitor = () => {

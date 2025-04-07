@@ -16,7 +16,7 @@ export const ToolTipDropdown = ({ Icon, options }) => {
       {isOpen && (
         <div className="absolute w-[6.5rem] right-[0.5rem] opacity-100 top-[85%] flex flex-col bg-white border shadow-lg transition duration-300">
           {options.map(({ label, action }) => (
-            <button key={label} clickButton={action} className='text-left text-black h-8 pl-1 hover:bg-[#D9D9D9]'>
+            <button key={label} onClick={action} className='text-left text-black h-8 pl-1 hover:bg-[#D9D9D9]'>
               {label}
             </button>
           ))}
