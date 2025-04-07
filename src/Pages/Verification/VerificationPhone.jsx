@@ -3,7 +3,7 @@ import logoName from '../../assets/Images/logoEduaName.svg';
 import verificationPhone from '../../assets/Images/phone.svg'
 import { Inputs } from '../../Components/Inputs/Inputs';
 import { Buttons } from '../../Components/Buttons/Buttons';
-import { ModalFail } from '../../Ui/Modals/ModalFail';
+import { ModalFail } from '../../Components/Modals/ModalFail';
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
 import { IoIosArrowRoundBack } from 'react-icons/io';

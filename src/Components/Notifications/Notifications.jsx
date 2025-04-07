@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import logoEduaName from '../../assets/Images/logoEduaName.svg';
 import { Cards } from '../Cards/Cards'
 import { useLocation } from 'wouter';
-import { ModalConfirm } from '../../Ui/Modals/ModalConfirm';
+import { ModalConfirm } from '../../Components/Modals/ModalConfirm';
 import { StateContext } from '../../Context/Context';
 import { IoIosArrowRoundBack } from "react-icons/io";
 

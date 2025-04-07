@@ -4,7 +4,7 @@ import password from '../../assets/Images/password.svg'
 import { Inputs } from '../../Components/Inputs/Inputs';
 import { Buttons } from '../../Components/Buttons/Buttons';
 import { useLocation } from "wouter";
-import { ModalSuccess } from '../../Ui/Modals/ModalSuccess';
+import { ModalSuccess } from '../../Components/Modals/ModalSuccess';
 import { StateContext } from '../../Context/Context';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 

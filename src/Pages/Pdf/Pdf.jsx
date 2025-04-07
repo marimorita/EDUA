@@ -4,7 +4,7 @@ import { Inputs } from '../../Components/Inputs/Inputs';
 import { Buttons } from '../../Components/Buttons/Buttons';
 import { useLocation } from "wouter"
 import { StateContext } from '../../Context/Context';
-import { ModalConfirm } from '../../Ui/Modals/ModalConfirm';
+import { ModalConfirm } from '../../Components/Modals/ModalConfirm';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 import { ToolTipReceptionist } from '../../Components/ToolTip/ToolTipReceptionist';
 import { FaFileArrowUp, FaFileCircleCheck } from "react-icons/fa6";

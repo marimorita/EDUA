@@ -33,7 +33,7 @@ export const ModalConfirm = ({visibility , message, redirectPathCancel, redirect
               <img src={logoName} alt="logo" className="w-[145px] h-10" />
             </div>
             <div className='flex justify-center items-center'>
-              <img src={confirmImg} alt="Confirm Image" className='mt-16 w-[435px] h-[310px'/>
+              <img src={confirmImg} alt="zImage" className='mt-16 w-[435px] h-[310px'/>
             </div>
           <p className="text-center flex items-center justify-center font-semibold text-[22px] p-4">{message}</p>
         <div className= "mt-4 flex justify-center gap-52">

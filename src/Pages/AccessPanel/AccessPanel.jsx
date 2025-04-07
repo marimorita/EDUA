@@ -4,7 +4,7 @@ import { Login } from '../Login/Login';
 import { Register } from '../Register/Register';
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
-import { ModalConfirm } from '../../Ui/Modals/ModalConfirm';
+import { ModalConfirm } from '../../Components/Modals/ModalConfirm';
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 export const AccessPanel = () => {

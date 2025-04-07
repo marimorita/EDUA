@@ -5,34 +5,37 @@ import { Inputs } from '../../Components/Inputs/Inputs';
 import { Buttons } from '../../Components/Buttons/Buttons'
 import { FaPencilAlt } from "react-icons/fa";
 import { useLocation } from 'wouter';
-import { ModalSuccess } from '../../Ui/Modals/ModalSuccess';
+import { ModalSuccess } from '../../Components/Modals/ModalSuccess';
 import { StateContext } from '../../Context/Context';
 import { IoIosArrowRoundBack } from 'react-icons/io';
 
 export const Profile = ({ redirectPath, redirectPathModal }) => {
   const { viewSuccessModal, setViewSuccessModal } = useContext(StateContext)
   const [, setLocation] = useLocation();
-  const [img, setImg] = useState(profileImg)
+  const defaultImg = localStorage.getItem("imgProfile")
+  const [img, setImg] = useState(defaultImg || profileImg)
   const [editValue, setEditValue] = useState(false)
   const [animationImg, setAnimationImg] = useState(false)
   const firstLoad = useRef(true)
+
+  const imgUp = (e) => {    
+    if (e.target.files[0]) {
+      setImg(URL.createObjectURL(e.target.files[0]));
+      localStorage.setItem("imgProfile", URL.createObjectURL(e.target.files[0]))
+    }
+  };
+
   useEffect(() => {
     if (firstLoad.current) {
       firstLoad.current = false
       return
-    }   
-    if(img!==profileImg ) {
+    }
+    if (img !== defaultImg) {
       setAnimationImg(true)
-      setTimeout(()=>setAnimationImg(false), 1000)
-    }
-    setImg(profileImg)
-  } , [profileImg])
+      setTimeout(() => setAnimationImg(false), 500)
+    }    
+  }, [img])
 
-  const imgUp = (e) => {
-    if (e.target.files[0]) {
-      setImg(URL.createObjectURL(e.target.files[0]));
-    }
-  };
   const handleButtonClick = () => {
     setLocation(redirectPath)
   };
@@ -47,7 +50,7 @@ export const Profile = ({ redirectPath, redirectPathModal }) => {
 
       <div className='mt-24 flex flex-col justify-center items-center'>
         <div className='w-[25rem] h-[25rem] rounded-full overflow-hidden border-2 border-[#e5e7eb]'>
-          <img src={img} alt="Profile Image" className='w-full h-full object-cover' />
+          <img src={img} alt="Profile Image" className={`w-full h-full object-cover transition-all duration-500 rounded-full ${animationImg ? "scale-0" : "scale-[100%]"}`}/>
         </div>
         <div className='mb-[12px]'>
           <Inputs classP={`hidden`}
