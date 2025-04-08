@@ -18,7 +18,7 @@ export const Profile = ({ redirectPath, redirectPathModal }) => {
   const [animationImg, setAnimationImg] = useState(false)
   const firstLoad = useRef(true)
 
-  const imgUp = (e) => {    
+  const imgUp = (e) => {
     if (e.target.files[0]) {
       setImg(URL.createObjectURL(e.target.files[0]));
       localStorage.setItem("imgProfile", URL.createObjectURL(e.target.files[0]))
@@ -33,7 +33,7 @@ export const Profile = ({ redirectPath, redirectPathModal }) => {
     if (img !== defaultImg) {
       setAnimationImg(true)
       setTimeout(() => setAnimationImg(false), 500)
-    }    
+    }
   }, [img])
 
   const handleButtonClick = () => {
@@ -50,7 +50,7 @@ export const Profile = ({ redirectPath, redirectPathModal }) => {
 
       <div className='mt-24 flex flex-col justify-center items-center'>
         <div className='w-[25rem] h-[25rem] rounded-full overflow-hidden border-2 border-[#e5e7eb]'>
-          <img src={img} alt="Profile Image" className={`w-full h-full object-cover transition-all duration-500 rounded-full ${animationImg ? "scale-0" : "scale-[100%]"}`}/>
+          <img src={img} alt="Profile Image" className={`w-full h-full object-cover transition-all duration-500 rounded-full ${animationImg ? "scale-0" : "scale-[100%]"}`} />
         </div>
         <div className='mb-[12px]'>
           <Inputs classP={`hidden`}

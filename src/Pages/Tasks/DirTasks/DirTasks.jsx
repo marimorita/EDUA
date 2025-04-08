@@ -16,7 +16,7 @@ export const DirTasks = () => {
   return (
     <>
     <ToolTipDirector/>
-    <Notifications obj={notificationsData} redirectPath="/docsMyDirector" Icon={FaBell} redirectPathArrow={"/visitor"}/>
+    <Notifications obj={notificationsData} redirectPath="/docsMyDirector" Icon={FaBell} redirectPathArrow={"/director"}/>
     </>
   )
 }

@@ -31,6 +31,10 @@ export const Form = () => {
         error = "No olvides llenar este campo.";
       } else if (!/^[0-9]*$/.test(value)) {
         error = "Escribe tu documento solo con números";
+      } if (value.trim().length > 10) {
+        error = "Tu documento no debe contener mas de 10 digitos";
+      } else if (value.trim().length < 7) {
+        error = "Tu documento no debe contener menos de 7 digitos";
       }
     }
     if (name === "email") {
@@ -43,7 +47,7 @@ export const Form = () => {
     if (name === "password") {
       if (value.trim() === "") {
         error = "No olvides llenar este campo"
-      } else if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/.test(value)) {
+      } else if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&#^_\-+=])[A-Za-z\d@$!%*?&#^_\-+=]{8,}$/.test(value)) {
         error = "Mínimo 8 caracteres, una letra, un número y un carácter especial"
       }
     }
