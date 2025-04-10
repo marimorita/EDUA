@@ -9,6 +9,7 @@ import { Visitor } from './Pages/Interface/Visitor';
 import { Director } from './Pages/Interface/Director'
 import { DocsTeam } from './Components/Docs/DocsTeam';
 import { DirTasks } from './Pages/Tasks/DirTasks/DirTasks';
+import { InfoVisit } from './Pages/InfoVisit/InfoVisit';
 import { TeamTasks } from './Pages/Tasks/TeamTasks/TeamTasks';
 import { SearchTeam } from './Pages/Search/SearchTeam';
 import { AccessPanel } from './Pages/AccessPanel/AccessPanel';
@@ -32,7 +33,6 @@ import { DocsVisitor, DocsHistorialVisitor } from './Components/Docs/DocsVisitor
 import { NotificationsVisitor, HistorialVisitor } from './Components/Notifications/NotificationsVisitor';
 
 /* import { Error } from './Pages/Error/Error';
-import { InfoVisit } from './Ui/InfoVisit/InfoVisit';
 import { VerificationPhone } from './Ui/Verification/VerificationPhone';*/
 
 function App() {
@@ -51,6 +51,7 @@ function App() {
         <Route path="/docsTeam" component={DocsTeam} /> 
         <Route path="/dirTasks" component={DirTasks} />
         <Route path="/director" component={Director} />
+        <Route path="/infoVisit" component={InfoVisit} />
         <Route path="/teamTasks" component={TeamTasks} />
         <Route path="/docsMember" component={DocsMember} /> 
         <Route path="/searchTeam" component={SearchTeam} /> 

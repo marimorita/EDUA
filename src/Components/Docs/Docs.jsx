@@ -3,7 +3,7 @@ import logoEduaName from '../../assets/Images/logoEduaName.svg';
 import { useLocation } from 'wouter';
 import { IoIosArrowRoundBack } from 'react-icons/io'
 
-export const Docs = ({ redirectPathBack, tittle, text, Icon }) => {
+export const Docs = ({ redirectPathBack, tittle, text, Icon, button }) => {
   const [, setLocation] = useLocation('')
   const clickButton = () => {
     setLocation(redirectPathBack);

@@ -12,11 +12,13 @@ import { FaFileArrowUp, FaFileCircleCheck } from "react-icons/fa6";
 
 export const Pdf = () => {
   const [, setLocation] = useLocation()
-  const { viewConfirmModal, setViewConfirmModal, fileUrl, setFileUrl } = useContext(StateContext)
+  const { viewConfirmModal, setViewConfirmModal } = useContext(StateContext)
   const [file, setFile] = useState(null)
+  const [fileSaveUrl, setFileSaveUrl] = useState(null)
   const filesUp = (e) => {
     if (e.target.files.length > 0) {
-      setFileUrl(URL.createObjectURL(e.target.files[0]));
+      setTimeout(() => setFileSaveUrl(URL.createObjectURL(e.target.files[0])), 1000);
+      setFile(e.target.files[0])
     }
   };
   const clickButton = () => {
@@ -40,9 +42,8 @@ export const Pdf = () => {
         </div>
         <div className="bg-[#efefef] w-[90%] flex justify-center items-center mx-14 mt-10 border rounded-xl flex-col">
           <div className='w-[95%] flex justify-center items-center mt-4 flex-col mb-4 outline-2 outline-offset-2 outline-dashed outline-[#3d4141] relative'>
-          <PdfViewer />
-            <FaFileCircleCheck className={`absolute w-[285px] h-[17rem] p-8 text-[#666666] mt-4 transition-all duration-1000 delay-1000 ${file ? "hover:scale-[100%]" : "scale-0"}   `} />
-            <FaFileArrowUp className={`w-[224px] h-[18rem] p-8 text-[#666666] mt-4 ${file ? "animationIslam" : ""}`} />
+            <PdfViewer fileUrl={fileSaveUrl} />
+            <FaFileArrowUp className={`w-[224px] h-[18rem] p-8 text-[#666666] mt-4  ${file ? "animationIslam " : ""}`} />
             <div className='mb-[12px]'>
               <Inputs classP={`hidden`}
                 type={"file"}
@@ -56,7 +57,7 @@ export const Pdf = () => {
           </div>
         </div>
         <div className='flex justify-center mt-[20px] w-[100%]'>
-          <Buttons label={"Enviar al atrea tecnica"} buttonEvent={() => { setViewConfirmModal(true) }} btnStyle={"bg-[#D9D9D9] w-[200px] mb-[30px]"} />
+          <Buttons label={"Enviar al área técnica"} buttonEvent={() => { setViewConfirmModal(true) }} btnStyle={"bg-[#D9D9D9] w-[200px] mb-[30px]"} />
         </div>
       </div>
       <ModalConfirm

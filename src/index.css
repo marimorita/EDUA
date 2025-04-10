@@ -29,6 +29,7 @@
         scale: 120%;
     }100% {
         scale: 0;
+        display: none;
     }
 
 }

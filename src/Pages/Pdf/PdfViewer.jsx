@@ -1,12 +1,10 @@
-import React, { useContext } from 'react'
-import { StateContext } from '../../Context/Context';
+import React from 'react'
 import { Viewer, Worker } from '@react-pdf-viewer/core'
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout'
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
-export const PdfViewer = () => {
-    const { fileUrl, setFileUrl } = useContext(StateContext)
+export const PdfViewer = ({ fileUrl }) => {
     const plugin = defaultLayoutPlugin();
 
     return (
@@ -20,4 +18,4 @@ export const PdfViewer = () => {
             )}
         </div>
     )
-}
+};
