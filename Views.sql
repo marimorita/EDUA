@@ -16,15 +16,15 @@ Create view TareasDirector as select
     t.fecha,
     t.hora,
     t.estado,
+    t.asignadoPor,
     m.nombres as memberNombres,
     m.apellidos as memberApellidos,
     v.nombres as visitorNombres,
     v.apellidos as visitorApellidos
 from Tasks t 
-join MemberTeam m on t.ccMemberTeam = m.ccMemberTeam
-join Visitor v on t.ccVisitor = v.ccVisitor
-join Director d on t.asignadoPor = d.ccDirector
-where t.tipoAsignador = 'director';
+left join Director d on t.asignadoPor = d.ccDirector
+left join MemberTeam m on t.asignadoPor = m.ccMemberTeam
+join Visitor v on t.ccVisitor = v.ccVisitor;
 
 -- Tareas asignadas por un mimebro del equipo --
 Create view TareasMember as select 
@@ -111,4 +111,4 @@ select * from TareasVisitor;
 select * from TareasPersonas;
 select * from TareasAlerta;
 
-drop view if exists TareasSolicitud;
+drop view if exists TareasDirector;
