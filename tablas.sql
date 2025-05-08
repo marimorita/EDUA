@@ -85,6 +85,13 @@ create table Historial (
 	foreign key (radicado) references solicitudes (radicado)
 );
 
+create table HistorialTareasRealizadas (
+    idHistorialT int auto_increment not null,
+    primary key (idHistorialT),
+    idTasks int not null,
+    foreign key (idTasks) references Tasks (idTasks)
+);
+
 create table Notificaciones (
 	idNotis int auto_increment not null,
     primary key (idNotis),
@@ -93,5 +100,5 @@ create table Notificaciones (
     foreign key (radicado) references Solicitudes (radicado)
 );
 
-select time (NOW()) as hora;
-select date (CURDATE()) as fecha;
+select time (now()) as hora;
+select date (curdate()) as fecha;
