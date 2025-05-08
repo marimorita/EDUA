@@ -101,6 +101,48 @@ left join Visitor v on t.ccVisitor = v.ccVisitor
 left join MemberTeam m on t.ccMemberTeam = m.ccMemberTeam
 where t.estado in ('rojo', 'naranja', 'amarillo');
 
+-- Solicitudes recientes (registradas en los ultimos 7das) --
+ Create view SolicitudesRecientes as select
+	s.radicado,
+    s.fecha,
+    s.hora,
+	s.archivoPdf,
+    s.ccReceptionist
+from Solicitudes s
+where fecha >= (curdate() - interval 7 day);
+
+-- Tareas pendientes de cads visitante, es decir en rojo, amarillo o narajan --
+Create view TareasPendientesVisitor as select 
+	t.estado,
+    t.fecha,
+    t.ccVisitor,
+    t.tipoAsignador,
+	t.asignadoPor
+from Tasks t
+where estado in ('rojo', 'amarillo', 'naranja');
+
+
+-- Conteo de taras por estado --
+Create view ConteoTareas as select 
+estado, count(*) as cantidadTareas /*Aca se define q cantidadTareas va a ser el alias para el contador*/
+from Tasks group by estado;
+
+-- Solcitudes ordenadas de manera ascendente --
+Create view SolicitudesFechaAsc as select
+	s.radicado,
+    s.fecha,
+    s.hora,
+    s.ccReceptionist
+from Solicitudes s;
+
+-- Conteo tareas actrivas para cada miembro --
+Create view ContadorTareasMember as select
+	t.estado,
+    t.ccMemberTeam,
+count(*) as cantidadTareasMember
+from Tasks t 
+where t.estado in ('rojo', 'amarillo','naranja')
+group by t.estado, t.ccMemberTeam;
  
 -- Selects --
 select * from solicitudesReceptionist;
@@ -110,5 +152,10 @@ select * from TareasSolicitud;
 select * from TareasVisitor;
 select * from TareasPersonas;
 select * from TareasAlerta;
+select * from SolicitudesRecientes;
+select * from TareasPendientesVisitor;
+select * from ConteoTareas;
+select * from SolicitudesFechaAsc order by fecha asc;
+select * from ContadorTareasMember;
 
 drop view if exists TareasDirector;
