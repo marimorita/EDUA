@@ -1,4 +1,4 @@
--- Solicitudes por recepcionista, que solicitudes ha caragdo la recepcionista -- 
+ -- Solicitudes por recepcionista, que solicitudes ha caragdo la recepcionista -- 
 Create view SolicitudesReceptionist as select 
 	r.nombres,
 	r.apellidos,
