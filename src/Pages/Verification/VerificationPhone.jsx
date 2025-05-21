@@ -31,13 +31,13 @@ export const VerificationPhone = () => {
           <p className='text-[20px]'> Hemos enviado un codigo para verificar tu numero de celular. Revisa (numero) e ingresa el codigo aquí: </p>
         </div>
         <div className='flex justify-center gap-7 mt-7'>
-          <Inputs classP={'w-[70px] h-[70px]'} />
-          <Inputs classP={'w-[70px] h-[70px]'} />
-          <Inputs classP={'w-[70px] h-[70px]'} />
+          <Inputs classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+          <Inputs classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+          <Inputs classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
           <p className='flex items-center justify-center font-semibold text-[40px]'>-</p>
-          <Inputs classP={'w-[70px] h-[70px]'} />
-          <Inputs classP={'w-[70px] h-[70px]'} />
-          <Inputs classP={'w-[70px] h-[70px]'} />
+          <Inputs classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+          <Inputs classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+          <Inputs classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
         </div>
         <div className='flex items-center justify-center mt-5'>
           <img src={verificationPhone} alt="Email Verification" className='w-[16rem] h-[210px]' />
@@ -52,7 +52,7 @@ export const VerificationPhone = () => {
       <ModalFail
         visibility={viewFailModal}
         message="Hubo un problema al verificar tu cuenta. Por favor intenta nuevamente"
-        redirectPath="/accessPanel"/>
+        redirectPath="/accessPanel" />
     </>
   )
 };

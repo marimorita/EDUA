@@ -32,13 +32,13 @@ export const VerificationEmail = () => {
                     <p className='text-[20px]'> Hemos enviado un codigo para verificar tu direccion de correo. Revisa (correo) e ingresa el codigo aquí: </p>
                 </div>
                 <div className='flex justify-center gap-7 mt-7'>
-                    <Inputs classP={'w-[70px] h-[70px]'} />
-                    <Inputs classP={'w-[70px] h-[70px]'} />
-                    <Inputs classP={'w-[70px] h-[70px]'} />
+                    <Inputs length={1} classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+                    <Inputs length={1} classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+                    <Inputs length={1} classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
                     <p className='flex items-center justify-center font-semibold text-[40px]'>-</p>
-                    <Inputs classP={'w-[70px] h-[70px]'} />
-                    <Inputs classP={'w-[70px] h-[70px]'} />
-                    <Inputs classP={'w-[70px] h-[70px]'} />
+                    <Inputs length={1} classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+                    <Inputs length={1} classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
+                    <Inputs length={1} classP={'w-[70px] h-[70px] text-[2rem] text-center'} />
                 </div>
                 <div className='flex items-center justify-center'>
                     <img src={verificationEmailImg} alt="Email Verification" className='w-60 h-[225px]' />

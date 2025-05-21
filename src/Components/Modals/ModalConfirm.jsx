@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import logoName from '../../assets/Images/logoEduaName.svg';
 import confirmImg from "../../assets/Images/confirm.svg";
 import { Buttons } from '../../Components/Buttons/Buttons';
@@ -7,19 +7,10 @@ import { StateContext } from '../../Context/Context';
 
 export const ModalConfirm = ({visibility , message, redirectPathCancel, redirectPathConfirm}) => {
   const [, setLocation] = useLocation(); 
-  const { viewConfirmModal, setViewConfirmModal, valueRol, setValueRol } = useContext(StateContext)
+  const { viewConfirmModal, setViewConfirmModal, setValueRol, setRegisterUser } = useContext(StateContext)
   
   const handleButtonClickConfirm = () => {
-      setViewConfirmModal(false)
-      if (valueRol === 'Director Técnica') {
-        setLocation('/director')
-      }else if (valueRol === 'Miembro Técnica'){
-        setLocation('team')
-      }else if (valueRol === 'Visitor' ){
-        setLocation('visitor')
-      }else if (valueRol === 'Receptionist'){
-        setLocation(`/receptionist`)
-      }
+      setRegisterUser(true)
   };
   const handleButtonClickCancel = () => {
     setViewConfirmModal(false)

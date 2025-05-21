@@ -9,13 +9,14 @@ export const StateProvider = ({ children }) => {
   const [valueRol, setValueRol] = useState("")
   const [fileUrl, setFileUrl] = useState(null)
   const [isChecked, setIsChecked] = useState(false);
+  const [registerUser, setRegisterUser] = useState(false)
   const [animationImg, setAnimationImg] = useState(false)
   const [viewFailModal, setViewFailModal] = useState(false)
   const [viewConfirmModal, setViewConfirmModal] = useState(false)
   const [viewSuccessModal, setViewSuccessModal] = useState(false)
-
+  
   return (
-    <StateContext.Provider value={{ viewConfirmModal, setViewConfirmModal, viewSuccessModal, setViewSuccessModal, viewFailModal, setViewFailModal, valueRol, setValueRol, animationImg, setAnimationImg, isChecked, setIsChecked, scrollHome, scrollHelp, scrollRoles, scrollAbout, fileUrl, setFileUrl }}>
+    <StateContext.Provider value={{ viewConfirmModal, setViewConfirmModal, viewSuccessModal, setViewSuccessModal, viewFailModal, setViewFailModal, valueRol, setValueRol, animationImg, setAnimationImg, isChecked, setIsChecked, scrollHome, scrollHelp, scrollRoles, scrollAbout, fileUrl, setFileUrl, registerUser, setRegisterUser, }}>
       {children}
     </StateContext.Provider>
   )
