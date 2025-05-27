@@ -7,3 +7,29 @@
     font-size: clamp(12px, 2vw, 20px);
 }*/
 
+.animationIslam {
+    
+    animation: islam 1s forwards;
+}
+
+@keyframes islam {
+    10% {
+        scale: 120%;
+    }
+    50% {
+        rotate: -30deg;
+    }60% {
+        rotate: 30deg;
+    }
+    70% {
+        rotate: -30deg;
+    }80% {
+        rotate: -30deg;
+    }95% {
+        scale: 120%;
+    }100% {
+        scale: 0;
+        display: none;
+    }
+
+}
