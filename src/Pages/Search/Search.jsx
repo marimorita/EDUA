@@ -11,12 +11,11 @@ export const Search = ({ redirectPath }) => {
   const clickButton = () => {
     setLocation(redirectPath)
   }
-  const objNum = ["067", "104", "103", "143", "123", "87"];
   const handleSearchChange = (e) => {
     setSearch(e.target.value)
-  }
-  const infoSearch = (objNum.filter((searchFilter) => searchFilter.includes(search)))
-
+    console.log(search);
+    
+  };
   return (
     <>
       <div className='absolute z-30 top-2 left-3'>
@@ -28,14 +27,11 @@ export const Search = ({ redirectPath }) => {
       <div className='flex justify-center items-center gap-1 mt-20'>
         <IoSearchSharp className='w-8 h-8' />
         <Inputs valueInput={search} inputValue={handleSearchChange} classP={`w-[15rem] focus:outline-none border-0 border-b-2 border-solid border-[#434343]`}
-          type={"search"}
-          nameInputs={"Search"}
+          type={"date"}
+          nameInputs={"Date"}
           placeholder={"Buscar número de radicado"} />
       </div>
       <div className="flex justify-center p-2 ml-[2rem]">
-        <ul className=' p-1 w-[14rem] flex flex-col gap-2 max-h-[12.5rem] overflow-y-auto'>
-          {infoSearch.length > 0 ? (infoSearch.map((valueObjNum, index) => (<li key={index} className='font-semibold text-[18px] p-1 shadow-sm shadow-slate-400 rounded-md hover:bg-[#d9d9d9] cursor-pointer'>{valueObjNum}</li>))) : null}
-        </ul>
       </div>
     </>
   )

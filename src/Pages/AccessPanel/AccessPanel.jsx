@@ -8,9 +8,13 @@ import { ModalConfirm } from '../../Components/Modals/ModalConfirm';
 import { IoIosArrowRoundBack } from "react-icons/io";
 
 export const AccessPanel = () => {
-  const { animationImg, setAnimationImg } = useContext(StateContext)
-  const { viewConfirmModal, setViewConfirmModal } = useContext(StateContext)
+  const { viewConfirmModal, setViewConfirmModal, animationImg, setAnimationImg, setRegisterUser } = useContext(StateContext)
   const [, setLocation] = useLocation();
+  
+  const activateFunction = () => {
+    setViewConfirmModal(false)
+    setRegisterUser(true)
+  }
   const clickButton = () => {
     setLocation(`/home`);
   };
@@ -29,6 +33,7 @@ export const AccessPanel = () => {
       
       <ModalConfirm
         visibility={viewConfirmModal}
+        handleButtonClickConfirm={activateFunction}
         message="¿Confirmas que tus datos son correctos?"
         redirectPath="/login" />
     </div>

@@ -1,28 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { useLocation } from "wouter";
 import { FaUserCircle } from "react-icons/fa";
-import { StateContext } from '../../Context/Context';
 
-export const Cards = ({ message, tittle, textColor, borderColor, redirectPath, Icon }) => {
-  const { isChecked } = useContext(StateContext);
-  const [isCheckedList, setIsCheckedList] = useState(false);
-  const [, setLocation] = useLocation();
-  const stateCheck = () => {
-    setIsCheckedList(!isCheckedList)
-  }
+export const Cards = ({ message, tittle, redirectPath, Icon }) => {
+
   const handleButtonClick = () => {
     setLocation(redirectPath)
   }
   return (
-    <div className="flex w-[80%] justify-start">
-      <label className={`relative flex items-center ${isChecked ? "opacity-100 w-auto mr-10" : "opacity-0 w-0 p-0"}`}>
-        <input type="checkbox" checked={isCheckedList} className='appearance-none  rounded-full w-10 h-10 border-black border-[1px]' onChange={stateCheck} />
-        {isCheckedList && <p className='absolute left-[10px] text-[28px] font-semibold  text-black'>✓</p>}
-      </label>
-      <div className={`h-50 w-[100%] rounded-3xl border p-4 mt-10 transition-all  duration-300  ${isCheckedList ? "scale-105 " : "hover:scale-105"}`} style={{ border: `1px solid ${borderColor}` }} >
+    <div className="flex w-[80%] justify-start ">
+      <div className='h-50 w-[100%] rounded-3xl border p-4 mt-10 duration-300 border-[#9a9b9e] hover:scale-105 transition-all'  >
         <div className='flex justify-start  '>
-          <div className='w-8 h-8 m-1'>
-            <Icon onClick={stateCheck} className='w-8 h-8 ' style={{ color: textColor }} />
+          <div className='w-8 h-8 m-1 text-[#434343]'>
+            <Icon className='w-8 h-8 ' />
           </div>
           <h1 className="text-black font-semibold text-[25px]">
             {tittle}

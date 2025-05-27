@@ -117,37 +117,45 @@ export const Form = () => {
       role: inputRoleRef.current.value,
       img: ""
     }
-    try {
-      const response = await axiosInstance.post('receptionist/register', dataUser)
 
-      if (response.status === 200 || response.status === 201) {
-        setViewConfirmModal(false)
+    if (inputRoleRef.current.value !== "role") {
+      try {
+        
+        const response = await axiosInstance.post(`${inputRoleRef.current.value}/register`, dataUser)
 
-        if (valueRol === 'Director Técnica') {
-          setLocation('/director')
-        } else if (valueRol === 'Miembro Técnica') {
-          setLocation('team')
-        } else if (valueRol === 'Visitor') {
-          setLocation('visitor')
-        } else if (valueRol === 'Receptionist') {
-          setLocation(`/receptionist`)
+        if (response.status === 200 || response.status === 201) {
+          setViewConfirmModal(false)
+
+          if (valueRol === 'director') {
+            setLocation('/director')
+          } else if (valueRol === 'memberTeam') {
+            setLocation('team')
+          } else if (valueRol === 'visitor') {
+            setLocation('visitor')
+          } else if (valueRol === 'receptionist') {
+            setLocation(`/receptionist`)
+          }
         }
-      } else {
+      } catch (error) {
+        setViewConfirmModal(false)
         toast.error(error.response.data.error, {
+          autoClose: 2000,
+          pauseOnHover: false,
           progressStyle: {
             background: '#59595d'
           },
         })
+      } finally {
+        setIsSubmitting(false)
       }
-    } catch (error) {
-
-      toast.error(error.response.data.error, {
+    } else {
+      toast.error("Selecciona un rol", {
+        autoClose: 2000,
+        pauseOnHover: false,
         progressStyle: {
           background: '#59595d'
         },
       })
-    } finally {
-      setIsSubmitting(false)
     }
   }
 
@@ -155,7 +163,6 @@ export const Form = () => {
     if (registerUser) {
       createUser()
       setRegisterUser(false)
-
     } else {
       null
     }
@@ -239,11 +246,11 @@ export const Form = () => {
           <select ref={inputRoleRef}
             onChange={handleChangeUi}
             className="focus:text-black bg-white p-2 rounded w-[100%] border border-gray-300 h-18 font-semibold text-[#9ca3af]">
-            <option value="" disabled selected>Rol</option>
-            <option value="Receptionist" className="text-black">Recepcionista</option>
-            <option value="Visitor" className="text-black">Área de visita</option>
-            <option value="Director Técnica" className="text-black">Director del área técnica</option>
-            <option value="Miembro Técnica" className="text-black">Miembro del equipo del area técnica</option>
+            <option value="role" disabled selected>Rol</option>
+            <option value="receptionist" className="text-black">Recepcionista</option>
+            <option value="visitor" className="text-black">Área de visita</option>
+            <option value="director" className="text-black">Director del área técnica</option>
+            <option value="memberTeam" className="text-black">Miembro del equipo del area técnica</option>
           </select>
         </div>
         <Buttons label={"Registrarme"} buttonEvent={() => (setViewConfirmModal(true))} btnStyle={"bg-[#D9D9D9]"} />
@@ -252,7 +259,6 @@ export const Form = () => {
         <ToastContainer
           position='top-center'
           autoClose={2000}
-          pauseOnHover={false}
         />
       </div>
     </>

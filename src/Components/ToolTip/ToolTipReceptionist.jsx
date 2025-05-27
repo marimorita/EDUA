@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
-import { FaFilePdf } from "react-icons/fa6";
 import { useLocation } from 'wouter';
-import { ModalSuccess } from '../Modals/ModalSuccess';
-import { StateContext } from '../../Context/Context';
+import React, { useContext } from 'react';
+import { BiSolidImageAdd } from "react-icons/bi";
 import { FaUser, FaHistory } from 'react-icons/fa';
+import { StateContext } from '../../Context/Context';
+import { ModalSuccess } from '../Modals/ModalSuccess';
 import { ToolTip, ToolTipDropdown, ToolTipButton } from './ToolTip';
 
 export const ToolTipReceptionist = () => {
@@ -16,7 +16,7 @@ export const ToolTipReceptionist = () => {
                     { label: 'Ver mi perfil', action: () => setLocation('/profileReceptionist') },
                     { label: 'Cerrar sesión', action: () => setViewSuccessModal(true) },
                 ]} />
-                <ToolTipButton Icon={FaFilePdf} clickButton={() => setLocation('/pdf')} />
+                <ToolTipButton Icon={BiSolidImageAdd} clickButton={() => setLocation('/pdf')} />
                 <ToolTipButton Icon={FaHistory} clickButton={() => setLocation('/notificationsReceptionist')} />
             </ToolTip>
 
