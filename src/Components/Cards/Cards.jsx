@@ -2,11 +2,9 @@ import React, { useContext, useState } from 'react'
 import { useLocation } from "wouter";
 import { FaUserCircle } from "react-icons/fa";
 
-export const Cards = ({ message, tittle, redirectPath, Icon }) => {
+export const Cards = ({ message, tittle, handleButtonClick, Icon }) => {
 
-  const handleButtonClick = () => {
-    setLocation(redirectPath)
-  }
+  const [, setLocation] = useLocation();
   return (
     <div className="flex w-[80%] justify-start ">
       <div className='h-50 w-[100%] rounded-3xl border p-4 mt-10 duration-300 border-[#9a9b9e] hover:scale-105 transition-all'  >

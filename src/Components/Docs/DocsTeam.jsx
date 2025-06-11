@@ -1,13 +1,36 @@
-import React from 'react';
 import { Docs } from './Docs';
 import { FaBell } from 'react-icons/fa';
 import { ToolTipTeam } from '../../Components/ToolTip/ToolTipTeam';
+import { axiosInstance } from '../../../axiosConfig';
+import React, { useState, useEffect } from 'react';
 
 export const DocsTeam = () => {
+  const idCard = localStorage.getItem("idCard")
+  const [dataNotifications, setDataNotifications] = useState([])
+  useEffect(() => {
+    const getNotifications = async () => {
+      try {
+        const response = await axiosInstance.get(`/notifications/notifications/${idCard}`)
+        setDataNotifications(response.data);
+      } catch (error) {
+        toast.error(error.response.data.error, {
+          progressStyle: {
+            backgroundColor: '#A91010',
+          },
+        });
+      }
+    }
+    getNotifications()
+
+  }, [setDataNotifications])
+
   return (
     <>
       <ToolTipTeam />
-      <Docs redirectPathBack="/notificationsTeam" tittle="Faltan un día para que se cumpla el plazo de la visita a la solicitud N°1864 y no se ha dado respuesta" text="Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025" Icon={FaBell} />
+      <Docs redirectPathBack="/notificationsTeam" tittle={dataNotifications.tittle} text={dataNotifications.text} Icon={FaBell} />
+      <div className="bg-[#efefef] w-[90%] h-[90%] flex justify-center items-center mx-14 mt-10 border rounded-xl flex-col mb-10 p-6">
+        <img src={dataNotifications.img} alt="DriveCapReceptionist" />
+      </div>
     </>
   )
 }

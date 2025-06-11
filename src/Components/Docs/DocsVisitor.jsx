@@ -1,33 +1,35 @@
-import React from 'react';
 import { Docs } from './Docs';
 import { FaBell } from 'react-icons/fa';
-import { Buttons } from '../Buttons/Buttons';
-import { useLocation } from 'wouter';
+import { axiosInstance } from '../../../axiosConfig';
 import { ToolTipVisitor } from '../ToolTip/ToolTipVisitor';
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { useState, useEffect } from 'react';
 
 export const DocsVisitor = () => {
-    const [, setLocation] = useLocation()
-    const infoVisit = () => {
-        setLocation('/infoVisit')
-    }
+    const idCard = localStorage.getItem("idCard")
+    const [dataNotifications, setDataNotifications] = useState([])
+    useEffect(() => {
+        const getNotifications = async () => {
+            try {
+                const response = await axiosInstance.get(`/notifications/notifications/${idCard}`)
+                setDataNotifications(response.data);
+            } catch (error) {
+                toast.error(error.response.data.error, {
+                    progressStyle: {
+                        backgroundColor: '#A91010',
+                    },
+                });
+            }
+        }
+        getNotifications()
+    }, [setDataNotifications])
+    
     return (
         <>
             <ToolTipVisitor />
-            <Docs redirectPathBack="/notificationsVisitor" tittle="Faltan un día para que se cumpla el plazo de la visita a la solicitud N°1864 y no se ha dado respuesta" text="Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025" Icon={FaBell} />
-            <div className='flex justify-center items-center sticky bottom-10 mt-[22rem]'>
-                <Buttons label={"Visitar"} btnStyle={"bg-[#D9D9D9] w-[150px] mb-[30px]"} buttonEvent={infoVisit} />
+            <Docs redirectPathBack="/notificationsVisitor" tittle={dataNotifications.tittle} text={dataNotifications.text} Icon={FaBell} />
+            <div className="bg-[#efefef] w-[90%] h-[90%] flex justify-center items-center mx-14 mt-10 border rounded-xl flex-col mb-10 p-6">
+                <img src={dataNotifications.img} alt="DriveCapReceptionist" />
             </div>
-        </>
-    )
-};
-
-
-export const DocsHistorialVisitor = () => {
-    return (
-        <>
-            <ToolTipVisitor />
-            <Docs redirectPathBack="/historialVisitor" tittle="Faltan un día para que se cumpla el plazo de la visita a la solicitud N°1864 y no se ha dado respuesta" text="Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025" Icon={FaMapMarkerAlt} />
         </>
     )
 };

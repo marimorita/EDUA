@@ -1,18 +1,26 @@
 import { Inputs } from '../../Components/Inputs/Inputs';
 import { Buttons } from '../../Components/Buttons/Buttons';
+import { useLocation } from 'wouter';
+import { StateContext } from '../../Context/Context';
 import { axiosInstance } from '../../../axiosConfig';
 import { toast, ToastContainer } from 'react-toastify';
-import React, { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 
 export const FormLogin = () => {
-  const [errorMessage, setErrorMessage] = useState({ name: "", value: "" })
-  const [savePassword, setSavePassword] = useState('')
-  const inputPasswordRef = useRef();
-  const inputEmailRef = useRef();
   const inputRoleRef = useRef();
+  const inputEmailRef = useRef();
+  const inputPasswordRef = useRef();
+  const [, setLocation] = useLocation()
+  const [savePassword, setSavePassword] = useState('')
+  const { valueRol, setValueRol } = useContext(StateContext)
+  const [errorMessage, setErrorMessage] = useState({ name: "", value: "" })
 
   const handleButtonClickPassword = () => {
     setLocation(`/forgotPassword`);
+  };
+
+  const handleChangeUi = (event) => {
+    setValueRol(event.target.value)
   };
 
   const validator = (name, value) => {
@@ -49,34 +57,56 @@ export const FormLogin = () => {
       password: inputPasswordRef.current.value,
     }
 
-    try {
-      const response = await axiosInstance.post(`${inputRoleRef.current.value}/login`,userData
-      );
+    if (inputRoleRef.current.value !== "role") {
+      try {
+        const response = await axiosInstance.post(`${inputRoleRef.current.value}/login`, userData
+        );
 
-      if (response.status === 200 || response.status === 201) {
-        const token = response.data.token;
-        const role = response.data.role;
-        const route = response.data.routeCode;
+        if (response.status === 200 || response.status === 201) {
+          const token = response.data.token;
+          const role = response.data.role;
+          const route = response.data.routeCode;
+          const name = response.data.name;
 
-        localStorage.setItem('token', token);
-        localStorage.setItem('role', role);
-        localStorage.setItem('route', route);
+          localStorage.setItem('token', token);
+          localStorage.setItem('role', role);
 
-        await sendVerificationCode(token);
+          localStorage.setItem('nameUser', name)
 
-      } else {
+          console.log(role);
+          
+
+          await sendVerificationCode(token);
+          if (inputRoleRef.current.value === 'director') {
+            setLocation('/director')
+            localStorage.setItem('RouteD', route);
+          } else if (inputRoleRef.current.value === 'memberTeam') {
+            setLocation('team')
+            localStorage.setItem('RouteT', route);
+          } else if (inputRoleRef.current.value === 'visitor') {
+            setLocation('visitor')
+            localStorage.setItem('RouteV', route);
+          } else if (inputRoleRef.current.value === 'receptionist') {
+            localStorage.setItem('RouteR', route);
+            setTimeout(() => {
+              setLocation(`/SAMM2724/${localStorage.getItem('RouteR')}/receptionist`)
+            }, 2000)
+          }
+
+        } else {
+          toast.error(error.response.data.error, {
+            progressStyle: {
+              backgroundColor: '#A91010',
+            }
+          })
+        }
+      } catch (error) {
         toast.error(error.response.data.error, {
           progressStyle: {
             backgroundColor: '#A91010',
-          }
-        })
+          },
+        });
       }
-    } catch (error) {
-      toast.error(error.response.data.error, {
-        progressStyle: {
-          backgroundColor: '#A91010',
-        },
-      });
     }
   }
 
@@ -115,15 +145,17 @@ export const FormLogin = () => {
           nameInputs={"password"}
           placeholder={"Contraseña"}
           inputRef={inputPasswordRef} />
-
-        <select ref={inputRoleRef}
-          className="focus:text-black bg-white p-2 rounded w-[66%] border border-gray-300 h-18 font-semibold text-[#9ca3af] mt-[20px] ml-[6.5rem]">
-          <option value="" disabled selected>Rol</option>
-          <option value="receptionist" className="text-black">Recepcionista</option>
-          <option value="visitor" className="text-black">Área de visita</option>
-          <option value="director" className="text-black">Director del área técnica</option>
-          <option value="memberTeam" className="text-black">Miembro del equipo del area técnica</option>
-        </select>
+        <div className='flex justify-center mt-6'>
+          <select ref={inputRoleRef}
+            onChange={handleChangeUi}
+            className="focus:text-black bg-white p-2 rounded w-[66%] border border-gray-300 h-18 font-semibold text-[#9ca3af] mt-[20px] ml-[6.5rem] flex justify-center ">
+            <option value="role" disabled selected>Rol</option>
+            <option value="receptionist" className="text-black">Recepcionista</option>
+            <option value="visitor" className="text-black">Área de visita</option>
+            <option value="director" className="text-black">Director del área técnica</option>
+            <option value="memberTeam" className="text-black">Miembro del equipo del area técnica</option>
+          </select>
+        </div>
 
         <div className='flex flex-col items-center justify-center'>
           {errorMessage.password && (<label className='w-[65%] h-18 mt-[2px] text-[#A91010] ' htmlFor="">{errorMessage.password}</label>)

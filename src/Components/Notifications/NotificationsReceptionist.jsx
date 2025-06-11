@@ -1,22 +1,42 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaHistory } from 'react-icons/fa';
 import { Notifications } from './Notifications.jsx';
+import { axiosInstance } from '../../../axiosConfig.js';
 import { ToolTipReceptionist } from '../ToolTip/ToolTipReceptionist.jsx';
+import { toast, ToastContainer } from 'react-toastify';
 
 export const NotificationsReceptionist = () => {
-  const notificationsData = [
-    { message: 'Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025', tittle:'Faltan un día para que se cumpla el plazo de la visita a la solicitud N°1864 y no se ha dado respuesta',  textColor: '#202020', borderColor: '#202020' },
-    { message: 'El director del área técnica ha cargado una visita de la solicitud el día 22/05/2025', tittle: 'Te han enviado una nueva visita a la solicitud N°099', textColor: '#202020', borderColor: '#202020' },
-    { message: 'Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025', tittle: 'Faltan un día para que se cumpla el plazo de la visita a la solicitud N°1864 y no se ha dado respuesta', textColor: '#202020', borderColor: '#202020' },
-    { message: 'El director del área técnica ha cargado una visita de la solicitud el día 22/05/2025', tittle: 'Te han enviado una nueva visita a la solicitud N°099', textColor: '#202020', borderColor: '#202020' },  
-    { message: 'El director del área técnica ha cargado una solicitud el día 12/02/2025', tittle: 'Faltan cinco días para que se cumpla el plazo de la visita a laa solicitud N°1256 y no se ha dado respuesta', textColor: '#202020', borderColor: '#202020' },
-    { message: 'El director te ha cargado una visita de la solicitud el día 12/02/2025', tittle: 'Faltan tres días para que se cumpla el plazo de la visita a la solicitud N°1468 y no se ha dado respuesta', textColor: '#202020', borderColor: '#202020' },
-  ];
 
+  const [dataNotifications, setDataNotifications] = useState([])
+
+  useEffect(() => {
+    const getNotifications = async () => {
+      try {
+        const response = await axiosInstance.get('/historial/historial')
+        setDataNotifications(response.data);
+      } catch (error) {
+        toast.error(error.response.data.error, {
+          progressStyle: {
+            backgroundColor: '#A91010',
+          },
+        });
+      }
+    }
+    getNotifications()
+    
+  },[setDataNotifications])
+  
   return (
-    <div>   
-      <ToolTipReceptionist/>
-      <Notifications obj={notificationsData} redirectPath="/docsReceptionist" Icon={FaHistory} redirectPathArrow={"/receptionist"}/>
-    </div>
+    <>
+      <div className='mb-10'>
+        <ToolTipReceptionist />
+        <Notifications obj={dataNotifications} redirectPath="/docsReceptionist" Icon={FaHistory} redirectPathArrow={"/receptionist"} />
+      </div>
+      <ToastContainer
+        position='top-center'
+        autoClose={2000}
+        pauseOnHover={false}
+      />
+    </>
   );
 };

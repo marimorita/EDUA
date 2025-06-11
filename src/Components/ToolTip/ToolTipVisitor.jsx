@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
 import { useLocation } from 'wouter';
 import { StateContext } from '../../Context/Context';
 import { ModalSuccess } from '../Modals/ModalSuccess';
-import { FaUser, FaBell, FaMapMarkedAlt } from 'react-icons/fa';
+import { IoSearchSharp } from 'react-icons/io5';
+import { FaUser, FaBell } from 'react-icons/fa';
+import React, { useContext } from 'react';
 import { ToolTip, ToolTipDropdown, ToolTipButton } from './ToolTip';
 
 export const ToolTipVisitor = () => {
@@ -16,7 +17,7 @@ export const ToolTipVisitor = () => {
           { label: 'Cerrar sesión', action: () => setViewSuccessModal(true) },
         ]} />
         <ToolTipButton Icon={FaBell} clickButton={() => setLocation('/notificationsVisitor')} />
-        <ToolTipButton Icon={FaMapMarkedAlt} clickButton={() => setLocation('/historialVisitor')} />
+        <ToolTipButton Icon={IoSearchSharp} clickButton={() => setLocation('/searchVisitor')} />
       </ToolTip>
 
       {viewSuccessModal && (

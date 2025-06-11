@@ -12,6 +12,7 @@ export const Form = () => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState({ name: "", value: "" })
   const { setViewConfirmModal, valueRol, setValueRol, registerUser, setRegisterUser } = useContext(StateContext)
+  
   const handleChangeUi = (event) => {
     setValueRol(event.target.value)
   };

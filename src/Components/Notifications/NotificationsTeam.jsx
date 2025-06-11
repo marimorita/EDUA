@@ -1,23 +1,74 @@
-import React from 'react';
 import { FaBell } from 'react-icons/fa';
 import { ToolTipTeam } from '../ToolTip/ToolTipTeam';
+import { axiosInstance } from '../../../axiosConfig.js';
 import { Notifications } from './Notifications';
+import { toast, ToastContainer } from 'react-toastify';
+import React, { useEffect, useState } from 'react'
 
 export const NotificationsTeam = () => {
-    const notificationsData = [
-        { message: 'Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025', tittle:'Faltan un día para que se cumpla el plazo de la visita a la solicitud N°1864 y no se ha dado respuesta',  textColor: '#e2000f', borderColor: '#e2000f' },
-        { message: 'El director del área técnica ha cargado una visita de la solicitud el día 22/05/2025', tittle: 'Te han enviado una nueva visita a la solicitud N°099', textColor: '#434343', borderColor: '#434343' },
-        { message: 'Jose guto te ha cargado una visita a la una solicitud N°84321 el día 12/02/2025', tittle: 'Faltan un día para que se cumpla el plazo de la visita a la solicitud N°1864 y no se ha dado respuesta', textColor: '#e2000f', borderColor: '#e2000f' },
-        { message: 'El director del área técnica ha cargado una visita de la solicitud el día 22/05/2025', tittle: 'Te han enviado una nueva visita a la solicitud N°099', textColor: '#434343', borderColor: '#434343' },  
-        { message: 'El director del área técnica ha cargado una solicitud el día 12/02/2025', tittle: 'Faltan cinco días para que se cumpla el plazo de la visita a laa solicitud N°1256 y no se ha dado respuesta', textColor: '#fffd54', borderColor: '#fffd54' },
-        { message: 'El director te ha cargado una visita de la solicitud el día 12/02/2025', tittle: 'Faltan tres días para que se cumpla el plazo de la visita a la solicitud N°1468 y no se ha dado respuesta', textColor: '#f29d38', borderColor: '#f29d38' },
-      ];
+    const token = localStorage.getItem("token")
+    const [dataConvert, setDataConvert] = useState([])
+    const [dataNotifications, setDataNotifications] = useState([])
+    const [dataNotificationsMemberTeam, setDataNotificationsMemberTeam] = useState(0)
+    useEffect(() => {
+        const getNotifications = async () => {
+            try {
+                const response = await axiosInstance.get('/notifications/notifications')
+                setDataNotifications(response.data);
+            } catch (error) {
+                console.log(error)
+                toast.error(error.response.data.error, {
+                    progressStyle: {
+                        backgroundColor: '#A91010',
+                    },
+                });
+            }
+        }
+        getNotifications()
+    }, [])
+
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                const response = await axiosInstance.get(`/memberTeam/memberTeam/${token}`)
+                setDataNotificationsMemberTeam(response.data.id);
+
+            }
+            catch (error) {
+                console.log(error)
+                toast.error(error.response.data.error, {
+                    progressStyle: {
+                        backgroundColor: '#A91010',
+                    },
+                });
+            }
+        }
+        getUser()
+    }, [])
+
+    useEffect(() => {
+        if (dataNotifications.length > 0 && dataNotificationsMemberTeam !== 0) {
+            const infoCards = dataNotifications.filter(informationCards => informationCards.roleCC === dataNotificationsMemberTeam)
+            setDataConvert(infoCards)
+        }
+    }, [dataNotifications, dataNotificationsMemberTeam])
+
+    useEffect(() => {
+        console.log(dataConvert)
+        console.log(dataNotificationsMemberTeam);
+    })
 
     return (
-        <div>
-            <ToolTipTeam />
-            <Notifications obj={notificationsData} redirectPath="/docsTeam" Icon={FaBell} redirectPathArrow={"/team"} />
-        </div>
+        <>
+            <div className="mb-10">
+                <ToolTipTeam />
+                <Notifications obj={dataConvert} redirectPath="/docsTeam" Icon={FaBell} redirectPathArrow={"/Team"} />
+            </div>
+            <ToastContainer
+                position='top-center'
+                autoClose={2000}
+                pauseOnHover={false}
+            />
+        </>
     );
 };
-
